@@ -43,3 +43,8 @@ Finally, run python `data_scrap.py` and wait for it to finish. Move all the down
 ---
 ## Generating files
 Run `python gen_cancer_seq.py DIR`, then `python gen_normal_seq.py DIR`, where DIR is the name of the directory with all of the downloaded files for a given region.
+`cd ../ml` to move to the `ml` directory, and run `python data_prep.py` to generate tensors for training.
+
+---
+## Training
+Running `python model.py` within `ml` will train a different model for each directory created.
