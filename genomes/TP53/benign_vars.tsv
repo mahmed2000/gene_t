@@ -1,0 +1,26 @@
+Variant name	Variant source	Chromosome/scaffold name	Chromosome/scaffold position start (bp)	Chromosome/scaffold position end (bp)	Variant alleles	Variant supporting evidence	Clinical significance
+rs183153328	dbSNP	17	7571226	7571226	C/A	1000Genomes,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs114831472	dbSNP	17	7571857	7571857	G/A/C	1000Genomes,Cited,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs17884306	dbSNP	17	7572101	7572101	C/T	1000Genomes,Cited,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs200378797	dbSNP	17	7572154	7572154	G/A	1000Genomes,Frequency,Phenotype_or_Disease,TOPMed	benign
+rs17879353	dbSNP	17	7572314	7572314	G/C/T	1000Genomes,Cited,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs4968187	dbSNP	17	7572442	7572442	C/T	1000Genomes,Cited,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs17881366	dbSNP	17	7572599	7572599	C/T	1000Genomes,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs16956880	dbSNP	17	7572722	7572722	C/T	1000Genomes,Cited,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs17880847	dbSNP	17	7573897	7573897	T/A/C/G	1000Genomes,Cited,ESP,ExAC,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs17880604	dbSNP	17	7577644	7577644	C/G/T	1000Genomes,Cited,ESP,ExAC,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs8069054	dbSNP	17	7577957	7577957	C/A	1000Genomes,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs1625895	dbSNP	17	7578115	7578115	T/A/C/G	1000Genomes,Cited,ExAC,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs34949160	dbSNP	17	7578146	7578146	T/C	1000Genomes,Cited,ESP,ExAC,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs1800372	dbSNP	17	7578210	7578210	T/A/C	1000Genomes,Cited,ESP,ExAC,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs56181208	dbSNP	17	7578347	7578347	G/A/C	ESP,ExAC,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs2909430	dbSNP	17	7578645	7578645	C/G/T	1000Genomes,Cited,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs1794287	dbSNP	17	7578837	7578837	A/C/G/T	1000Genomes,Cited,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs1800370	dbSNP	17	7579579	7579579	C/T	1000Genomes,Cited,ESP,ExAC,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs35117667	dbSNP	17	7579596	7579596	G/A	1000Genomes,Cited,ESP,ExAC,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs17883323	dbSNP	17	7579619	7579619	G/T	1000Genomes,Cited,ESP,ExAC,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign
+rs730882011	dbSNP	17	7579669	7579685	TCCAGGTCCCCAGCCCA/-	Phenotype_or_Disease	benign
+rs730882010	dbSNP	17	7579670	7579685	CCAGGTCCCCAGCCCA/-	Phenotype_or_Disease	benign
+rs765932887	dbSNP	17	7579674	7579685	GTCCCCAGCCCA/-	ExAC,Frequency,gnomAD,Phenotype_or_Disease	benign
+rs730882012	dbSNP	17	7579682	7579684	CCC/CC/CCCTCCAGGTCCCCAGCCCTCCAGGTCCCC	Frequency,gnomAD,Phenotype_or_Disease	benign
+rs1642785	dbSNP	17	7579801	7579801	G/A/C/T	1000Genomes,Cited,ESP,ExAC,Frequency,gnomAD,Phenotype_or_Disease,TOPMed	benign

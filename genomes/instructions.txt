@@ -1,0 +1,53 @@
+###################### Preliminary ################################
+
+Make a folder for the given gene, make 2 subfolders, 'normal' and 'cancer'
+
+###################### data_scrap.py ##############################
+
+data_scrap.py pulls mutation data from ICGC. 
+Navigate to dcc.icgc.org/search/m/o . Note tab 'mutation occurences'. 
+Apply filters as needed.
+Return to mutation occurences tab (or edit url as ../search/m/o?filte...).
+Scroll down and select show 50 rows.
+Copy url and paste into the global URL variable in the file. Edit the end of the url to replace:
+..."size":50,"from":1... --> ..."size":100,"from":{}...
+Edit TOTAL with total number of mutation occurences listed.
+
+Run and move all downloaded jsons to folder {gene}
+
+If using a machine with i3:
+	Move a browser like opera or chromium to workspace 3 (must be able to hit Ctrl+e to jump to address bar with entire url selected)
+
+If not using i3:
+	Replace all i3 stuff with a way to focus browser window.
+
+Modify key presses and delay as appropriate (replace numbers with d.keysym_to_keycode(Xlib.XK.XK_e), etc
+
+Requires xclip, or replace xclip with clipboard program
+
+May need to adjust DL_POS values with your own if not using a 1080p monitor or not using i3. If so, do the following:
+
+Create this python script:
+
+import Xlib.display
+print(Xlib.display.Display().root.query_pointer)
+
+Replace DL_POS with (root_x, root_y)
+
+####################### gen_cancer_seq.py ########################
+
+Must be run before gen_normal_seq.py
+
+To set up, search the given gene on grch37.ensembl.org, Note start and end bp of gene as chromosome:A-B
+Add n to B such that [(B + n) - A] is divisible by 8
+Search for human chromosome:A-[B+n]
+Export data as compressed text.
+Extract and move txt to folder {gene}, rename to 'base_gene.txt'
+
+Run, cancer genomes for all donors will be generated in {gene}/cancer
+
+###################### gen_normal_seq.py #########################
+
+Filter benign mutations in range A-[B+n] on grch37.ensembl.org/biomart
+Remove all attributes under the gene section, other attributes optional (need start scaffold, variant alleles). Check 'only uniques' select TSV, and download as compressed text
+Extract and move to {gene} folder. Rename to benign_vars.tsv.
