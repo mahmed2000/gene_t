@@ -10,8 +10,6 @@
 ####################################################################################
 
 import torch, glob, re, os
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import Normalizer
 
 # Maps nucleotides to values 00 - 11 for encoding (arbitrary order)
 BP_MAP = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
@@ -75,11 +73,9 @@ if __name__ == '__main__':
         labels[len(cancer_files):] = 1
 
         for i, file in enumerate(cancer_files + normal_files):
-            print(' '*80, end='\r')
+            print(''*80, end='\r')
             print(f"Loading file \t{i} of \t{n_samples}", end='\r')
             process_genome(i, file)
-
-        data = torch.tensor(PCA(n_components = 50).fit_transform(Normalizer().fit_transform(data)))
 
         # saves data and labels in same pt file, by gene
         torch.save({'data': data, 'labels': labels}, f"data/{gene}.pt")

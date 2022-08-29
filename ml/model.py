@@ -10,6 +10,8 @@
 import glob, sys
 import torch, torch.nn, torch.utils.data, torch.optim
 import sklearn.metrics
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import QuantileTransformer
 
 TRAIN_PROP = 0.8    # Proportion of datasets to use for training
 BATCH_SIZE = 64
@@ -40,7 +42,7 @@ class cust_model(torch.nn.Module):
 
     def forward(self, x):
         # need some transform, raw values as they are lead loss to nan immediately
-        output = self.model(torch.nn.functional.normalize(x))
+        output = self.model(x)
         return output
 
 def train_model(m):
@@ -97,6 +99,7 @@ if __name__ == '__main__':
         # load file for given gene, calc and get split datasets
         tmp = torch.load(file)
         train_size = int(TRAIN_PROP * len(tmp['labels']))
+        tmp['data'] = torch.tensor(PCA(n_components = 50).fit_transform(QuantileTransformer().fit_transform(tmp['data'])))
         train_set, test_set = torch.utils.data.random_split(cust_dataset(tmp['data'], tmp['labels']), [train_size, len(tmp['labels']) - train_size])
         n_features = tmp['data'].size(1)
         
