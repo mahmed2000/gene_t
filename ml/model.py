@@ -10,11 +10,14 @@
 import glob, sys
 import torch, torch.nn, torch.utils.data, torch.optim
 import sklearn.metrics
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import MinMaxScaler
 
 TRAIN_PROP = 0.8    # Proportion of datasets to use for training
 BATCH_SIZE = 64
 LR = 0.01   # Learning rate
 EPOCHS = 100
+POOLED_FEAT = 10
 LOSS_FUNCT = torch.nn.CrossEntropyLoss()
 
 # for data loading
@@ -34,13 +37,20 @@ class cust_dataset(torch.utils.data.Dataset):
 class cust_model(torch.nn.Module):
     def __init__(self, layer_nodes):
         super().__init__()
+        self.conv1 = torch.nn.Conv2d(1, POOLED_FEAT // 2, (805,4))
+        self.maxpool1 = torch.nn.MaxPool2d((806,5), stride=1)
+        self.conv2 = torch.nn.Conv2d(POOLED_FEAT // 2, POOLED_FEAT, (806, 5))
+        self.maxpool2 = torch.nn.MaxPool2d((806,5), stride=1)
         # creates a net of linear layers using a given list of number of nodes per layer
         layers = [torch.nn.Linear(layer_nodes[i], layer_nodes[i+1]) for i in range(len(layer_nodes) - 1)]
-        self.model = torch.nn.Sequential(*layers)
+        self.lins = torch.nn.Sequential(*layers)
 
     def forward(self, x):
-        # need some transform, raw values as they are lead loss to nan immediately
-        output = self.model(torch.nn.functional.normalize(x))
+        x = self.conv1(x)
+        x = self.maxpool1(x)
+        x = self.conv2(x)
+        x = self.maxpool2(x)
+        output = self.lins(x.squeeze())
         return output
 
 def train_model(m):
@@ -96,11 +106,10 @@ if __name__ == '__main__':
         
         # load file for given gene, calc and get split datasets
         tmp = torch.load(file)
+        tmp['data'] = tmp['data'].unsqueeze(1)
         train_size = int(TRAIN_PROP * len(tmp['labels']))
         train_set, test_set = torch.utils.data.random_split(cust_dataset(tmp['data'], tmp['labels']), [train_size, len(tmp['labels']) - train_size])
-        n_features = tmp['data'].size(1)
-        
-        models.append(cust_model([n_features, 256, 64, 2]))
+        models.append(cust_model([POOLED_FEAT, 256, 64, 2]))
         train_model(models[i])
         
         # seperator for training and metrics
