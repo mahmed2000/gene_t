@@ -49,7 +49,7 @@ def process_genome(index, file):
         features_changed_index = range(max(0, i//SLIDER - 8//SLIDER + 1), min(i//SLIDER + 1, n_features))
         for feat in features_changed_index:
             feat_i = ((i - SLIDER * (feat % (8//SLIDER))) % 8) * 2
-            data[index][feat][feat_i:feat_i + 2] = torch.tensor(list(map(int, '{:02b}'.format(BP_MAP.get(bp)))), dtype=torch.int32)
+            data[index][feat][feat_i:feat_i + 2] = torch.tensor(list(map(int, '{:02b}'.format(BP_MAP.get(bp)))), dtype=torch.int8)
 
 if __name__ == '__main__':
     # gets all genes from genomes folders
@@ -75,7 +75,7 @@ if __name__ == '__main__':
         n_samples = len(cancer_files) + len(normal_files)
         
         # int32 because uint16 not supported, int64 needed for labels
-        data = torch.zeros((n_samples, n_features, 16), dtype=torch.int32)
+        data = torch.zeros((n_samples, n_features, 16), dtype=torch.int8)
         labels = torch.zeros((n_samples), dtype=torch.int64)
 
         # sets last j labels to 1, (last j entries will be benign files)
