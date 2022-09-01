@@ -63,6 +63,7 @@ def train_model(m):
         correct = 0
 
         for _, (data, labels) in enumerate(train_loader):
+            data, labels = data.to('cuda'), labels.to('cuda')
             optim.zero_grad()
 
             outputs = m(data.type(torch.float))
@@ -85,6 +86,7 @@ def test_model(m):
     test_labels = torch.tensor([], dtype=torch.long)
     test_preds = torch.tensor([], dtype=torch.long)
     for _, (data, labels) in enumerate(test_loader):
+        data, labels = data.to('cuda'), labels.to('cuda')
         outputs = m(data.type(torch.float))
         predicted = torch.topk(outputs, 1).indices
 
@@ -110,11 +112,13 @@ if __name__ == '__main__':
         train_size = int(TRAIN_PROP * len(tmp['labels']))
         train_set, test_set = torch.utils.data.random_split(cust_dataset(tmp['data'], tmp['labels']), [train_size, len(tmp['labels']) - train_size])
         models.append(cust_model([POOLED_FEAT, 256, 64, 2]))
+        models[i].to('cuda')
         train_model(models[i])
         
         # seperator for training and metrics
         print('\n')
 
         test_model(models[i])
+        models[i].to('cpu')
 
 
