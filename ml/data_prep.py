@@ -15,7 +15,7 @@ import torch, glob, re, os, time
 BP_MAP = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
 
 # Only set to 1, 2, 4 or 8
-SLIDER = 4
+SLIDER = 8
 
 def process_genome(index, file):
     with open(file, 'r') as f:
@@ -84,12 +84,12 @@ if __name__ == '__main__':
 
         for i, file in enumerate(cancer_files + normal_files):
             try:
-                eta = ((n_samples - i) / (i / (time.time() - st))) // 60
+                eta = int(((n_samples - i) / (i / (time.time() - st))) // 60)
             except:
                 eta = 'N/A'
 
             print(' '*80, end='\r')
-            print(f"Loading file \t{i} of \t{n_samples}\t| ETA\t{int(eta)} min", end='\r')
+            print(f"Loading file \t{i} of \t{n_samples}\t| ETA\t{eta} min", end='\r')
             process_genome(i, file)
 
         # saves data and labels in same pt file, by gene
