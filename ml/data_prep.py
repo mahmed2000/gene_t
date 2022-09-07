@@ -10,12 +10,13 @@
 ####################################################################################
 
 import torch, glob, re, os, time
+from sklearn.model_selection import train_test_split
 
 # Maps nucleotides to values 00 - 11 for encoding (arbitrary order)
 BP_MAP = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
 
-# Only set to 1, 2, 4 or 8
-SLIDER = 8
+SLIDER = 8      # Dist between features in bp, FEAT_SIZE must be divisible by this
+FEAT_SIZE = 8   # Length of each feature in bp, Genome size must be divisible by this
 
 def process_genome(index, file):
     with open(file, 'r') as f:
@@ -46,7 +47,7 @@ def process_genome(index, file):
     # Same for sliding window, too much work to draw
     for i, bp in enumerate(genome):
         # computes which feature (indexes) a bp is part of
-        features_changed_index = range(max(0, i//SLIDER - 8//SLIDER + 1), min(i//SLIDER + 1, n_features))
+        features_changed_index = range(max(0, i//SLIDER - FEAT_SIZE//SLIDER + 1), min(i//SLIDER + 1, n_features))
         for feat in features_changed_index:
             data[index][feat] = (data[index][feat] << 2) + BP_MAP.get(bp)
 
@@ -65,7 +66,7 @@ if __name__ == '__main__':
         
         # compute number of features needed to encode (8 bp per feature, sliding window)
         n_bp = int(end) - int(start) + 1
-        n_features = (n_bp // 8) + (n_bp // 8 - 1) * (8 // SLIDER - 1)
+        n_features = (n_bp // FEAT_SIZE) + (n_bp // FEAT_SIZE - 1) * (FEAT_SIZE // SLIDER - 1)
 
         # fetch genome files
         cancer_files = glob.glob(f"../genomes/{gene}/cancer/*.txt")
@@ -91,6 +92,9 @@ if __name__ == '__main__':
             print(' '*80, end='\r')
             print(f"Loading file \t{i} of \t{n_samples}\t| ETA\t{eta} min", end='\r')
             process_genome(i, file)
+        
+        data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size = 0.1, shuffle = True)
 
         # saves data and labels in same pt file, by gene
-        torch.save({'data': data, 'labels': labels}, f"data/{gene}.pt")
+        torch.save({'data': data_train, 'labels': labels_train}, f"data/{gene}_{FEAT_SIZE}_{SLIDER}_train.pt")
+        torch.save({'data': data_test, 'labels': labels_test}, f"data/{gene}_{FEAT_SIZE}_{SLIDER}_test.pt")
