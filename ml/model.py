@@ -130,7 +130,6 @@ if __name__ == '__main__':
         # load file for given gene, calc and get split datasets
         tmp = torch.load(file)
         train_size = int(TRAIN_PROP * len(tmp['labels']))
-        tmp['data'] = torch.tensor(MinMaxScaler().fit_transform(tmp['data']))
         n_features = tmp['data'].size(1)
         
         models.append([])

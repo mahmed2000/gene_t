@@ -9,14 +9,12 @@
 #
 ####################################################################################
 
-import torch, glob, re, os, time
+import torch, glob, re, os, time, json
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
 
 # Maps nucleotides to values 00 - 11 for encoding (arbitrary order)
 BP_MAP = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
-
-SLIDER = 8      # Dist between features in bp, FEAT_SIZE must be divisible by this
-FEAT_SIZE = 8   # Length of each feature in bp, Genome size must be divisible by this
 
 def process_genome(index, file):
     with open(file, 'r') as f:
@@ -55,6 +53,9 @@ if __name__ == '__main__':
     # gets all genes from genomes folders
     gene_list = [i.split('/')[-2] for i in  glob.glob('../genomes/*/')]
     
+    with open('./gen_conf.json', 'r') as f:
+        gen_confs = json.loads(f.read())
+
     os.makedirs('./data/', exist_ok = True)
     for gene in gene_list:
         print(f"\nLoading gene: {gene}")
@@ -66,7 +67,6 @@ if __name__ == '__main__':
         
         # compute number of features needed to encode (8 bp per feature, sliding window)
         n_bp = int(end) - int(start) + 1
-        n_features = (n_bp // FEAT_SIZE) + (n_bp // FEAT_SIZE - 1) * (FEAT_SIZE // SLIDER - 1)
 
         # fetch genome files
         cancer_files = glob.glob(f"../genomes/{gene}/cancer/*.txt")
@@ -74,27 +74,32 @@ if __name__ == '__main__':
 
         n_samples = len(cancer_files) + len(normal_files)
         
-        # int32 because uint16 not supported, int64 needed for labels
-        data = torch.zeros((n_samples, n_features), dtype=torch.int32)
-        labels = torch.zeros((n_samples), dtype=torch.int64)
+        for gen_conf in gen_confs:
+            FEAT_SIZE = gen_conf.get('FEAT_SIZE', 8)
+            SLIDER = gen_conf.get('SLIDER', 8)
 
-        # sets last j labels to 1, (last j entries will be benign files)
-        labels[len(cancer_files):] = 1
+            n_features = (n_bp // FEAT_SIZE) + (n_bp // FEAT_SIZE - 1) * (FEAT_SIZE // SLIDER - 1)
+            # int32 because uint16 not supported, int64 needed for labels
+            data = torch.zeros((n_samples, n_features), dtype=torch.int32)
+            labels = torch.zeros((n_samples), dtype=torch.int64)
 
-        st = time.time()
+            # sets last j labels to 1, (last j entries will be cancer files)
+            labels[len(normal_files):] = 1
 
-        for i, file in enumerate(cancer_files + normal_files):
-            try:
-                eta = int(((n_samples - i) / (i / (time.time() - st))) // 60)
-            except:
-                eta = 'N/A'
+            st = time.time()
 
-            print(' '*80, end='\r')
-            print(f"Loading file \t{i} of \t{n_samples}\t| ETA\t{eta} min", end='\r')
-            process_genome(i, file)
-        
-        data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size = 0.1, shuffle = True)
+            for i, file in enumerate(normal_files + cancer_files):
+                try:
+                    eta = int(((n_samples - i) / (i / (time.time() - st))) // 60)
+                except:
+                    eta = 'N/A'
 
-        # saves data and labels in same pt file, by gene
-        torch.save({'data': data_train, 'labels': labels_train}, f"data/{gene}_{FEAT_SIZE}_{SLIDER}_train.pt")
-        torch.save({'data': data_test, 'labels': labels_test}, f"data/{gene}_{FEAT_SIZE}_{SLIDER}_test.pt")
+                print(' '*80, end='\r')
+                print(f"Loading file \t{i} of \t{n_samples}\t| ETA\t{eta} min", end='\r')
+                process_genome(i, file)
+            data = torch.tensor(MinMaxScaler().fit_transform(data))
+            data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size = 0.1, shuffle = True)
+
+            # saves data and labels in same pt file, by gene
+            torch.save({'data': data_train, 'labels': labels_train}, f"data/{gene}_{FEAT_SIZE}_{SLIDER}_train.pt")
+            torch.save({'data': data_test, 'labels': labels_test}, f"data/{gene}_{FEAT_SIZE}_{SLIDER}_test.pt")
