@@ -19,6 +19,8 @@ LR = 0.01   # Learning rate
 EPOCHS = 100
 LOSS_FUNCT = torch.nn.BCELoss()
 
+DEV = 'cuda' if torch.cuda.is_available() else 'cpu'
+
 # for data loading
 class cust_dataset(torch.utils.data.Dataset):
     def __init__(self, data, labels):
@@ -84,6 +86,7 @@ def train_model(m):
         correct = 0
 
         for _, (data, labels) in enumerate(train_loader):
+            data, labels = data.to(DEV), labels.to(DEV)
             optim.zero_grad()
 
             outputs = m(data.type(torch.float))
@@ -122,9 +125,9 @@ if __name__ == '__main__':
         model_archs = json.loads(f.read())
     models = []
     # get all gene files
-    data_files = glob.glob('./data/*train.pt')
+    data_files = glob.glob(f".{os.sep}data{os.sep}*train.pt")
     for i, file in enumerate(data_files):
-        gene = file.split('/')[-1].split('.')[0]
+        gene = file.split(os.sep)[-1].split('.')[0]
         print(f"Training for {gene}")
         
         # load file for given gene, calc and get split datasets
@@ -139,11 +142,14 @@ if __name__ == '__main__':
             train_set, test_set = torch.utils.data.random_split(cust_dataset(tmp['data'], tmp['labels']), [train_size, len(tmp['labels']) - train_size])
             
             models[i].append(cust_model(n_features, arch))
+
+            models[i][j].to(DEV)
             train_model(models[i][j])
         
             # seperator for training and metrics
             print('\n')
 
+            models[i][j].to('cpu')
             test_model(models[i][j])
 
 

@@ -51,17 +51,17 @@ def process_genome(index, file):
 
 if __name__ == '__main__':
     # gets all genes from genomes folders
-    gene_list = [i.split('/')[-2] for i in  glob.glob('../genomes/*/')]
+    gene_list = [i.split(os.sep)[-2] for i in glob.glob('..{os.sep}genomes{os.sep}*{os.sep}')]
     
-    with open('./gen_conf.json', 'r') as f:
+    with open('.{os.sep}gen_conf.json', 'r') as f:
         gen_confs = json.loads(f.read())
 
-    os.makedirs('./data/', exist_ok = True)
+    os.makedirs('.{os.sep}data{os.sep}', exist_ok = True)
     for gene in gene_list:
         print(f"\nLoading gene: {gene}")
 
         # fetch base genome, and find start and end bp location
-        with open(f"../genomes/{gene}/base_gene.txt", 'r') as f:
+        with open(f"..{os.sep}genomes{os.sep}{gene}{os.sep}base_gene.txt", 'r') as f:
             tmp = f.read().strip().split('\n')[0]
         start, end = re.search(r'GRCh37:\S+?:(\S+?):(\S+?):', tmp).groups()
         
@@ -69,8 +69,8 @@ if __name__ == '__main__':
         n_bp = int(end) - int(start) + 1
 
         # fetch genome files
-        cancer_files = glob.glob(f"../genomes/{gene}/cancer/*.txt")
-        normal_files = glob.glob(f"../genomes/{gene}/normal/*.txt")
+        cancer_files = glob.glob(f"..{os.sep}genomes{os.sep}{gene}{os.sep}cancer{os.sep}*.txt")
+        normal_files = glob.glob(f"..{os.sep}genomes{os.sep}{gene}{os.sep}normal{os.sep}*.txt")
 
         n_samples = len(cancer_files) + len(normal_files)
         
@@ -101,5 +101,5 @@ if __name__ == '__main__':
             data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size = 0.1, shuffle = True)
 
             # saves data and labels in same pt file, by gene
-            torch.save({'data': data_train, 'labels': labels_train}, f"data/{gene}_{FEAT_SIZE}_{SLIDER}_train.pt")
-            torch.save({'data': data_test, 'labels': labels_test}, f"data/{gene}_{FEAT_SIZE}_{SLIDER}_test.pt")
+            torch.save({'data': data_train, 'labels': labels_train}, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_train.pt")
+            torch.save({'data': data_test, 'labels': labels_test}, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_test.pt")
