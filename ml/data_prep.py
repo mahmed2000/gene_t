@@ -51,12 +51,12 @@ def process_genome(index, file):
 
 if __name__ == '__main__':
     # gets all genes from genomes folders
-    gene_list = [i.split(os.sep)[-2] for i in glob.glob('..{os.sep}genomes{os.sep}*{os.sep}')]
+    gene_list = [i.split(os.sep)[-2] for i in glob.glob(f"..{os.sep}genomes{os.sep}*{os.sep}")]
     
-    with open('.{os.sep}gen_conf.json', 'r') as f:
+    with open(f".{os.sep}gen_conf.json", 'r') as f:
         gen_confs = json.loads(f.read())
 
-    os.makedirs('.{os.sep}data{os.sep}', exist_ok = True)
+    os.makedirs(f".{os.sep}data{os.sep}", exist_ok = True)
     for gene in gene_list:
         print(f"\nLoading gene: {gene}")
 

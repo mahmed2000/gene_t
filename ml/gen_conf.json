@@ -8,7 +8,19 @@
 		"SLIDER": 4
 	},
 	{
+		"FEAT_SIZE": 8,
+		"SLIDER": 2
+	},
+	{
 		"FEAT_SIZE": 4,
 		"SLIDER": 4
+	},
+	{
+		"FEAT_SIZE": 4,
+		"SLIDER": 2
+	},
+	{
+		"FEAT_SIZE": 2,
+		"SLIDER": 2
 	}
 ]

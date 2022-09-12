@@ -18,8 +18,21 @@ BATCH_SIZE = 64
 LR = 0.01   # Learning rate
 EPOCHS = 100
 LOSS_FUNCT = torch.nn.BCELoss()
-
+LOG_FILE = 'model_out.txt'
 DEV = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+class Logger(object):
+    def __init__(self):
+        self.terminal = sys.stdout
+        self.log = open(LOG_FILE, 'a')
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def flush(self):
+        pass
+
 
 # for data loading
 class cust_dataset(torch.utils.data.Dataset):
@@ -120,6 +133,8 @@ def test_model(m):
 
 
 if __name__ == '__main__':
+    sys.stdout = Logger()
+
     # To train multiple genes
     with open('model_arch.json', 'r') as f:
         model_archs = json.loads(f.read())
