@@ -17,7 +17,7 @@ def gen_genomes():
     # get variants, and mutation locations, sorted by locations
     alleles = list(VARS.sort_values(by='Chromosome/scaffold position start (bp)')['Variant alleles'].str.split('/'))
     allele_index = list(VARS.sort_values(by='Chromosome/scaffold position start (bp)')['Chromosome/scaffold position start (bp)'])
-    os.mkdir(f"./{GENE}/normal/")
+    os.mkdir(f".{os.sep}{GENE}{os.sep}normal{os.sep}")
     for i in range(1, num_samples):
         full_seq = BASE_GENOME
         # for n random mutations for any given sample
@@ -31,10 +31,10 @@ def gen_genomes():
             # splice in a random allele
             full_seq = full_seq[:mut_loc] + random.choice(alleles_i) + full_seq[mut_loc + 1:]
 
-        with open(f"./{GENE}/normal/{i}.txt", 'w') as f:
+        with open(f".{os.sep}{GENE}{os.sep}normal{os.sep}{i}.txt", 'w') as f:
             f.write(full_seq)
     # Forces one sample to be the base genome
-    with open(f"./{GENE}/normal/0.txt", 'w') as f:
+    with open(f".{os.sep}{GENE}{os.sep}normal{os.sep}0.txt", 'w') as f:
         f.write(BASE_GENOME)
 
 
@@ -42,14 +42,14 @@ if __name__ == '__main__':
     GENE = sys.argv[1]
 
     # fetch base genome
-    with open(f"./{GENE}/base_gene.txt", 'r') as f:
+    with open(f".{os.sep}{GENE}{os.sep}base_gene.txt", 'r') as f:
         text = f.read().strip().split('\n')
     # uses regex to search for gene start
     GEN_START = int(re.search('chromosome:\S+?:\S+?:(\S+?):', text[0]).groups()[0])
     BASE_GENOME = ''.join(text[1:])
 
     # reads ensembl variants from tsv file
-    data = pandas.read_csv(f"./{GENE}/benign_vars.tsv", sep='\t')
+    data = pandas.read_csv(f".{os.sep}{GENE}{os.sep}benign_vars.tsv", sep='\t')
     # ignores pandas complaining about not using regex matched groups
     warnings.filterwarnings('ignore', 'This pattern is interpreted as')
     # drops any rows where any variant has more than 2 bp (multi base variant), or 
@@ -57,6 +57,6 @@ if __name__ == '__main__':
     VARS = data.drop(data[data['Variant alleles'].str.contains('([ACGT]{2,}|-)')].index)
 
     # get number of donor sequences (will generate an equal number of benign)
-    num_samples = len(glob.glob(f"./{GENE}/cancer/*.txt"))
+    num_samples = len(glob.glob(f".{os.sep}{GENE}{os.sep}cancer{os.sep}*.txt"))
 
     gen_genomes()

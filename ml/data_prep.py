@@ -9,13 +9,12 @@
 #
 ####################################################################################
 
-import torch, glob, re, os, time
+import torch, glob, re, os, time, json
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
 
 # Maps nucleotides to values 00 - 11 for encoding (arbitrary order)
 BP_MAP = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
-
-# Only set to 1, 2, 4 or 8
-SLIDER = 4
 
 def process_genome(index, file):
     with open(file, 'r') as f:
@@ -46,51 +45,61 @@ def process_genome(index, file):
     # Same for sliding window, too much work to draw
     for i, bp in enumerate(genome):
         # computes which feature (indexes) a bp is part of
-        features_changed_index = range(max(0, i//SLIDER - 8//SLIDER + 1), min(i//SLIDER + 1, n_features))
+        features_changed_index = range(max(0, i//SLIDER - FEAT_SIZE//SLIDER + 1), min(i//SLIDER + 1, n_features))
         for feat in features_changed_index:
             data[index][feat] = (data[index][feat] << 2) + BP_MAP.get(bp)
 
 if __name__ == '__main__':
     # gets all genes from genomes folders
-    gene_list = [i.split('/')[-2] for i in  glob.glob('../genomes/*/')]
+    gene_list = [i.split(os.sep)[-2] for i in glob.glob(f"..{os.sep}genomes{os.sep}*{os.sep}")]
     
-    os.makedirs('./data/', exist_ok = True)
+    with open(f".{os.sep}gen_conf.json", 'r') as f:
+        gen_confs = json.loads(f.read())
+
+    os.makedirs(f".{os.sep}data{os.sep}", exist_ok = True)
     for gene in gene_list:
         print(f"\nLoading gene: {gene}")
 
         # fetch base genome, and find start and end bp location
-        with open(f"../genomes/{gene}/base_gene.txt", 'r') as f:
+        with open(f"..{os.sep}genomes{os.sep}{gene}{os.sep}base_gene.txt", 'r') as f:
             tmp = f.read().strip().split('\n')[0]
         start, end = re.search(r'GRCh37:\S+?:(\S+?):(\S+?):', tmp).groups()
         
         # compute number of features needed to encode (8 bp per feature, sliding window)
         n_bp = int(end) - int(start) + 1
-        n_features = (n_bp // 8) + (n_bp // 8 - 1) * (8 // SLIDER - 1)
 
         # fetch genome files
-        cancer_files = glob.glob(f"../genomes/{gene}/cancer/*.txt")
-        normal_files = glob.glob(f"../genomes/{gene}/normal/*.txt")
+        cancer_files = glob.glob(f"..{os.sep}genomes{os.sep}{gene}{os.sep}cancer{os.sep}*.txt")
+        normal_files = glob.glob(f"..{os.sep}genomes{os.sep}{gene}{os.sep}normal{os.sep}*.txt")
 
         n_samples = len(cancer_files) + len(normal_files)
         
-        # int32 because uint16 not supported, int64 needed for labels
-        data = torch.zeros((n_samples, n_features), dtype=torch.int32)
-        labels = torch.zeros((n_samples), dtype=torch.int64)
+        for gen_conf in gen_confs:
+            FEAT_SIZE = gen_conf.get('FEAT_SIZE', 8)
+            SLIDER = gen_conf.get('SLIDER', 8)
 
-        # sets last j labels to 1, (last j entries will be benign files)
-        labels[len(cancer_files):] = 1
+            n_features = (n_bp // FEAT_SIZE) + (n_bp // FEAT_SIZE - 1) * (FEAT_SIZE // SLIDER - 1)
+            # int32 because uint16 not supported, int64 needed for labels
+            data = torch.zeros((n_samples, n_features), dtype=torch.int32)
+            labels = torch.zeros((n_samples), dtype=torch.int64)
 
-        st = time.time()
+            # sets last j labels to 1, (last j entries will be cancer files)
+            labels[len(normal_files):] = 1
 
-        for i, file in enumerate(cancer_files + normal_files):
-            try:
-                eta = ((n_samples - i) / (i / (time.time() - st))) // 60
-            except:
-                eta = 'N/A'
+            st = time.time()
 
-            print(' '*80, end='\r')
-            print(f"Loading file \t{i} of \t{n_samples}\t| ETA\t{int(eta)} min", end='\r')
-            process_genome(i, file)
+            for i, file in enumerate(normal_files + cancer_files):
+                try:
+                    eta = int(((n_samples - i) / (i / (time.time() - st))) // 60)
+                except:
+                    eta = 'N/A'
 
-        # saves data and labels in same pt file, by gene
-        torch.save({'data': data, 'labels': labels}, f"data/{gene}.pt")
+                print(' '*80, end='\r')
+                print(f"Loading file \t{i} of \t{n_samples}\t| ETA\t{eta} min", end='\r')
+                process_genome(i, file)
+            data = torch.tensor(MinMaxScaler().fit_transform(data))
+            data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size = 0.1, shuffle = True)
+
+            # saves data and labels in same pt file, by gene
+            torch.save({'data': data_train, 'labels': labels_train}, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_train.pt")
+            torch.save({'data': data_test, 'labels': labels_test}, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_test.pt")

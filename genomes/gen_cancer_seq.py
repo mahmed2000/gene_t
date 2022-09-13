@@ -40,24 +40,24 @@ def gen_donor_genome(mut_data):
     return tmp
 
 def gen_genomes():
-    os.mkdir(f"./{gene}/cancer/")
+    os.mkdir(f".{os.sep}{gene}{os.sep}cancer{os.sep}")
     for donor in parsed_data.keys():
         donor_genome = gen_donor_genome(parsed_data[donor])
-        with open(f"./{gene}/cancer/{donor}.txt", 'w') as f:
+        with open(f".{os.sep}{gene}{os.sep}cancer{os.sep}{donor}.txt", 'w') as f:
             f.write(donor_genome)
 
 if __name__ == '__main__':
     gene = sys.argv[1]
 
     # fetch all jsons downloaded from ICGC
-    file_list = glob.glob(f"./{gene}/occur*.json")
+    file_list = glob.glob(f".{os.sep}{gene}{os.sep}occur*.json")
     raw_data = []
     for file in file_list:
         with open(file, 'r') as f:
             raw_data += json.load(f)
 
     # read base genome from ensembl
-    with open(f"./{gene}/base_gene.txt", 'r') as f:
+    with open(f".{os.sep}{gene}{os.sep}base_gene.txt", 'r') as f:
         text = f.read().strip().split('\n')
     base_genome = ''.join(text[1:])
     # get start and end for gene using regex
