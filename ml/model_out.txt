@@ -1,0 +1,216 @@
+Training for TP53_8_8
+Model 1
+[Linear(in_features=3220, out_features=256, bias=True), Linear(in_features=256, out_features=64, bias=True), Linear(in_features=64, out_features=1, bias=True)]
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=3220, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9424	Loss: 8.7744
+Epoch: 20	Acc: 0.9174	Loss: 8.4087
+Epoch: 30	Acc: 0.9036	Loss: 7.6966
+Epoch: 40	Acc: 0.9049	Loss: 6.344
+Epoch: 50	Acc: 0.9099	Loss: 4.7081
+Epoch: 60	Acc: 0.9174	Loss: 3.5918
+Epoch: 70	Acc: 0.9374	Loss: 2.988
+Epoch: 80	Acc: 0.9412	Loss: 2.6893
+Epoch: 90	Acc: 0.9487	Loss: 2.4029
+Epoch: 100	Acc: 0.9537	Loss: 2.1445
+Epoch: 110	Acc: 0.9587	Loss: 2.0141
+Epoch: 120	Acc: 0.9587	Loss: 1.9597
+Epoch: 130	Acc: 0.9587	Loss: 1.99
+Epoch: 140	Acc: 0.9587	Loss: 1.7386
+Epoch: 150	Acc: 0.9599	Loss: 1.7061
+Epoch: 160	Acc: 0.9587	Loss: 1.7402
+Epoch: 170	Acc: 0.965	Loss: 1.6669
+Epoch: 180	Acc: 0.9637	Loss: 1.6192
+Epoch: 190	Acc: 0.9662	Loss: 1.5617
+Epoch: 200	Acc: 0.965	Loss: 1.6025
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.93      0.97        89
+           1       0.95      1.00      0.97       111
+
+    accuracy                           0.97       200
+   macro avg       0.97      0.97      0.97       200
+weighted avg       0.97      0.97      0.97       200
+
+Model 2
+[Linear(in_features=3220, out_features=256, bias=True), Dropout(p=0.25, inplace=False), Linear(in_features=256, out_features=64, bias=True), Dropout(p=0.25, inplace=False), Linear(in_features=64, out_features=1, bias=True)]
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=3220, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.6446	Loss: 8.6495
+Epoch: 20	Acc: 0.8198	Loss: 8.0784
+Epoch: 30	Acc: 0.8648	Loss: 6.9567
+Epoch: 40	Acc: 0.9024	Loss: 5.3618
+Epoch: 50	Acc: 0.9136	Loss: 3.9623
+Epoch: 60	Acc: 0.9287	Loss: 3.1754
+Epoch: 70	Acc: 0.9412	Loss: 2.7225
+Epoch: 80	Acc: 0.9449	Loss: 2.4128
+Epoch: 90	Acc: 0.9512	Loss: 2.2598
+Epoch: 100	Acc: 0.9549	Loss: 2.0426
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.91      0.95       112
+           1       0.90      1.00      0.95        88
+
+    accuracy                           0.95       200
+   macro avg       0.95      0.96      0.95       200
+weighted avg       0.96      0.95      0.95       200
+
+Model 3
+[Linear(in_features=32, out_features=256, bias=True), Linear(in_features=256, out_features=64, bias=True), Linear(in_features=64, out_features=1, bias=True)]
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=3213, stride=3213, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.5707	Loss: 8.9742
+Epoch: 20	Acc: 0.6596	Loss: 8.9358
+Epoch: 30	Acc: 0.7835	Loss: 8.8998
+Epoch: 40	Acc: 0.836	Loss: 8.8408
+Epoch: 50	Acc: 0.8273	Loss: 8.7671
+Epoch: 60	Acc: 0.7046	Loss: 8.6723
+Epoch: 70	Acc: 0.831	Loss: 8.5372
+Epoch: 80	Acc: 0.7897	Loss: 8.343
+Epoch: 90	Acc: 0.816	Loss: 8.0594
+Epoch: 100	Acc: 0.8373	Loss: 7.6644
+
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.76      0.85       102
+           1       0.80      0.97      0.88        98
+
+    accuracy                           0.86       200
+   macro avg       0.88      0.87      0.86       200
+weighted avg       0.88      0.86      0.86       200
+
+Training for TP53_8_4
+Model 1
+[Linear(in_features=6439, out_features=256, bias=True), Linear(in_features=256, out_features=64, bias=True), Linear(in_features=64, out_features=1, bias=True)]
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=6439, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8198	Loss: 8.5685
+Epoch: 20	Acc: 0.8598	Loss: 7.6338
+Epoch: 30	Acc: 0.9024	Loss: 5.6828
+Epoch: 40	Acc: 0.9136	Loss: 3.9438
+Epoch: 50	Acc: 0.9324	Loss: 3.0528
+Epoch: 60	Acc: 0.9462	Loss: 2.5742
+Epoch: 70	Acc: 0.9462	Loss: 2.3806
+Epoch: 80	Acc: 0.9499	Loss: 2.1361
+Epoch: 90	Acc: 0.9487	Loss: 2.0894
+Epoch: 100	Acc: 0.9537	Loss: 1.8627
+Epoch: 110	Acc: 0.9549	Loss: 1.8471
+Epoch: 120	Acc: 0.9612	Loss: 1.7416
+Epoch: 130	Acc: 0.9612	Loss: 1.6741
+Epoch: 140	Acc: 0.9587	Loss: 1.6447
+Epoch: 150	Acc: 0.9562	Loss: 1.816
+Epoch: 160	Acc: 0.9599	Loss: 1.6155
+Epoch: 170	Acc: 0.9612	Loss: 1.6878
+Epoch: 180	Acc: 0.965	Loss: 1.5866
+Epoch: 190	Acc: 0.965	Loss: 1.5734
+Epoch: 200	Acc: 0.9612	Loss: 1.6196
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.94      0.97       108
+           1       0.94      1.00      0.97        92
+
+    accuracy                           0.97       200
+   macro avg       0.97      0.97      0.97       200
+weighted avg       0.97      0.97      0.97       200
+
+Model 2
+[Linear(in_features=6439, out_features=256, bias=True), Dropout(p=0.25, inplace=False), Linear(in_features=256, out_features=64, bias=True), Dropout(p=0.25, inplace=False), Linear(in_features=64, out_features=1, bias=True)]
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=6439, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.7422	Loss: 8.5714
+Epoch: 20	Acc: 0.9036	Loss: 7.6572
+Epoch: 30	Acc: 0.9136	Loss: 5.7878
+Epoch: 40	Acc: 0.9199	Loss: 4.0336
+Epoch: 50	Acc: 0.9362	Loss: 3.1455
+Epoch: 60	Acc: 0.9399	Loss: 2.7217
+Epoch: 70	Acc: 0.9462	Loss: 2.3926
+Epoch: 80	Acc: 0.9487	Loss: 2.1845
+Epoch: 90	Acc: 0.9524	Loss: 1.9959
+Epoch: 100	Acc: 0.9524	Loss: 1.9205
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.88      0.94        86
+           1       0.92      1.00      0.96       114
+
+    accuracy                           0.95       200
+   macro avg       0.96      0.94      0.95       200
+weighted avg       0.95      0.95      0.95       200
+
+Model 3
+[Linear(in_features=32, out_features=256, bias=True), Linear(in_features=256, out_features=64, bias=True), Linear(in_features=64, out_features=1, bias=True)]
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=6432, stride=6432, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.5194	Loss: 9.0033
+Epoch: 20	Acc: 0.5194	Loss: 9.0061
+Epoch: 30	Acc: 0.5194	Loss: 9.0102
+Epoch: 40	Acc: 0.5194	Loss: 8.9991
+Epoch: 50	Acc: 0.5194	Loss: 9.0023
+Epoch: 60	Acc: 0.5194	Loss: 8.9999
+Epoch: 70	Acc: 0.5194	Loss: 9.0004
+Epoch: 80	Acc: 0.5194	Loss: 9.0002
+Epoch: 90	Acc: 0.5194	Loss: 8.9933
+Epoch: 100	Acc: 0.5194	Loss: 8.9915
+
+
+              precision    recall  f1-score   support
+
+           0       0.42      1.00      0.60        85
+           1       0.00      0.00      0.00       115
+
+    accuracy                           0.42       200
+   macro avg       0.21      0.50      0.30       200
+weighted avg       0.18      0.42      0.25       200
+

@@ -7,7 +7,7 @@
 #
 ####################################################################################
 
-import glob, sys, os, time, json
+import glob, sys, os, time, json, copy
 import torch, torch.nn, torch.utils.data, torch.optim
 import sklearn.metrics
 from sklearn.decomposition import PCA
@@ -63,7 +63,6 @@ class cust_model(torch.nn.Module):
                 self.config['linear'] = [self.config['conv']['n_channels'] * conv_out] + self.config['linear']
         else:
             self.config['linear'] = [in_feat] + self.config['linear']
-
         # creates a net of linear layers using a given list of number of nodes per layer
         layers = [torch.nn.Linear(self.config['linear'][i], self.config['linear'][i+1]) for i in range(len(self.config['linear']) - 1)]
         
@@ -75,6 +74,7 @@ class cust_model(torch.nn.Module):
         else:
             fc_layers = layers
 
+        print(fc_layers)
         self.model = torch.nn.Sequential(*fc_layers)
         self.activation = torch.nn.Sigmoid()
 
@@ -133,8 +133,10 @@ def test_model(m):
 
 
 if __name__ == '__main__':
+    if os.path.exists(LOG_FILE):
+        os.remove(LOG_FILE)
     sys.stdout = Logger()
-
+    os.makedirs('models', exist_ok = True)
     # To train multiple genes
     with open('model_arch.json', 'r') as f:
         model_archs = json.loads(f.read())
@@ -143,6 +145,7 @@ if __name__ == '__main__':
     data_files = glob.glob(f".{os.sep}data{os.sep}*train.pt")
     for i, file in enumerate(data_files):
         gene = file.split(os.sep)[-1].split('.')[0]
+        gene = '_'.join(gene.split('_')[:-1])
         print(f"Training for {gene}")
         
         # load file for given gene, calc and get split datasets
@@ -156,7 +159,8 @@ if __name__ == '__main__':
             print(f"Model {j + 1}")
             train_set, test_set = torch.utils.data.random_split(cust_dataset(tmp['data'], tmp['labels']), [train_size, len(tmp['labels']) - train_size])
             
-            models[i].append(cust_model(n_features, arch))
+            models[i].append(cust_model(n_features, copy.deepcopy(arch)))
+            print(models[i][j])
 
             models[i][j].to(DEV)
             train_model(models[i][j])
@@ -166,5 +170,8 @@ if __name__ == '__main__':
 
             models[i][j].to('cpu')
             test_model(models[i][j])
+            
+            torch.save(models[i][j].state_dict(), f"models/{gene} Model_{j + 1}.pt")
+            models[i][j] = None
 
 
