@@ -1,1 +1,3 @@
 ml/data/
+ml/models/
+__pycache__
