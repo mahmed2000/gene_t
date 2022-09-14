@@ -7,13 +7,13 @@
 	{
 		"linear": [256, 64, 1],
 		"drop_prob": 0.25,
-		"epochs": 100,
+		"epochs": 200,
 		"lr": 0.01
 
 	},
 	{
 		"conv": {
-			"n_channels": 32,
+			"n_channels": 64,
 			"kernel": 8,
 			"lin_conn": "max"
 		},

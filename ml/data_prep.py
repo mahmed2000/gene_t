@@ -74,7 +74,8 @@ if __name__ == '__main__':
 
         n_samples = len(cancer_files) + len(normal_files)
         
-        for gen_conf in gen_confs:
+        for gen_i, gen_conf in enumerate(gen_confs):
+            print(f"\nConfig {gen_i + 1} of {len(gen_confs)}")
             FEAT_SIZE = gen_conf.get('FEAT_SIZE', 8)
             SLIDER = gen_conf.get('SLIDER', 8)
 
