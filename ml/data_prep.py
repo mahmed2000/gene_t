@@ -98,9 +98,13 @@ if __name__ == '__main__':
                 print(' '*80, end='\r')
                 print(f"Loading file \t{i} of \t{n_samples}\t| ETA\t{eta} min", end='\r')
                 process_genome(i, file)
-            data = torch.tensor(MinMaxScaler().fit_transform(data))
+            scaler = MinMaxScaler()
             data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size = 0.1, shuffle = True)
+            scaler.fit(data_train)
+            data_train = torch.tensor(scaler.transform(data_train))
+            data_test = torch.tensor(scaler.transform(data_test))
 
             # saves data and labels in same pt file, by gene
             torch.save({'data': data_train, 'labels': labels_train}, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_train.pt")
             torch.save({'data': data_test, 'labels': labels_test}, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_test.pt")
+            torch.save(scaler, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_scaler.pt")

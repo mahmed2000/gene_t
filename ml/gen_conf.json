@@ -1,46 +1,6 @@
 [
 	{
-		"FEAT_SIZE": 16,
-		"SLIDER": 16
-	},
-	{
-		"FEAT_SIZE": 16,
-		"SLIDER": 8
-	},
-	{
-		"FEAT_SIZE": 14,
-		"SLIDER": 14
-	},
-	{
-		"FEAT_SIZE": 14,
-		"SLIDER": 7
-	},
-	{
-		"FEAT_SIZE": 10,
-		"SLIDER": 10
-	},
-	{
-		"FEAT_SIZE": 10,
-		"SLIDER": 5
-	},
-	{
 		"FEAT_SIZE": 8,
 		"SLIDER": 8
-	},
-	{
-		"FEAT_SIZE": 8,
-		"SLIDER": 4
-	},
-	{
-		"FEAT_SIZE": 4,
-		"SLIDER": 4
-	},
-	{
-		"FEAT_SIZE": 4,
-		"SLIDER": 2
-	},
-	{
-		"FEAT_SIZE": 2,
-		"SLIDER": 2
 	}
 ]
