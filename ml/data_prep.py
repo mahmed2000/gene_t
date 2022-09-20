@@ -9,7 +9,7 @@
 #
 ####################################################################################
 
-import torch, glob, re, os, time, json
+import torch, glob, re, os, time, json, numpy
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 
@@ -47,7 +47,7 @@ def process_genome(index, file):
         # computes which feature (indexes) a bp is part of
         features_changed_index = range(max(0, i//SLIDER - FEAT_SIZE//SLIDER + 1), min(i//SLIDER + 1, n_features))
         for feat in features_changed_index:
-            data[index][feat] = (data[index][feat] << 2) + BP_MAP.get(bp)
+            data[index, feat] = (data[index, feat] << 2) + BP_MAP.get(bp)
 
 if __name__ == '__main__':
     # gets all genes from genomes folders
@@ -81,7 +81,7 @@ if __name__ == '__main__':
 
             n_features = (n_bp // FEAT_SIZE) + (n_bp // FEAT_SIZE - 1) * (FEAT_SIZE // SLIDER - 1)
             # int32 because uint16 not supported, int64 needed for labels
-            data = torch.zeros((n_samples, n_features), dtype=torch.int32)
+            data = numpy.zeros((n_samples, n_features), dtype=numpy.int32)
             labels = torch.zeros((n_samples), dtype=torch.int64)
 
             # sets last j labels to 1, (last j entries will be cancer files)
@@ -98,13 +98,8 @@ if __name__ == '__main__':
                 print(' '*80, end='\r')
                 print(f"Loading file \t{i} of \t{n_samples}\t| ETA\t{eta} min", end='\r')
                 process_genome(i, file)
-            scaler = MinMaxScaler()
+            data = torch.tensor(data)
             data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size = 0.1, shuffle = True)
-            scaler.fit(data_train)
-            data_train = torch.tensor(scaler.transform(data_train))
-            data_test = torch.tensor(scaler.transform(data_test))
-
             # saves data and labels in same pt file, by gene
             torch.save({'data': data_train, 'labels': labels_train}, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_train.pt")
             torch.save({'data': data_test, 'labels': labels_test}, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_test.pt")
-            torch.save(scaler, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_scaler.pt")

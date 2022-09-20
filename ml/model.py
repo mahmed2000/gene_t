@@ -12,6 +12,8 @@ import torch, torch.nn, torch.utils.data, torch.optim
 import sklearn.metrics
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
 
 TRAIN_PROP = 0.8    # Proportion of datasets to use for training
 BATCH_SIZE = 64
@@ -90,14 +92,22 @@ class cust_model(torch.nn.Module):
         return torch.squeeze(output)
 
 def train_model(m):
-    m.train()
     train_loader = torch.utils.data.DataLoader(train_set, batch_size = BATCH_SIZE, shuffle = True)
+    val_loader = torch.utils.data.DataLoader(test_set, batch_size = BATCH_SIZE, shuffle = False)
     optim = torch.optim.SGD(m.parameters(), lr = m.config.get('lr', LR))
+
+    acc_log = []
+    loss_log = []
+
+    acc_log_val = []
+    loss_log_val = []
+
     for epoch in range(m.config.get('epochs', EPOCHS)):
         running_loss = 0.0
         total = 0
         correct = 0
-
+        
+        m.train()
         for _, (data, labels) in enumerate(train_loader):
             data, labels = data.to(DEV), labels.to(DEV)
             optim.zero_grad()
@@ -107,29 +117,58 @@ def train_model(m):
             loss.backward()
             optim.step()
 
-            running_loss += loss.item()
+            running_loss += loss.item() * data.size(0)
             total += labels.size(0)
             predicted = torch.round(outputs).type(torch.int)
             correct += (predicted == labels.view(*predicted.size())).sum().item()
+        epoch_loss = running_loss / total
+        acc_log.append(correct / total)
+        loss_log.append(epoch_loss)
 
         if epoch % 10 == 9: # every ten epochs
-            print(f"Epoch: {epoch + 1}\tAcc: {round(correct / total, 4)}\tLoss: {round(running_loss,4)}")
+            print(f"Epoch: {epoch + 1}\tAcc: {round(correct / total, 4)}\tLoss: {round(epoch_loss,4)}")
 
+        m.eval()
+        running_loss = 0.0
+        total = 0
+        correct = 0
+        for _, (data, labels) in enumerate(val_loader):
+            data, labels = data.to(DEV), labels.to(DEV)
+            outputs = m(data.type(torch.float))
+            loss = LOSS_FUNCT(outputs, labels.type(torch.float))
+
+            running_loss += loss.item() * data.size(0)
+            total += labels.size(0)
+            predicted = torch.round(outputs).type(torch.int)
+            correct += (predicted == labels.view(*predicted.size())).sum().item()
+        epoch_loss = running_loss / total
+        acc_log_val.append(correct / total)
+        loss_log_val.append(epoch_loss)
+        
+        if epoch % 10 == 9:
+            print(f"\t\tVal Acc: {round(correct / total, 4)}\tVal Loss: {round(epoch_loss,4)}")
+
+    return acc_log, loss_log, acc_log_val, loss_log_val
 
 def test_model(m):
     m.eval()
     test_loader = torch.utils.data.DataLoader(test_set, batch_size = BATCH_SIZE, shuffle = False)
     test_labels = torch.tensor([], dtype=torch.long)
     test_preds = torch.tensor([], dtype=torch.long)
+    raw_out = torch.tensor([], dtype=torch.float)
     for _, (data, labels) in enumerate(test_loader):
         outputs = m(data.type(torch.float))
         predicted = torch.round(outputs).type(torch.int)
 
         test_labels = torch.cat((test_labels, labels))
         test_preds = torch.cat((test_preds, predicted))
-
+        raw_out = torch.cat((raw_out, outputs))
+    raw_out = raw_out.detach()
     # prints confusion matrix stats.
     print(sklearn.metrics.classification_report(test_labels, test_preds, zero_division=0))
+    print(f"AUC-ROC: {sklearn.metrics.roc_auc_score(test_labels, raw_out)}")
+    fpr, tpr, _ = sklearn.metrics.roc_curve(test_labels, raw_out)
+    return fpr, tpr
 
 
 if __name__ == '__main__':
@@ -150,28 +189,42 @@ if __name__ == '__main__':
         
         # load file for given gene, calc and get split datasets
         tmp = torch.load(file)
-        train_size = int(TRAIN_PROP * len(tmp['labels']))
         n_features = tmp['data'].size(1)
         
         models.append([])
 
         for j, arch in enumerate(model_archs):
             print(f"Model {j + 1}")
-            train_set, test_set = torch.utils.data.random_split(cust_dataset(tmp['data'], tmp['labels']), [train_size, len(tmp['labels']) - train_size])
+            data_train, data_val, labels_train, labels_val = train_test_split(tmp['data'], tmp['labels'], test_size = 0.1, shuffle = True)
+            scaler = MinMaxScaler()
+            scaler.fit(data_train)
+            data_train, data_val = torch.tensor(scaler.transform(data_train)), torch.tensor(scaler.transform(data_val))
+            train_set, test_set = cust_dataset(data_train, labels_train), cust_dataset(data_val, labels_val)
             
             models[i].append(cust_model(n_features, copy.deepcopy(arch)))
             print(models[i][j])
 
             models[i][j].to(DEV)
-            train_model(models[i][j])
+            acc_log, loss_log, acc_log_val, loss_log_val = train_model(models[i][j])
+            fig, ax = plt.subplots(2)
+            ax[0].plot(range(len(acc_log)), acc_log)
+            ax[0].plot(range(len(acc_log_val)), acc_log_val)
+            ax[1].plot(range(len(loss_log)), loss_log)
+            ax[1].plot(range(len(loss_log_val)), loss_log_val)
+            plt.savefig(f"models/{gene} Model_{j + 1} Train.png")
+            plt.close(fig)
         
             # seperator for training and metrics
             print('\n')
 
             models[i][j].to('cpu')
-            test_model(models[i][j])
+            fpr, tpr = test_model(models[i][j])
+            fig, ax = plt.subplots(1)
+            ax.plot(fpr, tpr)
+            plt.savefig(f"models/{gene} Model_{j + 1} ROC.png")
+            plt.close(fig)
             
-            torch.save(models[i][j].state_dict(), f"models/{gene} Model_{j + 1}.pt")
+            torch.save({'model': models[i][j].state_dict(), 'scaler': scaler}, f"models/{gene} Model_{j + 1}.pt")
             models[i][j] = None
 
 
