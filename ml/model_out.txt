@@ -1,71 +1,405 @@
+Training for TP53_16_16
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=22, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9169	Loss: 0.3108
+		Val Acc: 0.882	Val Loss: 0.3295
+Epoch: 20	Acc: 0.9282	Loss: 0.2335
+		Val Acc: 0.9045	Val Loss: 0.264
+Epoch: 30	Acc: 0.9451	Loss: 0.1985
+		Val Acc: 0.9157	Val Loss: 0.2338
+Epoch: 40	Acc: 0.9465	Loss: 0.1778
+		Val Acc: 0.9382	Val Loss: 0.2149
+Epoch: 50	Acc: 0.9493	Loss: 0.1644
+		Val Acc: 0.9438	Val Loss: 0.2032
+Epoch: 60	Acc: 0.9535	Loss: 0.1541
+		Val Acc: 0.9438	Val Loss: 0.1927
+Epoch: 70	Acc: 0.9577	Loss: 0.1467
+		Val Acc: 0.9438	Val Loss: 0.1845
+Epoch: 80	Acc: 0.9577	Loss: 0.1406
+		Val Acc: 0.9438	Val Loss: 0.1793
+Epoch: 90	Acc: 0.962	Loss: 0.1358
+		Val Acc: 0.9494	Val Loss: 0.1742
+Epoch: 100	Acc: 0.962	Loss: 0.1318
+		Val Acc: 0.9494	Val Loss: 0.1703
+Epoch: 110	Acc: 0.962	Loss: 0.1282
+		Val Acc: 0.9494	Val Loss: 0.1682
+Epoch: 120	Acc: 0.962	Loss: 0.1253
+		Val Acc: 0.9494	Val Loss: 0.1653
+Epoch: 130	Acc: 0.962	Loss: 0.1228
+		Val Acc: 0.9494	Val Loss: 0.1624
+Epoch: 140	Acc: 0.962	Loss: 0.1206
+		Val Acc: 0.9494	Val Loss: 0.1617
+Epoch: 150	Acc: 0.9648	Loss: 0.1185
+		Val Acc: 0.9494	Val Loss: 0.1587
+Epoch: 160	Acc: 0.9662	Loss: 0.1168
+		Val Acc: 0.9494	Val Loss: 0.1584
+Epoch: 170	Acc: 0.9648	Loss: 0.1153
+		Val Acc: 0.9494	Val Loss: 0.1574
+Epoch: 180	Acc: 0.9662	Loss: 0.1138
+		Val Acc: 0.9494	Val Loss: 0.1547
+Epoch: 190	Acc: 0.9662	Loss: 0.1124
+		Val Acc: 0.9551	Val Loss: 0.1538
+Epoch: 200	Acc: 0.9732	Loss: 0.1114
+		Val Acc: 0.9551	Val Loss: 0.1524
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.91      0.95        92
+           1       0.91      1.00      0.96        86
+
+    accuracy                           0.96       178
+   macro avg       0.96      0.96      0.96       178
+weighted avg       0.96      0.96      0.96       178
+
+AUC-ROC: 0.9666329625884732
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=21, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.907	Loss: 0.3122
+		Val Acc: 0.8989	Val Loss: 0.3057
+Epoch: 20	Acc: 0.9254	Loss: 0.2433
+		Val Acc: 0.9157	Val Loss: 0.2356
+Epoch: 30	Acc: 0.9338	Loss: 0.213
+		Val Acc: 0.9438	Val Loss: 0.202
+Epoch: 40	Acc: 0.9507	Loss: 0.19
+		Val Acc: 0.9551	Val Loss: 0.1804
+Epoch: 50	Acc: 0.9465	Loss: 0.1836
+		Val Acc: 0.9551	Val Loss: 0.1655
+Epoch: 60	Acc: 0.9493	Loss: 0.1666
+		Val Acc: 0.9607	Val Loss: 0.1545
+Epoch: 70	Acc: 0.9521	Loss: 0.1696
+		Val Acc: 0.9607	Val Loss: 0.1461
+Epoch: 80	Acc: 0.9521	Loss: 0.1566
+		Val Acc: 0.9607	Val Loss: 0.1394
+Epoch: 90	Acc: 0.9521	Loss: 0.1576
+		Val Acc: 0.9551	Val Loss: 0.1345
+Epoch: 100	Acc: 0.9592	Loss: 0.1462
+		Val Acc: 0.9551	Val Loss: 0.1298
+Epoch: 110	Acc: 0.9563	Loss: 0.1502
+		Val Acc: 0.9607	Val Loss: 0.1271
+Epoch: 120	Acc: 0.9563	Loss: 0.1476
+		Val Acc: 0.9607	Val Loss: 0.1233
+Epoch: 130	Acc: 0.9592	Loss: 0.1405
+		Val Acc: 0.9607	Val Loss: 0.1207
+Epoch: 140	Acc: 0.9606	Loss: 0.1365
+		Val Acc: 0.9607	Val Loss: 0.1188
+Epoch: 150	Acc: 0.9606	Loss: 0.1393
+		Val Acc: 0.9607	Val Loss: 0.1162
+Epoch: 160	Acc: 0.9606	Loss: 0.1296
+		Val Acc: 0.9607	Val Loss: 0.1141
+Epoch: 170	Acc: 0.962	Loss: 0.1356
+		Val Acc: 0.9663	Val Loss: 0.117
+Epoch: 180	Acc: 0.962	Loss: 0.132
+		Val Acc: 0.9607	Val Loss: 0.1118
+Epoch: 190	Acc: 0.9662	Loss: 0.1296
+		Val Acc: 0.9607	Val Loss: 0.1103
+Epoch: 200	Acc: 0.9634	Loss: 0.1328
+		Val Acc: 0.9663	Val Loss: 0.1092
+
+
+              precision    recall  f1-score   support
+
+           0       0.99      0.94      0.97        90
+           1       0.95      0.99      0.97        88
+
+    accuracy                           0.97       178
+   macro avg       0.97      0.97      0.97       178
+weighted avg       0.97      0.97      0.97       178
+
+AUC-ROC: 0.9917929292929294
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=15, stride=15, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9676	Loss: 0.4165
+		Val Acc: 0.9326	Val Loss: 1.6024
+Epoch: 20	Acc: 0.9676	Loss: 0.2246
+		Val Acc: 0.9326	Val Loss: 1.5251
+Epoch: 30	Acc: 0.969	Loss: 0.1475
+		Val Acc: 0.9382	Val Loss: 1.5391
+Epoch: 40	Acc: 0.969	Loss: 0.1206
+		Val Acc: 0.9382	Val Loss: 1.569
+Epoch: 50	Acc: 0.9761	Loss: 0.1078
+		Val Acc: 0.9382	Val Loss: 1.5939
+Epoch: 60	Acc: 0.9761	Loss: 0.1015
+		Val Acc: 0.9382	Val Loss: 1.6128
+Epoch: 70	Acc: 0.9761	Loss: 0.0971
+		Val Acc: 0.9438	Val Loss: 1.6254
+Epoch: 80	Acc: 0.9761	Loss: 0.0941
+		Val Acc: 0.9438	Val Loss: 1.6329
+Epoch: 90	Acc: 0.9761	Loss: 0.0921
+		Val Acc: 0.9438	Val Loss: 1.6401
+Epoch: 100	Acc: 0.9775	Loss: 0.0904
+		Val Acc: 0.9438	Val Loss: 1.6413
+
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.93      0.95        98
+           1       0.92      0.96      0.94        80
+
+    accuracy                           0.94       178
+   macro avg       0.94      0.95      0.94       178
+weighted avg       0.94      0.94      0.94       178
+
+AUC-ROC: 0.9209821428571429
+Training for TP53_16_8
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=25, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9099	Loss: 0.2767
+		Val Acc: 0.8933	Val Loss: 1.0218
+Epoch: 20	Acc: 0.9296	Loss: 0.2117
+		Val Acc: 0.9157	Val Loss: 0.8574
+Epoch: 30	Acc: 0.9423	Loss: 0.1811
+		Val Acc: 0.927	Val Loss: 0.9101
+Epoch: 40	Acc: 0.9507	Loss: 0.1628
+		Val Acc: 0.9382	Val Loss: 0.9655
+Epoch: 50	Acc: 0.9521	Loss: 0.15
+		Val Acc: 0.9438	Val Loss: 1.0155
+Epoch: 60	Acc: 0.9521	Loss: 0.1404
+		Val Acc: 0.9438	Val Loss: 1.0609
+Epoch: 70	Acc: 0.9577	Loss: 0.1333
+		Val Acc: 0.9438	Val Loss: 1.1018
+Epoch: 80	Acc: 0.9606	Loss: 0.1274
+		Val Acc: 0.9438	Val Loss: 1.1483
+Epoch: 90	Acc: 0.9606	Loss: 0.1227
+		Val Acc: 0.9438	Val Loss: 1.1876
+Epoch: 100	Acc: 0.9606	Loss: 0.1187
+		Val Acc: 0.9438	Val Loss: 1.2752
+Epoch: 110	Acc: 0.9662	Loss: 0.1154
+		Val Acc: 0.9438	Val Loss: 1.2723
+Epoch: 120	Acc: 0.9648	Loss: 0.1124
+		Val Acc: 0.9438	Val Loss: 1.2742
+Epoch: 130	Acc: 0.9704	Loss: 0.11
+		Val Acc: 0.9438	Val Loss: 1.2715
+Epoch: 140	Acc: 0.9704	Loss: 0.1073
+		Val Acc: 0.9438	Val Loss: 1.2718
+Epoch: 150	Acc: 0.9704	Loss: 0.1051
+		Val Acc: 0.9438	Val Loss: 1.2714
+Epoch: 160	Acc: 0.9718	Loss: 0.1031
+		Val Acc: 0.9438	Val Loss: 1.2716
+Epoch: 170	Acc: 0.9718	Loss: 0.1013
+		Val Acc: 0.9438	Val Loss: 1.2711
+Epoch: 180	Acc: 0.9718	Loss: 0.0997
+		Val Acc: 0.9438	Val Loss: 1.2721
+Epoch: 190	Acc: 0.9718	Loss: 0.0981
+		Val Acc: 0.9494	Val Loss: 1.2724
+Epoch: 200	Acc: 0.9732	Loss: 0.0967
+		Val Acc: 0.9494	Val Loss: 1.2728
+
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.92      0.95        93
+           1       0.92      0.98      0.95        85
+
+    accuracy                           0.95       178
+   macro avg       0.95      0.95      0.95       178
+weighted avg       0.95      0.95      0.95       178
+
+AUC-ROC: 0.9476280834914611
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=22, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9141	Loss: 0.255
+		Val Acc: 0.8989	Val Loss: 1.3914
+Epoch: 20	Acc: 0.931	Loss: 0.2068
+		Val Acc: 0.927	Val Loss: 1.3488
+Epoch: 30	Acc: 0.9437	Loss: 0.1771
+		Val Acc: 0.927	Val Loss: 1.3272
+Epoch: 40	Acc: 0.9507	Loss: 0.1643
+		Val Acc: 0.927	Val Loss: 1.3129
+Epoch: 50	Acc: 0.9493	Loss: 0.1518
+		Val Acc: 0.9326	Val Loss: 1.3036
+Epoch: 60	Acc: 0.9577	Loss: 0.1495
+		Val Acc: 0.9326	Val Loss: 1.2958
+Epoch: 70	Acc: 0.9577	Loss: 0.1377
+		Val Acc: 0.9382	Val Loss: 1.2893
+Epoch: 80	Acc: 0.9577	Loss: 0.1371
+		Val Acc: 0.9382	Val Loss: 1.2848
+Epoch: 90	Acc: 0.9662	Loss: 0.1315
+		Val Acc: 0.9382	Val Loss: 1.2807
+Epoch: 100	Acc: 0.962	Loss: 0.1342
+		Val Acc: 0.9382	Val Loss: 1.2779
+Epoch: 110	Acc: 0.9634	Loss: 0.1238
+		Val Acc: 0.9382	Val Loss: 1.2743
+Epoch: 120	Acc: 0.9648	Loss: 0.1233
+		Val Acc: 0.9382	Val Loss: 1.2716
+Epoch: 130	Acc: 0.9648	Loss: 0.1189
+		Val Acc: 0.9382	Val Loss: 1.2707
+Epoch: 140	Acc: 0.9662	Loss: 0.123
+		Val Acc: 0.9438	Val Loss: 1.2671
+Epoch: 150	Acc: 0.9676	Loss: 0.1139
+		Val Acc: 0.9438	Val Loss: 1.2664
+Epoch: 160	Acc: 0.9676	Loss: 0.1158
+		Val Acc: 0.9438	Val Loss: 1.2645
+Epoch: 170	Acc: 0.9676	Loss: 0.1108
+		Val Acc: 0.9438	Val Loss: 1.2621
+Epoch: 180	Acc: 0.9662	Loss: 0.109
+		Val Acc: 0.9438	Val Loss: 1.26
+Epoch: 190	Acc: 0.9676	Loss: 0.1132
+		Val Acc: 0.9438	Val Loss: 1.26
+Epoch: 200	Acc: 0.9662	Loss: 0.1077
+		Val Acc: 0.9438	Val Loss: 1.2582
+
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.90      0.93        77
+           1       0.93      0.98      0.95       101
+
+    accuracy                           0.94       178
+   macro avg       0.95      0.94      0.94       178
+weighted avg       0.95      0.94      0.94       178
+
+AUC-ROC: 0.9609103767519609
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=19, stride=19, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9592	Loss: 0.2841
+		Val Acc: 0.9438	Val Loss: 2.6739
+Epoch: 20	Acc: 0.9606	Loss: 0.167
+		Val Acc: 0.9438	Val Loss: 2.6814
+Epoch: 30	Acc: 0.9634	Loss: 0.1364
+		Val Acc: 0.9438	Val Loss: 2.7053
+Epoch: 40	Acc: 0.969	Loss: 0.1237
+		Val Acc: 0.9438	Val Loss: 2.7184
+Epoch: 50	Acc: 0.9746	Loss: 0.1163
+		Val Acc: 0.9438	Val Loss: 2.7247
+Epoch: 60	Acc: 0.9775	Loss: 0.1113
+		Val Acc: 0.9438	Val Loss: 2.7155
+Epoch: 70	Acc: 0.9775	Loss: 0.1071
+		Val Acc: 0.9438	Val Loss: 2.6943
+Epoch: 80	Acc: 0.9775	Loss: 0.1037
+		Val Acc: 0.9438	Val Loss: 2.6824
+Epoch: 90	Acc: 0.9775	Loss: 0.1009
+		Val Acc: 0.9438	Val Loss: 2.6709
+Epoch: 100	Acc: 0.9803	Loss: 0.0985
+		Val Acc: 0.9438	Val Loss: 2.6608
+
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.94      0.94        88
+           1       0.94      0.94      0.94        90
+
+    accuracy                           0.94       178
+   macro avg       0.94      0.94      0.94       178
+weighted avg       0.94      0.94      0.94       178
+
+AUC-ROC: 0.9068813131313131
 Training for TP53_8_8
 Model 1
-[Linear(in_features=3220, out_features=256, bias=True), Linear(in_features=256, out_features=64, bias=True), Linear(in_features=64, out_features=1, bias=True)]
 cust_model(
   (model): Sequential(
-    (0): Linear(in_features=3220, out_features=256, bias=True)
+    (0): Linear(in_features=30, out_features=256, bias=True)
     (1): Linear(in_features=256, out_features=64, bias=True)
     (2): Linear(in_features=64, out_features=1, bias=True)
   )
   (activation): Sigmoid()
 )
-Epoch: 10	Acc: 0.8988	Loss: 0.6684
-		Val Acc: 0.92	Val Loss: 1.8791
-Epoch: 20	Acc: 0.8587	Loss: 0.6248
-		Val Acc: 0.85	Val Loss: 1.9917
-Epoch: 30	Acc: 0.8443	Loss: 0.5295
-		Val Acc: 0.89	Val Loss: 2.3414
-Epoch: 40	Acc: 0.8877	Loss: 0.387
-		Val Acc: 0.88	Val Loss: 2.9148
-Epoch: 50	Acc: 0.9199	Loss: 0.2822
-		Val Acc: 0.89	Val Loss: 3.5813
-Epoch: 60	Acc: 0.9366	Loss: 0.2266
-		Val Acc: 0.92	Val Loss: 3.7336
-Epoch: 70	Acc: 0.9399	Loss: 0.1979
-		Val Acc: 0.91	Val Loss: 3.783
-Epoch: 80	Acc: 0.9466	Loss: 0.1768
-		Val Acc: 0.92	Val Loss: 3.9207
-Epoch: 90	Acc: 0.9522	Loss: 0.1634
-		Val Acc: 0.92	Val Loss: 4.1688
-Epoch: 100	Acc: 0.9533	Loss: 0.1554
-		Val Acc: 0.92	Val Loss: 4.0812
-Epoch: 110	Acc: 0.9544	Loss: 0.1468
-		Val Acc: 0.93	Val Loss: 4.1849
-Epoch: 120	Acc: 0.9566	Loss: 0.1413
-		Val Acc: 0.93	Val Loss: 4.2736
-Epoch: 130	Acc: 0.96	Loss: 0.1503
-		Val Acc: 0.92	Val Loss: 4.2984
-Epoch: 140	Acc: 0.9611	Loss: 0.132
-		Val Acc: 0.92	Val Loss: 4.5395
-Epoch: 150	Acc: 0.9622	Loss: 0.1288
-		Val Acc: 0.93	Val Loss: 4.4703
-Epoch: 160	Acc: 0.9622	Loss: 0.1282
-		Val Acc: 0.93	Val Loss: 4.6266
-Epoch: 170	Acc: 0.9633	Loss: 0.1262
-		Val Acc: 0.93	Val Loss: 4.6396
-Epoch: 180	Acc: 0.9622	Loss: 0.1219
-		Val Acc: 0.93	Val Loss: 4.6531
-Epoch: 190	Acc: 0.9666	Loss: 0.1192
-		Val Acc: 0.92	Val Loss: 4.6776
-Epoch: 200	Acc: 0.9677	Loss: 0.1181
-		Val Acc: 0.92	Val Loss: 4.6864
+Epoch: 10	Acc: 0.9056	Loss: 0.3125
+		Val Acc: 0.8876	Val Loss: 0.3519
+Epoch: 20	Acc: 0.9239	Loss: 0.2329
+		Val Acc: 0.9045	Val Loss: 0.2853
+Epoch: 30	Acc: 0.9324	Loss: 0.1984
+		Val Acc: 0.9157	Val Loss: 0.2529
+Epoch: 40	Acc: 0.9465	Loss: 0.1763
+		Val Acc: 0.9213	Val Loss: 0.2324
+Epoch: 50	Acc: 0.9479	Loss: 0.1619
+		Val Acc: 0.9326	Val Loss: 0.2202
+Epoch: 60	Acc: 0.9549	Loss: 0.1506
+		Val Acc: 0.9326	Val Loss: 0.2101
+Epoch: 70	Acc: 0.9606	Loss: 0.1422
+		Val Acc: 0.9326	Val Loss: 0.2007
+Epoch: 80	Acc: 0.9634	Loss: 0.1352
+		Val Acc: 0.9326	Val Loss: 0.1938
+Epoch: 90	Acc: 0.9634	Loss: 0.13
+		Val Acc: 0.9326	Val Loss: 0.1902
+Epoch: 100	Acc: 0.9634	Loss: 0.1254
+		Val Acc: 0.9326	Val Loss: 0.1907
+Epoch: 110	Acc: 0.9662	Loss: 0.1216
+		Val Acc: 0.9382	Val Loss: 0.1844
+Epoch: 120	Acc: 0.9676	Loss: 0.1179
+		Val Acc: 0.9382	Val Loss: 0.1826
+Epoch: 130	Acc: 0.9676	Loss: 0.1151
+		Val Acc: 0.9382	Val Loss: 0.1813
+Epoch: 140	Acc: 0.9676	Loss: 0.1124
+		Val Acc: 0.9382	Val Loss: 0.1806
+Epoch: 150	Acc: 0.969	Loss: 0.1102
+		Val Acc: 0.9382	Val Loss: 0.1786
+Epoch: 160	Acc: 0.9718	Loss: 0.108
+		Val Acc: 0.9382	Val Loss: 0.1756
+Epoch: 170	Acc: 0.9732	Loss: 0.1062
+		Val Acc: 0.9382	Val Loss: 0.1768
+Epoch: 180	Acc: 0.9732	Loss: 0.1049
+		Val Acc: 0.9382	Val Loss: 0.1724
+Epoch: 190	Acc: 0.9732	Loss: 0.1033
+		Val Acc: 0.9382	Val Loss: 0.1729
+Epoch: 200	Acc: 0.9732	Loss: 0.1019
+		Val Acc: 0.9382	Val Loss: 0.1742
 
 
               precision    recall  f1-score   support
 
-           0       0.88      0.96      0.91        45
-           1       0.96      0.89      0.92        55
+           0       1.00      0.88      0.94        93
+           1       0.89      1.00      0.94        85
 
-    accuracy                           0.92       100
-   macro avg       0.92      0.92      0.92       100
-weighted avg       0.92      0.92      0.92       100
+    accuracy                           0.94       178
+   macro avg       0.94      0.94      0.94       178
+weighted avg       0.95      0.94      0.94       178
 
-AUC-ROC: 0.8933333333333334
+AUC-ROC: 0.9526249209361164
 Model 2
-[Linear(in_features=3220, out_features=256, bias=True), Dropout(p=0.25, inplace=False), Linear(in_features=256, out_features=64, bias=True), Dropout(p=0.25, inplace=False), Linear(in_features=64, out_features=1, bias=True)]
 cust_model(
   (model): Sequential(
-    (0): Linear(in_features=3220, out_features=256, bias=True)
+    (0): Linear(in_features=29, out_features=256, bias=True)
     (1): Dropout(p=0.25, inplace=False)
     (2): Linear(in_features=256, out_features=64, bias=True)
     (3): Dropout(p=0.25, inplace=False)
@@ -73,170 +407,1007 @@ cust_model(
   )
   (activation): Sigmoid()
 )
-Epoch: 10	Acc: 0.8509	Loss: 0.6701
-		Val Acc: 0.86	Val Loss: 0.6816
-Epoch: 20	Acc: 0.8554	Loss: 0.6278
-		Val Acc: 0.76	Val Loss: 0.6503
-Epoch: 30	Acc: 0.921	Loss: 0.5366
-		Val Acc: 0.87	Val Loss: 0.5948
-Epoch: 40	Acc: 0.891	Loss: 0.3896
-		Val Acc: 0.88	Val Loss: 0.5484
-Epoch: 50	Acc: 0.9255	Loss: 0.278
-		Val Acc: 0.93	Val Loss: 0.6404
-Epoch: 60	Acc: 0.9266	Loss: 0.2279
-		Val Acc: 0.88	Val Loss: 0.6413
-Epoch: 70	Acc: 0.9466	Loss: 0.195
-		Val Acc: 0.94	Val Loss: 0.817
-Epoch: 80	Acc: 0.9522	Loss: 0.1753
-		Val Acc: 0.89	Val Loss: 0.8104
-Epoch: 90	Acc: 0.9299	Loss: 0.1775
-		Val Acc: 0.9	Val Loss: 0.8954
-Epoch: 100	Acc: 0.9511	Loss: 0.1598
-		Val Acc: 0.9	Val Loss: 0.9769
-Epoch: 110	Acc: 0.96	Loss: 0.1478
-		Val Acc: 0.9	Val Loss: 1.0505
-Epoch: 120	Acc: 0.96	Loss: 0.138
-		Val Acc: 0.9	Val Loss: 1.1371
-Epoch: 130	Acc: 0.9588	Loss: 0.1361
-		Val Acc: 0.54	Val Loss: 2.0863
-Epoch: 140	Acc: 0.9622	Loss: 0.1328
-		Val Acc: 0.94	Val Loss: 1.5199
-Epoch: 150	Acc: 0.9622	Loss: 0.1282
-		Val Acc: 0.54	Val Loss: 2.2517
-Epoch: 160	Acc: 0.9644	Loss: 0.1311
-		Val Acc: 0.93	Val Loss: 1.4049
-Epoch: 170	Acc: 0.9377	Loss: 0.2211
-		Val Acc: 0.9	Val Loss: 1.4392
-Epoch: 180	Acc: 0.9677	Loss: 0.1207
-		Val Acc: 0.94	Val Loss: 1.537
-Epoch: 190	Acc: 0.9644	Loss: 0.1209
-		Val Acc: 0.94	Val Loss: 1.6843
-Epoch: 200	Acc: 0.9666	Loss: 0.119
-		Val Acc: 0.9	Val Loss: 1.7137
+Epoch: 10	Acc: 0.9085	Loss: 0.3335
+		Val Acc: 0.8876	Val Loss: 0.3295
+Epoch: 20	Acc: 0.9239	Loss: 0.2632
+		Val Acc: 0.9157	Val Loss: 0.2492
+Epoch: 30	Acc: 0.9366	Loss: 0.2209
+		Val Acc: 0.927	Val Loss: 0.2136
+Epoch: 40	Acc: 0.9366	Loss: 0.2058
+		Val Acc: 0.9382	Val Loss: 0.1918
+Epoch: 50	Acc: 0.9408	Loss: 0.1971
+		Val Acc: 0.9607	Val Loss: 0.1776
+Epoch: 60	Acc: 0.9437	Loss: 0.1781
+		Val Acc: 0.9663	Val Loss: 0.168
+Epoch: 70	Acc: 0.9465	Loss: 0.1707
+		Val Acc: 0.9663	Val Loss: 0.1583
+Epoch: 80	Acc: 0.9479	Loss: 0.1684
+		Val Acc: 0.9719	Val Loss: 0.152
+Epoch: 90	Acc: 0.9563	Loss: 0.1579
+		Val Acc: 0.9719	Val Loss: 0.1475
+Epoch: 100	Acc: 0.9535	Loss: 0.1532
+		Val Acc: 0.9719	Val Loss: 0.1421
+Epoch: 110	Acc: 0.9577	Loss: 0.1477
+		Val Acc: 0.9719	Val Loss: 0.1378
+Epoch: 120	Acc: 0.9563	Loss: 0.1453
+		Val Acc: 0.9719	Val Loss: 0.1346
+Epoch: 130	Acc: 0.9592	Loss: 0.1453
+		Val Acc: 0.9719	Val Loss: 0.1322
+Epoch: 140	Acc: 0.9577	Loss: 0.1458
+		Val Acc: 0.9719	Val Loss: 0.1298
+Epoch: 150	Acc: 0.9592	Loss: 0.1445
+		Val Acc: 0.9719	Val Loss: 0.1278
+Epoch: 160	Acc: 0.9577	Loss: 0.1419
+		Val Acc: 0.9719	Val Loss: 0.1267
+Epoch: 170	Acc: 0.9606	Loss: 0.1397
+		Val Acc: 0.9775	Val Loss: 0.1271
+Epoch: 180	Acc: 0.9648	Loss: 0.1342
+		Val Acc: 0.9775	Val Loss: 0.1219
+Epoch: 190	Acc: 0.9634	Loss: 0.139
+		Val Acc: 0.9775	Val Loss: 0.1197
+Epoch: 200	Acc: 0.962	Loss: 0.1339
+		Val Acc: 0.9775	Val Loss: 0.1189
 
 
               precision    recall  f1-score   support
 
-           0       0.96      0.85      0.90        54
-           1       0.85      0.96      0.90        46
+           0       0.99      0.97      0.98        90
+           1       0.97      0.99      0.98        88
 
-    accuracy                           0.90       100
-   macro avg       0.90      0.90      0.90       100
-weighted avg       0.91      0.90      0.90       100
+    accuracy                           0.98       178
+   macro avg       0.98      0.98      0.98       178
+weighted avg       0.98      0.98      0.98       178
 
-AUC-ROC: 0.9470611916264091
+AUC-ROC: 0.9921085858585859
 Model 3
-[Linear(in_features=64, out_features=256, bias=True), Linear(in_features=256, out_features=64, bias=True), Linear(in_features=64, out_features=1, bias=True)]
 cust_model(
-  (conv): Conv1d(1, 64, kernel_size=(8,), stride=(1,))
-  (maxpool): MaxPool1d(kernel_size=3213, stride=3213, padding=0, dilation=1, ceil_mode=False)
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=24, stride=24, padding=0, dilation=1, ceil_mode=False)
   (model): Sequential(
-    (0): Linear(in_features=64, out_features=256, bias=True)
+    (0): Linear(in_features=32, out_features=256, bias=True)
     (1): Linear(in_features=256, out_features=64, bias=True)
     (2): Linear(in_features=64, out_features=1, bias=True)
   )
   (activation): Sigmoid()
 )
-Epoch: 10	Acc: 0.5161	Loss: 0.6941
-		Val Acc: 0.37	Val Loss: 0.6915
-Epoch: 20	Acc: 0.5161	Loss: 0.6921
-		Val Acc: 0.34	Val Loss: 0.7326
-Epoch: 30	Acc: 0.5161	Loss: 0.6917
-		Val Acc: 0.34	Val Loss: 0.7038
-Epoch: 40	Acc: 0.5306	Loss: 0.6907
-		Val Acc: 0.37	Val Loss: 0.7057
-Epoch: 50	Acc: 0.6051	Loss: 0.6904
-		Val Acc: 0.61	Val Loss: 0.8189
-Epoch: 60	Acc: 0.5317	Loss: 0.6897
-		Val Acc: 0.37	Val Loss: 0.6928
-Epoch: 70	Acc: 0.5662	Loss: 0.6895
-		Val Acc: 0.34	Val Loss: 0.7342
-Epoch: 80	Acc: 0.5184	Loss: 0.6874
-		Val Acc: 0.36	Val Loss: 0.6949
-Epoch: 90	Acc: 0.5161	Loss: 0.6859
-		Val Acc: 0.61	Val Loss: 0.8491
-Epoch: 100	Acc: 0.6452	Loss: 0.6851
-		Val Acc: 0.48	Val Loss: 0.7838
+Epoch: 10	Acc: 0.9465	Loss: 0.5019
+		Val Acc: 0.9551	Val Loss: 0.4932
+Epoch: 20	Acc: 0.9423	Loss: 0.3158
+		Val Acc: 0.9551	Val Loss: 0.3233
+Epoch: 30	Acc: 0.9451	Loss: 0.2293
+		Val Acc: 0.9551	Val Loss: 0.2542
+Epoch: 40	Acc: 0.9451	Loss: 0.1951
+		Val Acc: 0.9551	Val Loss: 0.2307
+Epoch: 50	Acc: 0.9521	Loss: 0.1775
+		Val Acc: 0.9551	Val Loss: 0.2235
+Epoch: 60	Acc: 0.9606	Loss: 0.1663
+		Val Acc: 0.9551	Val Loss: 0.2165
+Epoch: 70	Acc: 0.9606	Loss: 0.1576
+		Val Acc: 0.9551	Val Loss: 0.2117
+Epoch: 80	Acc: 0.9704	Loss: 0.1504
+		Val Acc: 0.9607	Val Loss: 0.2091
+Epoch: 90	Acc: 0.9718	Loss: 0.1444
+		Val Acc: 0.9607	Val Loss: 0.2026
+Epoch: 100	Acc: 0.9704	Loss: 0.1395
+		Val Acc: 0.9607	Val Loss: 0.2024
 
 
               precision    recall  f1-score   support
 
-           0       0.82      0.22      0.35        63
-           1       0.41      0.92      0.57        37
+           0       0.99      0.93      0.96        90
+           1       0.94      0.99      0.96        88
 
-    accuracy                           0.48       100
-   macro avg       0.62      0.57      0.46       100
-weighted avg       0.67      0.48      0.43       100
+    accuracy                           0.96       178
+   macro avg       0.96      0.96      0.96       178
+weighted avg       0.96      0.96      0.96       178
 
-AUC-ROC: 0.8545688545688547
+AUC-ROC: 0.9569444444444445
+Training for TP53_8_4
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=35, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9141	Loss: 0.2517
+		Val Acc: 0.9157	Val Loss: 0.2713
+Epoch: 20	Acc: 0.9423	Loss: 0.1903
+		Val Acc: 0.927	Val Loss: 0.2311
+Epoch: 30	Acc: 0.9507	Loss: 0.1612
+		Val Acc: 0.927	Val Loss: 0.2142
+Epoch: 40	Acc: 0.9549	Loss: 0.1438
+		Val Acc: 0.927	Val Loss: 0.2035
+Epoch: 50	Acc: 0.9577	Loss: 0.1321
+		Val Acc: 0.927	Val Loss: 0.1993
+Epoch: 60	Acc: 0.9676	Loss: 0.1236
+		Val Acc: 0.927	Val Loss: 0.1933
+Epoch: 70	Acc: 0.9676	Loss: 0.1168
+		Val Acc: 0.927	Val Loss: 0.1911
+Epoch: 80	Acc: 0.969	Loss: 0.1118
+		Val Acc: 0.927	Val Loss: 0.1863
+Epoch: 90	Acc: 0.9704	Loss: 0.1076
+		Val Acc: 0.927	Val Loss: 0.1861
+Epoch: 100	Acc: 0.9732	Loss: 0.1042
+		Val Acc: 0.927	Val Loss: 0.1818
+Epoch: 110	Acc: 0.9732	Loss: 0.1013
+		Val Acc: 0.927	Val Loss: 0.1812
+Epoch: 120	Acc: 0.9746	Loss: 0.0989
+		Val Acc: 0.927	Val Loss: 0.18
+Epoch: 130	Acc: 0.9761	Loss: 0.0965
+		Val Acc: 0.927	Val Loss: 0.1787
+Epoch: 140	Acc: 0.9761	Loss: 0.0948
+		Val Acc: 0.927	Val Loss: 0.1765
+Epoch: 150	Acc: 0.9761	Loss: 0.0931
+		Val Acc: 0.927	Val Loss: 0.1757
+Epoch: 160	Acc: 0.9789	Loss: 0.092
+		Val Acc: 0.9326	Val Loss: 0.1703
+Epoch: 170	Acc: 0.9789	Loss: 0.0906
+		Val Acc: 0.9326	Val Loss: 0.1752
+Epoch: 180	Acc: 0.9789	Loss: 0.0895
+		Val Acc: 0.9326	Val Loss: 0.1708
+Epoch: 190	Acc: 0.9789	Loss: 0.0884
+		Val Acc: 0.9326	Val Loss: 0.1652
+Epoch: 200	Acc: 0.9789	Loss: 0.0875
+		Val Acc: 0.9326	Val Loss: 0.1693
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.86      0.93        88
+           1       0.88      1.00      0.94        90
+
+    accuracy                           0.93       178
+   macro avg       0.94      0.93      0.93       178
+weighted avg       0.94      0.93      0.93       178
+
+AUC-ROC: 0.9665404040404041
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=38, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9169	Loss: 0.2663
+		Val Acc: 0.927	Val Loss: 0.2502
+Epoch: 20	Acc: 0.9352	Loss: 0.2023
+		Val Acc: 0.9551	Val Loss: 0.2032
+Epoch: 30	Acc: 0.9394	Loss: 0.1763
+		Val Acc: 0.9551	Val Loss: 0.1826
+Epoch: 40	Acc: 0.9465	Loss: 0.1629
+		Val Acc: 0.9551	Val Loss: 0.1699
+Epoch: 50	Acc: 0.9521	Loss: 0.1468
+		Val Acc: 0.9551	Val Loss: 0.1616
+Epoch: 60	Acc: 0.9634	Loss: 0.1354
+		Val Acc: 0.9551	Val Loss: 0.1572
+Epoch: 70	Acc: 0.9606	Loss: 0.1325
+		Val Acc: 0.9551	Val Loss: 0.153
+Epoch: 80	Acc: 0.9662	Loss: 0.1212
+		Val Acc: 0.9551	Val Loss: 0.1502
+Epoch: 90	Acc: 0.969	Loss: 0.1219
+		Val Acc: 0.9551	Val Loss: 0.1481
+Epoch: 100	Acc: 0.9648	Loss: 0.1154
+		Val Acc: 0.9551	Val Loss: 0.1467
+Epoch: 110	Acc: 0.9634	Loss: 0.1152
+		Val Acc: 0.9551	Val Loss: 0.1446
+Epoch: 120	Acc: 0.9704	Loss: 0.1093
+		Val Acc: 0.9551	Val Loss: 0.1438
+Epoch: 130	Acc: 0.969	Loss: 0.1055
+		Val Acc: 0.9551	Val Loss: 0.1445
+Epoch: 140	Acc: 0.9662	Loss: 0.1061
+		Val Acc: 0.9551	Val Loss: 0.1441
+Epoch: 150	Acc: 0.9676	Loss: 0.1068
+		Val Acc: 0.9551	Val Loss: 0.143
+Epoch: 160	Acc: 0.9718	Loss: 0.1012
+		Val Acc: 0.9551	Val Loss: 0.1431
+Epoch: 170	Acc: 0.9746	Loss: 0.0947
+		Val Acc: 0.9607	Val Loss: 0.1409
+Epoch: 180	Acc: 0.9761	Loss: 0.0919
+		Val Acc: 0.9607	Val Loss: 0.1419
+Epoch: 190	Acc: 0.9775	Loss: 0.0941
+		Val Acc: 0.9607	Val Loss: 0.1411
+Epoch: 200	Acc: 0.9746	Loss: 0.0916
+		Val Acc: 0.9607	Val Loss: 0.1421
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.92      0.96        91
+           1       0.93      1.00      0.96        87
+
+    accuracy                           0.96       178
+   macro avg       0.96      0.96      0.96       178
+weighted avg       0.96      0.96      0.96       178
+
+AUC-ROC: 0.9617279272451686
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=29, stride=29, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9394	Loss: 0.4144
+		Val Acc: 0.927	Val Loss: 0.4118
+Epoch: 20	Acc: 0.9366	Loss: 0.2472
+		Val Acc: 0.9438	Val Loss: 0.2511
+Epoch: 30	Acc: 0.9437	Loss: 0.1856
+		Val Acc: 0.9438	Val Loss: 0.1976
+Epoch: 40	Acc: 0.9676	Loss: 0.161
+		Val Acc: 0.9719	Val Loss: 0.173
+Epoch: 50	Acc: 0.9718	Loss: 0.1483
+		Val Acc: 0.9663	Val Loss: 0.1629
+Epoch: 60	Acc: 0.9704	Loss: 0.1398
+		Val Acc: 0.9719	Val Loss: 0.1562
+Epoch: 70	Acc: 0.9704	Loss: 0.1346
+		Val Acc: 0.9719	Val Loss: 0.152
+Epoch: 80	Acc: 0.9732	Loss: 0.13
+		Val Acc: 0.9719	Val Loss: 0.1489
+Epoch: 90	Acc: 0.9732	Loss: 0.1265
+		Val Acc: 0.9719	Val Loss: 0.1467
+Epoch: 100	Acc: 0.9732	Loss: 0.1239
+		Val Acc: 0.9719	Val Loss: 0.1445
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.94      0.97        82
+           1       0.95      1.00      0.97        96
+
+    accuracy                           0.97       178
+   macro avg       0.98      0.97      0.97       178
+weighted avg       0.97      0.97      0.97       178
+
+AUC-ROC: 0.9584603658536585
+Training for TP53_10_10
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=26, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9014	Loss: 0.3071
+		Val Acc: 0.8539	Val Loss: 0.7278
+Epoch: 20	Acc: 0.9268	Loss: 0.2298
+		Val Acc: 0.8933	Val Loss: 0.7308
+Epoch: 30	Acc: 0.9408	Loss: 0.1954
+		Val Acc: 0.9045	Val Loss: 0.8009
+Epoch: 40	Acc: 0.9465	Loss: 0.1747
+		Val Acc: 0.9101	Val Loss: 0.7787
+Epoch: 50	Acc: 0.9521	Loss: 0.1599
+		Val Acc: 0.9213	Val Loss: 0.7609
+Epoch: 60	Acc: 0.9549	Loss: 0.1493
+		Val Acc: 0.9213	Val Loss: 0.7513
+Epoch: 70	Acc: 0.9577	Loss: 0.1407
+		Val Acc: 0.9326	Val Loss: 0.7407
+Epoch: 80	Acc: 0.9606	Loss: 0.1338
+		Val Acc: 0.9382	Val Loss: 0.732
+Epoch: 90	Acc: 0.9606	Loss: 0.1283
+		Val Acc: 0.9382	Val Loss: 0.7246
+Epoch: 100	Acc: 0.9606	Loss: 0.1236
+		Val Acc: 0.9382	Val Loss: 0.7222
+Epoch: 110	Acc: 0.962	Loss: 0.1197
+		Val Acc: 0.9382	Val Loss: 0.7186
+Epoch: 120	Acc: 0.9648	Loss: 0.1161
+		Val Acc: 0.9551	Val Loss: 0.7124
+Epoch: 130	Acc: 0.9662	Loss: 0.1131
+		Val Acc: 0.9551	Val Loss: 0.7106
+Epoch: 140	Acc: 0.9662	Loss: 0.1107
+		Val Acc: 0.9551	Val Loss: 0.7069
+Epoch: 150	Acc: 0.9676	Loss: 0.1083
+		Val Acc: 0.9551	Val Loss: 0.7046
+Epoch: 160	Acc: 0.9732	Loss: 0.1064
+		Val Acc: 0.9551	Val Loss: 0.7027
+Epoch: 170	Acc: 0.9704	Loss: 0.1043
+		Val Acc: 0.9551	Val Loss: 0.7013
+Epoch: 180	Acc: 0.9732	Loss: 0.1026
+		Val Acc: 0.9551	Val Loss: 0.7005
+Epoch: 190	Acc: 0.9746	Loss: 0.1009
+		Val Acc: 0.9551	Val Loss: 0.6991
+Epoch: 200	Acc: 0.9746	Loss: 0.0995
+		Val Acc: 0.9551	Val Loss: 0.6985
+
+
+              precision    recall  f1-score   support
+
+           0       0.99      0.92      0.96        92
+           1       0.92      0.99      0.96        86
+
+    accuracy                           0.96       178
+   macro avg       0.96      0.96      0.96       178
+weighted avg       0.96      0.96      0.96       178
+
+AUC-ROC: 0.9649898887765419
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=27, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.907	Loss: 0.3176
+		Val Acc: 0.9045	Val Loss: 0.4277
+Epoch: 20	Acc: 0.9254	Loss: 0.2425
+		Val Acc: 0.927	Val Loss: 0.2405
+Epoch: 30	Acc: 0.9352	Loss: 0.2122
+		Val Acc: 0.9326	Val Loss: 0.2156
+Epoch: 40	Acc: 0.9408	Loss: 0.1901
+		Val Acc: 0.9326	Val Loss: 0.2132
+Epoch: 50	Acc: 0.9479	Loss: 0.1715
+		Val Acc: 0.9382	Val Loss: 0.2182
+Epoch: 60	Acc: 0.9592	Loss: 0.1594
+		Val Acc: 0.9438	Val Loss: 0.2328
+Epoch: 70	Acc: 0.9577	Loss: 0.1493
+		Val Acc: 0.9438	Val Loss: 0.2477
+Epoch: 80	Acc: 0.9563	Loss: 0.1461
+		Val Acc: 0.9494	Val Loss: 0.2684
+Epoch: 90	Acc: 0.9606	Loss: 0.1414
+		Val Acc: 0.9494	Val Loss: 0.2894
+Epoch: 100	Acc: 0.962	Loss: 0.1365
+		Val Acc: 0.9494	Val Loss: 0.3104
+Epoch: 110	Acc: 0.9606	Loss: 0.1338
+		Val Acc: 0.9494	Val Loss: 0.3317
+Epoch: 120	Acc: 0.9648	Loss: 0.1244
+		Val Acc: 0.9551	Val Loss: 0.3538
+Epoch: 130	Acc: 0.962	Loss: 0.1204
+		Val Acc: 0.9551	Val Loss: 0.3734
+Epoch: 140	Acc: 0.969	Loss: 0.1129
+		Val Acc: 0.9551	Val Loss: 0.3929
+Epoch: 150	Acc: 0.9648	Loss: 0.1191
+		Val Acc: 0.9551	Val Loss: 0.4115
+Epoch: 160	Acc: 0.9648	Loss: 0.1165
+		Val Acc: 0.9551	Val Loss: 0.4336
+Epoch: 170	Acc: 0.9662	Loss: 0.1157
+		Val Acc: 0.9551	Val Loss: 0.4563
+Epoch: 180	Acc: 0.969	Loss: 0.1154
+		Val Acc: 0.9607	Val Loss: 0.479
+Epoch: 190	Acc: 0.9718	Loss: 0.1109
+		Val Acc: 0.9551	Val Loss: 0.501
+Epoch: 200	Acc: 0.9746	Loss: 0.1045
+		Val Acc: 0.9663	Val Loss: 0.5222
+
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.96      0.97        92
+           1       0.95      0.98      0.97        86
+
+    accuracy                           0.97       178
+   macro avg       0.97      0.97      0.97       178
+weighted avg       0.97      0.97      0.97       178
+
+AUC-ROC: 0.9637259858442871
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=21, stride=21, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9563	Loss: 0.5449
+		Val Acc: 0.9438	Val Loss: 0.5673
+Epoch: 20	Acc: 0.9577	Loss: 0.35
+		Val Acc: 0.9494	Val Loss: 0.4365
+Epoch: 30	Acc: 0.962	Loss: 0.226
+		Val Acc: 0.9494	Val Loss: 0.3863
+Epoch: 40	Acc: 0.9662	Loss: 0.1811
+		Val Acc: 0.9551	Val Loss: 0.3889
+Epoch: 50	Acc: 0.9732	Loss: 0.1644
+		Val Acc: 0.9551	Val Loss: 0.3883
+Epoch: 60	Acc: 0.9732	Loss: 0.1559
+		Val Acc: 0.9551	Val Loss: 0.3932
+Epoch: 70	Acc: 0.9732	Loss: 0.1505
+		Val Acc: 0.9551	Val Loss: 0.3911
+Epoch: 80	Acc: 0.9732	Loss: 0.1455
+		Val Acc: 0.9607	Val Loss: 0.386
+Epoch: 90	Acc: 0.9732	Loss: 0.1421
+		Val Acc: 0.9607	Val Loss: 0.3863
+Epoch: 100	Acc: 0.9732	Loss: 0.1394
+		Val Acc: 0.9607	Val Loss: 0.3818
+
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.95      0.96       100
+           1       0.94      0.97      0.96        78
+
+    accuracy                           0.96       178
+   macro avg       0.96      0.96      0.96       178
+weighted avg       0.96      0.96      0.96       178
+
+AUC-ROC: 0.9494871794871794
+Training for TP53_10_5
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=30, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9099	Loss: 0.2643
+		Val Acc: 0.8652	Val Loss: 0.3123
+Epoch: 20	Acc: 0.931	Loss: 0.205
+		Val Acc: 0.8989	Val Loss: 0.2657
+Epoch: 30	Acc: 0.9408	Loss: 0.1772
+		Val Acc: 0.9157	Val Loss: 0.2446
+Epoch: 40	Acc: 0.9507	Loss: 0.1603
+		Val Acc: 0.927	Val Loss: 0.2292
+Epoch: 50	Acc: 0.9563	Loss: 0.1491
+		Val Acc: 0.927	Val Loss: 0.2209
+Epoch: 60	Acc: 0.9563	Loss: 0.1406
+		Val Acc: 0.927	Val Loss: 0.2142
+Epoch: 70	Acc: 0.9592	Loss: 0.1342
+		Val Acc: 0.9382	Val Loss: 0.207
+Epoch: 80	Acc: 0.962	Loss: 0.1287
+		Val Acc: 0.9438	Val Loss: 0.2023
+Epoch: 90	Acc: 0.9648	Loss: 0.1244
+		Val Acc: 0.9438	Val Loss: 0.197
+Epoch: 100	Acc: 0.9648	Loss: 0.121
+		Val Acc: 0.9438	Val Loss: 0.1944
+Epoch: 110	Acc: 0.9676	Loss: 0.1181
+		Val Acc: 0.9438	Val Loss: 0.1892
+Epoch: 120	Acc: 0.9676	Loss: 0.1154
+		Val Acc: 0.9438	Val Loss: 0.1855
+Epoch: 130	Acc: 0.9676	Loss: 0.1131
+		Val Acc: 0.9438	Val Loss: 0.1822
+Epoch: 140	Acc: 0.9676	Loss: 0.1111
+		Val Acc: 0.9438	Val Loss: 0.1789
+Epoch: 150	Acc: 0.9676	Loss: 0.1093
+		Val Acc: 0.9438	Val Loss: 0.1752
+Epoch: 160	Acc: 0.969	Loss: 0.1077
+		Val Acc: 0.9438	Val Loss: 0.1726
+Epoch: 170	Acc: 0.9704	Loss: 0.1062
+		Val Acc: 0.9494	Val Loss: 0.1698
+Epoch: 180	Acc: 0.9704	Loss: 0.1047
+		Val Acc: 0.9494	Val Loss: 0.1674
+Epoch: 190	Acc: 0.9704	Loss: 0.1034
+		Val Acc: 0.9494	Val Loss: 0.1654
+Epoch: 200	Acc: 0.9704	Loss: 0.1023
+		Val Acc: 0.9494	Val Loss: 0.1626
+
+
+              precision    recall  f1-score   support
+
+           0       0.99      0.90      0.94        84
+           1       0.92      0.99      0.95        94
+
+    accuracy                           0.95       178
+   macro avg       0.95      0.95      0.95       178
+weighted avg       0.95      0.95      0.95       178
+
+AUC-ROC: 0.9732776089159069
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=29, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9085	Loss: 0.2567
+		Val Acc: 0.9101	Val Loss: 0.8171
+Epoch: 20	Acc: 0.9394	Loss: 0.204
+		Val Acc: 0.9157	Val Loss: 0.7665
+Epoch: 30	Acc: 0.9437	Loss: 0.1818
+		Val Acc: 0.9438	Val Loss: 0.7406
+Epoch: 40	Acc: 0.9479	Loss: 0.1648
+		Val Acc: 0.9438	Val Loss: 0.7248
+Epoch: 50	Acc: 0.9592	Loss: 0.1558
+		Val Acc: 0.9438	Val Loss: 0.7137
+Epoch: 60	Acc: 0.9577	Loss: 0.1467
+		Val Acc: 0.9438	Val Loss: 0.7054
+Epoch: 70	Acc: 0.962	Loss: 0.1397
+		Val Acc: 0.9438	Val Loss: 0.6988
+Epoch: 80	Acc: 0.9606	Loss: 0.1407
+		Val Acc: 0.9438	Val Loss: 0.6935
+Epoch: 90	Acc: 0.9634	Loss: 0.133
+		Val Acc: 0.9494	Val Loss: 0.6892
+Epoch: 100	Acc: 0.962	Loss: 0.1324
+		Val Acc: 0.9494	Val Loss: 0.6855
+Epoch: 110	Acc: 0.9634	Loss: 0.1301
+		Val Acc: 0.9494	Val Loss: 0.6821
+Epoch: 120	Acc: 0.9634	Loss: 0.1289
+		Val Acc: 0.9551	Val Loss: 0.6793
+Epoch: 130	Acc: 0.9634	Loss: 0.1299
+		Val Acc: 0.9551	Val Loss: 0.6769
+Epoch: 140	Acc: 0.9634	Loss: 0.1239
+		Val Acc: 0.9551	Val Loss: 0.6747
+Epoch: 150	Acc: 0.9662	Loss: 0.1191
+		Val Acc: 0.9551	Val Loss: 0.6727
+Epoch: 160	Acc: 0.9662	Loss: 0.1124
+		Val Acc: 0.9551	Val Loss: 0.6707
+Epoch: 170	Acc: 0.9662	Loss: 0.1158
+		Val Acc: 0.9607	Val Loss: 0.669
+Epoch: 180	Acc: 0.9676	Loss: 0.1177
+		Val Acc: 0.9551	Val Loss: 0.6674
+Epoch: 190	Acc: 0.9676	Loss: 0.1177
+		Val Acc: 0.9607	Val Loss: 0.6659
+Epoch: 200	Acc: 0.9704	Loss: 0.1142
+		Val Acc: 0.9719	Val Loss: 0.6647
+
+
+              precision    recall  f1-score   support
+
+           0       0.99      0.95      0.97        81
+           1       0.96      0.99      0.97        97
+
+    accuracy                           0.97       178
+   macro avg       0.97      0.97      0.97       178
+weighted avg       0.97      0.97      0.97       178
+
+AUC-ROC: 0.9730813287514319
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=25, stride=25, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9366	Loss: 0.3479
+		Val Acc: 0.9663	Val Loss: 0.8749
+Epoch: 20	Acc: 0.9423	Loss: 0.2272
+		Val Acc: 0.9719	Val Loss: 0.7469
+Epoch: 30	Acc: 0.9423	Loss: 0.1966
+		Val Acc: 0.9775	Val Loss: 0.7084
+Epoch: 40	Acc: 0.9535	Loss: 0.1827
+		Val Acc: 0.9775	Val Loss: 0.6916
+Epoch: 50	Acc: 0.9535	Loss: 0.1736
+		Val Acc: 0.9775	Val Loss: 0.6808
+Epoch: 60	Acc: 0.9606	Loss: 0.1667
+		Val Acc: 0.9775	Val Loss: 0.6755
+Epoch: 70	Acc: 0.9606	Loss: 0.1607
+		Val Acc: 0.9831	Val Loss: 0.6712
+Epoch: 80	Acc: 0.9634	Loss: 0.1558
+		Val Acc: 0.9831	Val Loss: 0.6639
+Epoch: 90	Acc: 0.9634	Loss: 0.1519
+		Val Acc: 0.9831	Val Loss: 0.6613
+Epoch: 100	Acc: 0.9648	Loss: 0.1482
+		Val Acc: 0.9831	Val Loss: 0.659
+
+
+              precision    recall  f1-score   support
+
+           0       0.99      0.98      0.98        91
+           1       0.98      0.99      0.98        87
+
+    accuracy                           0.98       178
+   macro avg       0.98      0.98      0.98       178
+weighted avg       0.98      0.98      0.98       178
+
+AUC-ROC: 0.973727422003284
+Training for CDH1_16_16
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=74, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9056	Loss: 0.3724
+		Val Acc: 0.8475	Val Loss: 0.3785
+Epoch: 20	Acc: 0.9056	Loss: 0.2985
+		Val Acc: 0.8475	Val Loss: 0.3168
+Epoch: 30	Acc: 0.9099	Loss: 0.2618
+		Val Acc: 0.8644	Val Loss: 0.2847
+Epoch: 40	Acc: 0.9099	Loss: 0.2391
+		Val Acc: 0.8814	Val Loss: 0.2629
+Epoch: 50	Acc: 0.9142	Loss: 0.223
+		Val Acc: 0.9153	Val Loss: 0.2467
+Epoch: 60	Acc: 0.9185	Loss: 0.2106
+		Val Acc: 0.9153	Val Loss: 0.2339
+Epoch: 70	Acc: 0.9227	Loss: 0.2005
+		Val Acc: 0.9153	Val Loss: 0.223
+Epoch: 80	Acc: 0.9227	Loss: 0.1921
+		Val Acc: 0.9153	Val Loss: 0.2139
+Epoch: 90	Acc: 0.9313	Loss: 0.185
+		Val Acc: 0.9153	Val Loss: 0.206
+Epoch: 100	Acc: 0.9313	Loss: 0.1787
+		Val Acc: 0.9153	Val Loss: 0.1993
+Epoch: 110	Acc: 0.9356	Loss: 0.1732
+		Val Acc: 0.9153	Val Loss: 0.1934
+Epoch: 120	Acc: 0.9485	Loss: 0.1682
+		Val Acc: 0.9322	Val Loss: 0.1882
+Epoch: 130	Acc: 0.9485	Loss: 0.1637
+		Val Acc: 0.9322	Val Loss: 0.184
+Epoch: 140	Acc: 0.9528	Loss: 0.1597
+		Val Acc: 0.9322	Val Loss: 0.1797
+Epoch: 150	Acc: 0.9528	Loss: 0.1559
+		Val Acc: 0.9492	Val Loss: 0.1757
+Epoch: 160	Acc: 0.9528	Loss: 0.1525
+		Val Acc: 0.9492	Val Loss: 0.1726
+Epoch: 170	Acc: 0.9571	Loss: 0.1494
+		Val Acc: 0.9492	Val Loss: 0.1691
+Epoch: 180	Acc: 0.9571	Loss: 0.1465
+		Val Acc: 0.9492	Val Loss: 0.1665
+Epoch: 190	Acc: 0.9571	Loss: 0.1437
+		Val Acc: 0.9492	Val Loss: 0.1644
+Epoch: 200	Acc: 0.9571	Loss: 0.1412
+		Val Acc: 0.9492	Val Loss: 0.1621
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.92      0.96        36
+           1       0.88      1.00      0.94        23
+
+    accuracy                           0.95        59
+   macro avg       0.94      0.96      0.95        59
+weighted avg       0.96      0.95      0.95        59
+
+AUC-ROC: 0.9794685990338164
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=63, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.867	Loss: 0.443
+		Val Acc: 0.9322	Val Loss: 0.3989
+Epoch: 20	Acc: 0.897	Loss: 0.3367
+		Val Acc: 0.9322	Val Loss: 0.3109
+Epoch: 30	Acc: 0.8841	Loss: 0.2874
+		Val Acc: 0.9322	Val Loss: 0.2701
+Epoch: 40	Acc: 0.897	Loss: 0.2625
+		Val Acc: 0.9322	Val Loss: 0.2466
+Epoch: 50	Acc: 0.9099	Loss: 0.2392
+		Val Acc: 0.9322	Val Loss: 0.2308
+Epoch: 60	Acc: 0.9142	Loss: 0.223
+		Val Acc: 0.9322	Val Loss: 0.219
+Epoch: 70	Acc: 0.927	Loss: 0.2148
+		Val Acc: 0.9322	Val Loss: 0.2107
+Epoch: 80	Acc: 0.9185	Loss: 0.2039
+		Val Acc: 0.9322	Val Loss: 0.2029
+Epoch: 90	Acc: 0.9313	Loss: 0.1944
+		Val Acc: 0.9322	Val Loss: 0.1968
+Epoch: 100	Acc: 0.9442	Loss: 0.1925
+		Val Acc: 0.9322	Val Loss: 0.192
+Epoch: 110	Acc: 0.9485	Loss: 0.1765
+		Val Acc: 0.9322	Val Loss: 0.1878
+Epoch: 120	Acc: 0.9485	Loss: 0.1642
+		Val Acc: 0.9322	Val Loss: 0.184
+Epoch: 130	Acc: 0.9528	Loss: 0.1673
+		Val Acc: 0.9322	Val Loss: 0.1805
+Epoch: 140	Acc: 0.9528	Loss: 0.1676
+		Val Acc: 0.9322	Val Loss: 0.1775
+Epoch: 150	Acc: 0.9571	Loss: 0.161
+		Val Acc: 0.9322	Val Loss: 0.1751
+Epoch: 160	Acc: 0.9528	Loss: 0.1553
+		Val Acc: 0.9322	Val Loss: 0.1727
+Epoch: 170	Acc: 0.9571	Loss: 0.1398
+		Val Acc: 0.9322	Val Loss: 0.1706
+Epoch: 180	Acc: 0.9528	Loss: 0.1425
+		Val Acc: 0.9322	Val Loss: 0.1687
+Epoch: 190	Acc: 0.9657	Loss: 0.1388
+		Val Acc: 0.9322	Val Loss: 0.1671
+Epoch: 200	Acc: 0.9614	Loss: 0.1345
+		Val Acc: 0.9322	Val Loss: 0.1655
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.85      0.92        26
+           1       0.89      1.00      0.94        33
+
+    accuracy                           0.93        59
+   macro avg       0.95      0.92      0.93        59
+weighted avg       0.94      0.93      0.93        59
+
+AUC-ROC: 0.94988344988345
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=57, stride=57, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.5279	Loss: 0.65
+		Val Acc: 0.4237	Val Loss: 0.6553
+Epoch: 20	Acc: 0.618	Loss: 0.6084
+		Val Acc: 0.8305	Val Loss: 0.6023
+Epoch: 30	Acc: 0.824	Loss: 0.5681
+		Val Acc: 0.8814	Val Loss: 0.5475
+Epoch: 40	Acc: 0.8326	Loss: 0.528
+		Val Acc: 0.8814	Val Loss: 0.4932
+Epoch: 50	Acc: 0.8541	Loss: 0.4875
+		Val Acc: 0.8983	Val Loss: 0.4422
+Epoch: 60	Acc: 0.8841	Loss: 0.4484
+		Val Acc: 0.9322	Val Loss: 0.3926
+Epoch: 70	Acc: 0.9142	Loss: 0.413
+		Val Acc: 0.9492	Val Loss: 0.3506
+Epoch: 80	Acc: 0.9056	Loss: 0.3804
+		Val Acc: 0.9492	Val Loss: 0.3155
+Epoch: 90	Acc: 0.9056	Loss: 0.3536
+		Val Acc: 0.9492	Val Loss: 0.2887
+Epoch: 100	Acc: 0.9099	Loss: 0.3301
+		Val Acc: 0.9492	Val Loss: 0.2663
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.88      0.94        25
+           1       0.92      1.00      0.96        34
+
+    accuracy                           0.95        59
+   macro avg       0.96      0.94      0.95        59
+weighted avg       0.95      0.95      0.95        59
+
+AUC-ROC: 0.9588235294117647
+Training for CDH1_16_8
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=73, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9227	Loss: 0.3431
+		Val Acc: 0.8983	Val Loss: 0.3111
+Epoch: 20	Acc: 0.9185	Loss: 0.2627
+		Val Acc: 0.8983	Val Loss: 0.253
+Epoch: 30	Acc: 0.927	Loss: 0.2299
+		Val Acc: 0.8983	Val Loss: 0.2283
+Epoch: 40	Acc: 0.927	Loss: 0.2094
+		Val Acc: 0.8983	Val Loss: 0.213
+Epoch: 50	Acc: 0.9313	Loss: 0.1948
+		Val Acc: 0.8983	Val Loss: 0.201
+Epoch: 60	Acc: 0.9356	Loss: 0.1835
+		Val Acc: 0.9322	Val Loss: 0.1901
+Epoch: 70	Acc: 0.9356	Loss: 0.1744
+		Val Acc: 0.9322	Val Loss: 0.1823
+Epoch: 80	Acc: 0.9356	Loss: 0.1665
+		Val Acc: 0.9322	Val Loss: 0.1764
+Epoch: 90	Acc: 0.9485	Loss: 0.16
+		Val Acc: 0.9322	Val Loss: 0.1697
+Epoch: 100	Acc: 0.9485	Loss: 0.1543
+		Val Acc: 0.9322	Val Loss: 0.1659
+Epoch: 110	Acc: 0.9528	Loss: 0.1492
+		Val Acc: 0.9322	Val Loss: 0.1655
+Epoch: 120	Acc: 0.9528	Loss: 0.145
+		Val Acc: 0.9322	Val Loss: 0.1629
+Epoch: 130	Acc: 0.9528	Loss: 0.1411
+		Val Acc: 0.9322	Val Loss: 0.1587
+Epoch: 140	Acc: 0.9614	Loss: 0.1375
+		Val Acc: 0.9322	Val Loss: 0.1579
+Epoch: 150	Acc: 0.9614	Loss: 0.1344
+		Val Acc: 0.9322	Val Loss: 0.1586
+Epoch: 160	Acc: 0.97	Loss: 0.1316
+		Val Acc: 0.9322	Val Loss: 0.1586
+Epoch: 170	Acc: 0.97	Loss: 0.1291
+		Val Acc: 0.9322	Val Loss: 0.1573
+Epoch: 180	Acc: 0.97	Loss: 0.1267
+		Val Acc: 0.9492	Val Loss: 0.1549
+Epoch: 190	Acc: 0.97	Loss: 0.1246
+		Val Acc: 0.9492	Val Loss: 0.1558
+Epoch: 200	Acc: 0.97	Loss: 0.1227
+		Val Acc: 0.9492	Val Loss: 0.154
+
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.93      0.95        30
+           1       0.93      0.97      0.95        29
+
+    accuracy                           0.95        59
+   macro avg       0.95      0.95      0.95        59
+weighted avg       0.95      0.95      0.95        59
+
+AUC-ROC: 0.9701149425287356
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=64, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8755	Loss: 0.3247
+		Val Acc: 0.8814	Val Loss: 0.4666
+Epoch: 20	Acc: 0.9185	Loss: 0.2488
+		Val Acc: 0.8983	Val Loss: 0.3757
+Epoch: 30	Acc: 0.9142	Loss: 0.2205
+		Val Acc: 0.8983	Val Loss: 0.3356
+Epoch: 40	Acc: 0.9399	Loss: 0.1911
+		Val Acc: 0.8983	Val Loss: 0.3094
+Epoch: 50	Acc: 0.9442	Loss: 0.1743
+		Val Acc: 0.8983	Val Loss: 0.2937
+Epoch: 60	Acc: 0.9399	Loss: 0.1641
+		Val Acc: 0.8983	Val Loss: 0.2836
+Epoch: 70	Acc: 0.9571	Loss: 0.1439
+		Val Acc: 0.8983	Val Loss: 0.2774
+Epoch: 80	Acc: 0.9485	Loss: 0.1414
+		Val Acc: 0.9153	Val Loss: 0.2727
+Epoch: 90	Acc: 0.9528	Loss: 0.132
+		Val Acc: 0.9153	Val Loss: 0.2699
+Epoch: 100	Acc: 0.9571	Loss: 0.1318
+		Val Acc: 0.9153	Val Loss: 0.2679
+Epoch: 110	Acc: 0.9528	Loss: 0.1261
+		Val Acc: 0.8983	Val Loss: 0.2681
+Epoch: 120	Acc: 0.9614	Loss: 0.1136
+		Val Acc: 0.8983	Val Loss: 0.2686
+Epoch: 130	Acc: 0.9614	Loss: 0.116
+		Val Acc: 0.8983	Val Loss: 0.2692
+Epoch: 140	Acc: 0.9614	Loss: 0.1064
+		Val Acc: 0.8983	Val Loss: 0.2707
+Epoch: 150	Acc: 0.9657	Loss: 0.1046
+		Val Acc: 0.8983	Val Loss: 0.2742
+Epoch: 160	Acc: 0.9657	Loss: 0.1012
+		Val Acc: 0.8983	Val Loss: 0.2774
+Epoch: 170	Acc: 0.9742	Loss: 0.1049
+		Val Acc: 0.9153	Val Loss: 0.2815
+Epoch: 180	Acc: 0.9657	Loss: 0.1038
+		Val Acc: 0.9153	Val Loss: 0.2865
+Epoch: 190	Acc: 0.9742	Loss: 0.0953
+		Val Acc: 0.9153	Val Loss: 0.2924
+Epoch: 200	Acc: 0.9785	Loss: 0.0876
+		Val Acc: 0.9153	Val Loss: 0.2991
+
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.85      0.90        27
+           1       0.89      0.97      0.93        32
+
+    accuracy                           0.92        59
+   macro avg       0.92      0.91      0.91        59
+weighted avg       0.92      0.92      0.91        59
+
+AUC-ROC: 0.9305555555555556
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=64, stride=64, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8884	Loss: 0.5683
+		Val Acc: 0.8305	Val Loss: 3.93
+Epoch: 20	Acc: 0.9056	Loss: 0.4786
+		Val Acc: 0.8136	Val Loss: 3.8525
+Epoch: 30	Acc: 0.9056	Loss: 0.409
+		Val Acc: 0.8136	Val Loss: 3.8058
+Epoch: 40	Acc: 0.897	Loss: 0.3577
+		Val Acc: 0.8136	Val Loss: 3.7765
+Epoch: 50	Acc: 0.9013	Loss: 0.3206
+		Val Acc: 0.8136	Val Loss: 3.7662
+Epoch: 60	Acc: 0.9056	Loss: 0.2934
+		Val Acc: 0.8136	Val Loss: 3.7618
+Epoch: 70	Acc: 0.9099	Loss: 0.2724
+		Val Acc: 0.8136	Val Loss: 3.7651
+Epoch: 80	Acc: 0.9099	Loss: 0.2561
+		Val Acc: 0.8136	Val Loss: 3.7744
+Epoch: 90	Acc: 0.9142	Loss: 0.2439
+		Val Acc: 0.8136	Val Loss: 3.7821
+Epoch: 100	Acc: 0.9142	Loss: 0.2335
+		Val Acc: 0.8136	Val Loss: 3.787
+
+
+              precision    recall  f1-score   support
+
+           0       0.93      0.74      0.82        34
+           1       0.72      0.92      0.81        25
+
+    accuracy                           0.81        59
+   macro avg       0.82      0.83      0.81        59
+weighted avg       0.84      0.81      0.81        59
+
+AUC-ROC: 0.8694117647058823
 Training for CDH1_8_8
 Model 1
-[Linear(in_features=12300, out_features=256, bias=True), Linear(in_features=256, out_features=64, bias=True), Linear(in_features=64, out_features=1, bias=True)]
 cust_model(
   (model): Sequential(
-    (0): Linear(in_features=12300, out_features=256, bias=True)
+    (0): Linear(in_features=79, out_features=256, bias=True)
     (1): Linear(in_features=256, out_features=64, bias=True)
     (2): Linear(in_features=64, out_features=1, bias=True)
   )
   (activation): Sigmoid()
 )
-Epoch: 10	Acc: 0.6858	Loss: 0.6842
-		Val Acc: 0.6667	Val Loss: 2.3911
-Epoch: 20	Acc: 0.8074	Loss: 0.674
-		Val Acc: 0.7576	Val Loss: 2.3896
-Epoch: 30	Acc: 0.8446	Loss: 0.6619
-		Val Acc: 0.8182	Val Loss: 2.4382
-Epoch: 40	Acc: 0.8885	Loss: 0.6456
-		Val Acc: 0.8182	Val Loss: 2.542
-Epoch: 50	Acc: 0.8682	Loss: 0.6236
-		Val Acc: 0.8182	Val Loss: 2.7121
-Epoch: 60	Acc: 0.8986	Loss: 0.5941
-		Val Acc: 0.8182	Val Loss: 2.9635
-Epoch: 70	Acc: 0.8919	Loss: 0.5543
-		Val Acc: 0.8182	Val Loss: 3.3161
-Epoch: 80	Acc: 0.8986	Loss: 0.5032
-		Val Acc: 0.8788	Val Loss: 3.7813
-Epoch: 90	Acc: 0.9054	Loss: 0.4462
-		Val Acc: 0.8788	Val Loss: 4.5283
-Epoch: 100	Acc: 0.9122	Loss: 0.3887
-		Val Acc: 0.9091	Val Loss: 4.6783
-Epoch: 110	Acc: 0.9088	Loss: 0.3392
-		Val Acc: 0.9091	Val Loss: 4.841
-Epoch: 120	Acc: 0.9155	Loss: 0.2985
-		Val Acc: 0.9091	Val Loss: 5.0173
-Epoch: 130	Acc: 0.9324	Loss: 0.2663
-		Val Acc: 0.9091	Val Loss: 5.1776
-Epoch: 140	Acc: 0.9358	Loss: 0.2418
-		Val Acc: 0.9091	Val Loss: 5.3388
-Epoch: 150	Acc: 0.9324	Loss: 0.2216
-		Val Acc: 0.9091	Val Loss: 5.503
-Epoch: 160	Acc: 0.9426	Loss: 0.2056
-		Val Acc: 0.9091	Val Loss: 5.6505
-Epoch: 170	Acc: 0.9426	Loss: 0.1925
-		Val Acc: 0.9091	Val Loss: 5.7927
-Epoch: 180	Acc: 0.9426	Loss: 0.1811
-		Val Acc: 0.9091	Val Loss: 6.1757
-Epoch: 190	Acc: 0.9426	Loss: 0.1729
-		Val Acc: 0.9091	Val Loss: 6.1773
-Epoch: 200	Acc: 0.9493	Loss: 0.1637
-		Val Acc: 0.9091	Val Loss: 6.164
+Epoch: 10	Acc: 0.9056	Loss: 0.4365
+		Val Acc: 0.8983	Val Loss: 0.4586
+Epoch: 20	Acc: 0.9185	Loss: 0.3233
+		Val Acc: 0.8983	Val Loss: 0.3575
+Epoch: 30	Acc: 0.9227	Loss: 0.2687
+		Val Acc: 0.8983	Val Loss: 0.3082
+Epoch: 40	Acc: 0.927	Loss: 0.2355
+		Val Acc: 0.9153	Val Loss: 0.278
+Epoch: 50	Acc: 0.927	Loss: 0.2125
+		Val Acc: 0.9153	Val Loss: 0.2573
+Epoch: 60	Acc: 0.9313	Loss: 0.1951
+		Val Acc: 0.9153	Val Loss: 0.2418
+Epoch: 70	Acc: 0.9442	Loss: 0.1812
+		Val Acc: 0.9153	Val Loss: 0.2298
+Epoch: 80	Acc: 0.9485	Loss: 0.1698
+		Val Acc: 0.9153	Val Loss: 0.2204
+Epoch: 90	Acc: 0.9528	Loss: 0.16
+		Val Acc: 0.9153	Val Loss: 0.2125
+Epoch: 100	Acc: 0.9528	Loss: 0.1517
+		Val Acc: 0.9153	Val Loss: 0.206
+Epoch: 110	Acc: 0.9528	Loss: 0.1445
+		Val Acc: 0.9153	Val Loss: 0.2004
+Epoch: 120	Acc: 0.9528	Loss: 0.1381
+		Val Acc: 0.9153	Val Loss: 0.1956
+Epoch: 130	Acc: 0.9528	Loss: 0.1325
+		Val Acc: 0.9153	Val Loss: 0.1916
+Epoch: 140	Acc: 0.9571	Loss: 0.1275
+		Val Acc: 0.9153	Val Loss: 0.1884
+Epoch: 150	Acc: 0.9571	Loss: 0.123
+		Val Acc: 0.9153	Val Loss: 0.185
+Epoch: 160	Acc: 0.9614	Loss: 0.1189
+		Val Acc: 0.9153	Val Loss: 0.1824
+Epoch: 170	Acc: 0.9614	Loss: 0.1152
+		Val Acc: 0.9153	Val Loss: 0.1797
+Epoch: 180	Acc: 0.9657	Loss: 0.1117
+		Val Acc: 0.9153	Val Loss: 0.1778
+Epoch: 190	Acc: 0.9657	Loss: 0.1086
+		Val Acc: 0.9153	Val Loss: 0.1761
+Epoch: 200	Acc: 0.97	Loss: 0.1057
+		Val Acc: 0.9153	Val Loss: 0.1741
 
 
               precision    recall  f1-score   support
 
-           0       0.89      0.94      0.91        17
-           1       0.93      0.88      0.90        16
+           0       1.00      0.81      0.90        27
+           1       0.86      1.00      0.93        32
 
-    accuracy                           0.91        33
-   macro avg       0.91      0.91      0.91        33
-weighted avg       0.91      0.91      0.91        33
+    accuracy                           0.92        59
+   macro avg       0.93      0.91      0.91        59
+weighted avg       0.93      0.92      0.91        59
 
-AUC-ROC: 0.8713235294117647
+AUC-ROC: 0.982638888888889
 Model 2
-[Linear(in_features=12300, out_features=256, bias=True), Dropout(p=0.25, inplace=False), Linear(in_features=256, out_features=64, bias=True), Dropout(p=0.25, inplace=False), Linear(in_features=64, out_features=1, bias=True)]
 cust_model(
   (model): Sequential(
-    (0): Linear(in_features=12300, out_features=256, bias=True)
+    (0): Linear(in_features=73, out_features=256, bias=True)
     (1): Dropout(p=0.25, inplace=False)
     (2): Linear(in_features=256, out_features=64, bias=True)
     (3): Dropout(p=0.25, inplace=False)
@@ -244,170 +1415,1007 @@ cust_model(
   )
   (activation): Sigmoid()
 )
-Epoch: 10	Acc: 0.723	Loss: 0.6813
-		Val Acc: 0.697	Val Loss: 0.8971
-Epoch: 20	Acc: 0.8311	Loss: 0.6666
-		Val Acc: 0.7273	Val Loss: 0.8786
-Epoch: 30	Acc: 0.8851	Loss: 0.647
-		Val Acc: 0.8182	Val Loss: 0.8695
-Epoch: 40	Acc: 0.8818	Loss: 0.6236
-		Val Acc: 0.8182	Val Loss: 0.8665
-Epoch: 50	Acc: 0.9054	Loss: 0.591
-		Val Acc: 0.8182	Val Loss: 0.8642
-Epoch: 60	Acc: 0.8986	Loss: 0.5472
-		Val Acc: 0.8182	Val Loss: 0.8711
-Epoch: 70	Acc: 0.902	Loss: 0.4944
-		Val Acc: 0.8182	Val Loss: 0.8797
-Epoch: 80	Acc: 0.9054	Loss: 0.432
-		Val Acc: 0.8182	Val Loss: 0.8998
-Epoch: 90	Acc: 0.9088	Loss: 0.3745
-		Val Acc: 0.8182	Val Loss: 0.9181
-Epoch: 100	Acc: 0.9155	Loss: 0.3275
-		Val Acc: 0.8182	Val Loss: 0.9392
-Epoch: 110	Acc: 0.9155	Loss: 0.289
-		Val Acc: 0.8182	Val Loss: 0.9726
-Epoch: 120	Acc: 0.9324	Loss: 0.2569
-		Val Acc: 0.8182	Val Loss: 1.013
-Epoch: 130	Acc: 0.9358	Loss: 0.24
-		Val Acc: 0.8182	Val Loss: 1.0656
-Epoch: 140	Acc: 0.9358	Loss: 0.2171
-		Val Acc: 0.8485	Val Loss: 1.1217
-Epoch: 150	Acc: 0.9459	Loss: 0.2047
-		Val Acc: 0.8182	Val Loss: 1.1473
-Epoch: 160	Acc: 0.9493	Loss: 0.1873
-		Val Acc: 0.8182	Val Loss: 1.1757
-Epoch: 170	Acc: 0.9459	Loss: 0.1787
-		Val Acc: 0.8485	Val Loss: 1.2436
-Epoch: 180	Acc: 0.9527	Loss: 0.1693
-		Val Acc: 0.8485	Val Loss: 1.276
-Epoch: 190	Acc: 0.9527	Loss: 0.1619
-		Val Acc: 0.8485	Val Loss: 1.3156
-Epoch: 200	Acc: 0.9561	Loss: 0.159
-		Val Acc: 0.8485	Val Loss: 1.4106
+Epoch: 10	Acc: 0.8884	Loss: 0.389
+		Val Acc: 0.8814	Val Loss: 0.3637
+Epoch: 20	Acc: 0.8927	Loss: 0.3154
+		Val Acc: 0.8983	Val Loss: 0.2896
+Epoch: 30	Acc: 0.9099	Loss: 0.2678
+		Val Acc: 0.9322	Val Loss: 0.2487
+Epoch: 40	Acc: 0.9099	Loss: 0.2418
+		Val Acc: 0.9322	Val Loss: 0.2226
+Epoch: 50	Acc: 0.9227	Loss: 0.2146
+		Val Acc: 0.9322	Val Loss: 0.2039
+Epoch: 60	Acc: 0.927	Loss: 0.2092
+		Val Acc: 0.9322	Val Loss: 0.1896
+Epoch: 70	Acc: 0.9442	Loss: 0.1856
+		Val Acc: 0.9322	Val Loss: 0.1785
+Epoch: 80	Acc: 0.9399	Loss: 0.1769
+		Val Acc: 0.9492	Val Loss: 0.1693
+Epoch: 90	Acc: 0.9442	Loss: 0.1755
+		Val Acc: 0.9492	Val Loss: 0.1611
+Epoch: 100	Acc: 0.9528	Loss: 0.1638
+		Val Acc: 0.9492	Val Loss: 0.1542
+Epoch: 110	Acc: 0.9485	Loss: 0.1609
+		Val Acc: 0.9492	Val Loss: 0.1484
+Epoch: 120	Acc: 0.9442	Loss: 0.1544
+		Val Acc: 0.9492	Val Loss: 0.1432
+Epoch: 130	Acc: 0.9528	Loss: 0.1571
+		Val Acc: 0.9492	Val Loss: 0.1384
+Epoch: 140	Acc: 0.9571	Loss: 0.1464
+		Val Acc: 0.9492	Val Loss: 0.1342
+Epoch: 150	Acc: 0.9485	Loss: 0.1427
+		Val Acc: 0.9492	Val Loss: 0.1304
+Epoch: 160	Acc: 0.9571	Loss: 0.1358
+		Val Acc: 0.9492	Val Loss: 0.127
+Epoch: 170	Acc: 0.9528	Loss: 0.1366
+		Val Acc: 0.9492	Val Loss: 0.1238
+Epoch: 180	Acc: 0.9614	Loss: 0.1228
+		Val Acc: 0.9492	Val Loss: 0.1208
+Epoch: 190	Acc: 0.9614	Loss: 0.1288
+		Val Acc: 0.9492	Val Loss: 0.1185
+Epoch: 200	Acc: 0.9614	Loss: 0.1156
+		Val Acc: 0.9492	Val Loss: 0.1158
 
 
               precision    recall  f1-score   support
 
-           0       0.78      0.93      0.85        15
-           1       0.93      0.78      0.85        18
+           0       1.00      0.87      0.93        23
+           1       0.92      1.00      0.96        36
 
-    accuracy                           0.85        33
-   macro avg       0.86      0.86      0.85        33
-weighted avg       0.86      0.85      0.85        33
+    accuracy                           0.95        59
+   macro avg       0.96      0.93      0.95        59
+weighted avg       0.95      0.95      0.95        59
 
-AUC-ROC: 0.8555555555555556
+AUC-ROC: 1.0
 Model 3
-[Linear(in_features=64, out_features=256, bias=True), Linear(in_features=256, out_features=64, bias=True), Linear(in_features=64, out_features=1, bias=True)]
 cust_model(
-  (conv): Conv1d(1, 64, kernel_size=(8,), stride=(1,))
-  (maxpool): MaxPool1d(kernel_size=12293, stride=12293, padding=0, dilation=1, ceil_mode=False)
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=69, stride=69, padding=0, dilation=1, ceil_mode=False)
   (model): Sequential(
-    (0): Linear(in_features=64, out_features=256, bias=True)
+    (0): Linear(in_features=32, out_features=256, bias=True)
     (1): Linear(in_features=256, out_features=64, bias=True)
     (2): Linear(in_features=64, out_features=1, bias=True)
   )
   (activation): Sigmoid()
 )
-Epoch: 10	Acc: 0.527	Loss: 0.6927
-		Val Acc: 0.5152	Val Loss: 18.3707
-Epoch: 20	Acc: 0.5101	Loss: 0.6919
-		Val Acc: 0.4242	Val Loss: 19.2882
-Epoch: 30	Acc: 0.5101	Loss: 0.6916
-		Val Acc: 0.4242	Val Loss: 19.287
-Epoch: 40	Acc: 0.5101	Loss: 0.6914
-		Val Acc: 0.4242	Val Loss: 19.3125
-Epoch: 50	Acc: 0.5101	Loss: 0.6912
-		Val Acc: 0.4242	Val Loss: 19.2814
-Epoch: 60	Acc: 0.5101	Loss: 0.6909
-		Val Acc: 0.4242	Val Loss: 19.2522
-Epoch: 70	Acc: 0.5101	Loss: 0.6906
-		Val Acc: 0.4242	Val Loss: 19.2996
-Epoch: 80	Acc: 0.5101	Loss: 0.6903
-		Val Acc: 0.4242	Val Loss: 19.2564
-Epoch: 90	Acc: 0.5101	Loss: 0.69
-		Val Acc: 0.4242	Val Loss: 19.2952
-Epoch: 100	Acc: 0.5101	Loss: 0.6899
-		Val Acc: 0.4242	Val Loss: 19.2462
+Epoch: 10	Acc: 0.8584	Loss: 0.6177
+		Val Acc: 0.9322	Val Loss: 0.5904
+Epoch: 20	Acc: 0.8798	Loss: 0.5636
+		Val Acc: 0.9153	Val Loss: 0.5253
+Epoch: 30	Acc: 0.8755	Loss: 0.5121
+		Val Acc: 0.9153	Val Loss: 0.4617
+Epoch: 40	Acc: 0.8712	Loss: 0.4635
+		Val Acc: 0.9153	Val Loss: 0.4036
+Epoch: 50	Acc: 0.8755	Loss: 0.4201
+		Val Acc: 0.9153	Val Loss: 0.3544
+Epoch: 60	Acc: 0.8798	Loss: 0.3844
+		Val Acc: 0.9153	Val Loss: 0.315
+Epoch: 70	Acc: 0.8927	Loss: 0.3551
+		Val Acc: 0.9153	Val Loss: 0.2804
+Epoch: 80	Acc: 0.897	Loss: 0.3312
+		Val Acc: 0.9153	Val Loss: 0.2558
+Epoch: 90	Acc: 0.8927	Loss: 0.3124
+		Val Acc: 0.9153	Val Loss: 0.2337
+Epoch: 100	Acc: 0.9013	Loss: 0.2958
+		Val Acc: 0.9322	Val Loss: 0.2163
 
 
               precision    recall  f1-score   support
 
-           0       0.42      1.00      0.60        14
-           1       0.00      0.00      0.00        19
+           0       0.94      0.94      0.94        31
+           1       0.93      0.93      0.93        28
 
-    accuracy                           0.42        33
-   macro avg       0.21      0.50      0.30        33
-weighted avg       0.18      0.42      0.25        33
+    accuracy                           0.93        59
+   macro avg       0.93      0.93      0.93        59
+weighted avg       0.93      0.93      0.93        59
 
-AUC-ROC: 0.25
+AUC-ROC: 0.9815668202764978
+Training for CDH1_8_4
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=66, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9056	Loss: 0.3185
+		Val Acc: 0.8983	Val Loss: 2.0059
+Epoch: 20	Acc: 0.9099	Loss: 0.2541
+		Val Acc: 0.9322	Val Loss: 1.9484
+Epoch: 30	Acc: 0.9142	Loss: 0.2247
+		Val Acc: 0.9322	Val Loss: 1.9232
+Epoch: 40	Acc: 0.927	Loss: 0.206
+		Val Acc: 0.9322	Val Loss: 1.9083
+Epoch: 50	Acc: 0.927	Loss: 0.1923
+		Val Acc: 0.9322	Val Loss: 1.8983
+Epoch: 60	Acc: 0.927	Loss: 0.1814
+		Val Acc: 0.9322	Val Loss: 1.8909
+Epoch: 70	Acc: 0.927	Loss: 0.1725
+		Val Acc: 0.9322	Val Loss: 1.8849
+Epoch: 80	Acc: 0.9356	Loss: 0.165
+		Val Acc: 0.9322	Val Loss: 1.8798
+Epoch: 90	Acc: 0.9356	Loss: 0.1586
+		Val Acc: 0.9322	Val Loss: 1.8758
+Epoch: 100	Acc: 0.9485	Loss: 0.153
+		Val Acc: 0.9322	Val Loss: 1.8723
+Epoch: 110	Acc: 0.9485	Loss: 0.1479
+		Val Acc: 0.9322	Val Loss: 1.8692
+Epoch: 120	Acc: 0.9528	Loss: 0.1435
+		Val Acc: 0.9322	Val Loss: 1.8665
+Epoch: 130	Acc: 0.9528	Loss: 0.1394
+		Val Acc: 0.9322	Val Loss: 1.8643
+Epoch: 140	Acc: 0.9571	Loss: 0.1357
+		Val Acc: 0.9322	Val Loss: 1.8621
+Epoch: 150	Acc: 0.9571	Loss: 0.1323
+		Val Acc: 0.9322	Val Loss: 1.8603
+Epoch: 160	Acc: 0.9614	Loss: 0.1291
+		Val Acc: 0.9322	Val Loss: 1.8586
+Epoch: 170	Acc: 0.9657	Loss: 0.1261
+		Val Acc: 0.9322	Val Loss: 1.8572
+Epoch: 180	Acc: 0.97	Loss: 0.1235
+		Val Acc: 0.9322	Val Loss: 1.8558
+Epoch: 190	Acc: 0.97	Loss: 0.1209
+		Val Acc: 0.9322	Val Loss: 1.8546
+Epoch: 200	Acc: 0.97	Loss: 0.1186
+		Val Acc: 0.9322	Val Loss: 1.8535
+
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.88      0.92        25
+           1       0.92      0.97      0.94        34
+
+    accuracy                           0.93        59
+   macro avg       0.94      0.93      0.93        59
+weighted avg       0.93      0.93      0.93        59
+
+AUC-ROC: 0.9305882352941176
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=69, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8927	Loss: 0.3912
+		Val Acc: 0.9322	Val Loss: 0.3239
+Epoch: 20	Acc: 0.8927	Loss: 0.2968
+		Val Acc: 0.9322	Val Loss: 0.2434
+Epoch: 30	Acc: 0.9013	Loss: 0.2678
+		Val Acc: 0.9492	Val Loss: 0.2096
+Epoch: 40	Acc: 0.9227	Loss: 0.2416
+		Val Acc: 0.9492	Val Loss: 0.1903
+Epoch: 50	Acc: 0.9185	Loss: 0.217
+		Val Acc: 0.9492	Val Loss: 0.1773
+Epoch: 60	Acc: 0.9313	Loss: 0.2093
+		Val Acc: 0.9492	Val Loss: 0.1682
+Epoch: 70	Acc: 0.9313	Loss: 0.1991
+		Val Acc: 0.9492	Val Loss: 0.1611
+Epoch: 80	Acc: 0.9313	Loss: 0.1905
+		Val Acc: 0.9492	Val Loss: 0.1553
+Epoch: 90	Acc: 0.9356	Loss: 0.1871
+		Val Acc: 0.9492	Val Loss: 0.15
+Epoch: 100	Acc: 0.9313	Loss: 0.1752
+		Val Acc: 0.9492	Val Loss: 0.1462
+Epoch: 110	Acc: 0.9485	Loss: 0.174
+		Val Acc: 0.9492	Val Loss: 0.1425
+Epoch: 120	Acc: 0.9399	Loss: 0.1617
+		Val Acc: 0.9492	Val Loss: 0.139
+Epoch: 130	Acc: 0.9442	Loss: 0.1702
+		Val Acc: 0.9492	Val Loss: 0.1363
+Epoch: 140	Acc: 0.9571	Loss: 0.1553
+		Val Acc: 0.9492	Val Loss: 0.1339
+Epoch: 150	Acc: 0.9442	Loss: 0.1554
+		Val Acc: 0.9492	Val Loss: 0.132
+Epoch: 160	Acc: 0.9528	Loss: 0.1581
+		Val Acc: 0.9492	Val Loss: 0.1298
+Epoch: 170	Acc: 0.9571	Loss: 0.1525
+		Val Acc: 0.9492	Val Loss: 0.1278
+Epoch: 180	Acc: 0.9485	Loss: 0.152
+		Val Acc: 0.9492	Val Loss: 0.1261
+Epoch: 190	Acc: 0.9528	Loss: 0.1395
+		Val Acc: 0.9661	Val Loss: 0.1245
+Epoch: 200	Acc: 0.9614	Loss: 0.1395
+		Val Acc: 0.9661	Val Loss: 0.123
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.93      0.96        29
+           1       0.94      1.00      0.97        30
+
+    accuracy                           0.97        59
+   macro avg       0.97      0.97      0.97        59
+weighted avg       0.97      0.97      0.97        59
+
+AUC-ROC: 0.9862068965517242
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=68, stride=68, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.7639	Loss: 0.6346
+		Val Acc: 0.9322	Val Loss: 2.0799
+Epoch: 20	Acc: 0.8841	Loss: 0.5653
+		Val Acc: 0.8983	Val Loss: 2.215
+Epoch: 30	Acc: 0.8884	Loss: 0.5022
+		Val Acc: 0.8983	Val Loss: 2.1534
+Epoch: 40	Acc: 0.897	Loss: 0.4496
+		Val Acc: 0.8814	Val Loss: 2.1075
+Epoch: 50	Acc: 0.897	Loss: 0.4086
+		Val Acc: 0.8814	Val Loss: 2.0746
+Epoch: 60	Acc: 0.9013	Loss: 0.3756
+		Val Acc: 0.8644	Val Loss: 2.0559
+Epoch: 70	Acc: 0.9013	Loss: 0.3514
+		Val Acc: 0.8644	Val Loss: 2.0433
+Epoch: 80	Acc: 0.9056	Loss: 0.3337
+		Val Acc: 0.8644	Val Loss: 2.0389
+Epoch: 90	Acc: 0.9099	Loss: 0.3198
+		Val Acc: 0.8644	Val Loss: 2.0343
+Epoch: 100	Acc: 0.9142	Loss: 0.309
+		Val Acc: 0.8644	Val Loss: 2.035
+
+
+              precision    recall  f1-score   support
+
+           0       0.91      0.86      0.89        36
+           1       0.80      0.87      0.83        23
+
+    accuracy                           0.86        59
+   macro avg       0.86      0.87      0.86        59
+weighted avg       0.87      0.86      0.87        59
+
+AUC-ROC: 0.9021739130434782
+Training for CDH1_10_10
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=68, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8798	Loss: 0.3856
+		Val Acc: 0.8644	Val Loss: 0.4269
+Epoch: 20	Acc: 0.9056	Loss: 0.2959
+		Val Acc: 0.8814	Val Loss: 0.3552
+Epoch: 30	Acc: 0.9142	Loss: 0.2522
+		Val Acc: 0.8814	Val Loss: 0.3186
+Epoch: 40	Acc: 0.9185	Loss: 0.2255
+		Val Acc: 0.8983	Val Loss: 0.2953
+Epoch: 50	Acc: 0.9227	Loss: 0.207
+		Val Acc: 0.8983	Val Loss: 0.2787
+Epoch: 60	Acc: 0.9313	Loss: 0.1933
+		Val Acc: 0.8983	Val Loss: 0.2659
+Epoch: 70	Acc: 0.9356	Loss: 0.1824
+		Val Acc: 0.8983	Val Loss: 0.2553
+Epoch: 80	Acc: 0.9442	Loss: 0.1735
+		Val Acc: 0.8983	Val Loss: 0.2465
+Epoch: 90	Acc: 0.9528	Loss: 0.1661
+		Val Acc: 0.8983	Val Loss: 0.2392
+Epoch: 100	Acc: 0.9571	Loss: 0.1598
+		Val Acc: 0.8983	Val Loss: 0.2327
+Epoch: 110	Acc: 0.9571	Loss: 0.1544
+		Val Acc: 0.8983	Val Loss: 0.2269
+Epoch: 120	Acc: 0.9571	Loss: 0.1496
+		Val Acc: 0.8983	Val Loss: 0.222
+Epoch: 130	Acc: 0.9571	Loss: 0.1453
+		Val Acc: 0.8983	Val Loss: 0.2176
+Epoch: 140	Acc: 0.9614	Loss: 0.1417
+		Val Acc: 0.8983	Val Loss: 0.2134
+Epoch: 150	Acc: 0.9614	Loss: 0.1382
+		Val Acc: 0.8983	Val Loss: 0.2097
+Epoch: 160	Acc: 0.9614	Loss: 0.135
+		Val Acc: 0.8983	Val Loss: 0.2061
+Epoch: 170	Acc: 0.9614	Loss: 0.1322
+		Val Acc: 0.8983	Val Loss: 0.2027
+Epoch: 180	Acc: 0.9614	Loss: 0.1296
+		Val Acc: 0.8983	Val Loss: 0.2
+Epoch: 190	Acc: 0.9614	Loss: 0.1271
+		Val Acc: 0.8983	Val Loss: 0.1974
+Epoch: 200	Acc: 0.9614	Loss: 0.1249
+		Val Acc: 0.8983	Val Loss: 0.1949
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.75      0.86        24
+           1       0.85      1.00      0.92        35
+
+    accuracy                           0.90        59
+   macro avg       0.93      0.88      0.89        59
+weighted avg       0.91      0.90      0.90        59
+
+AUC-ROC: 0.9791666666666667
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=70, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8884	Loss: 0.4111
+		Val Acc: 0.8814	Val Loss: 0.4286
+Epoch: 20	Acc: 0.9013	Loss: 0.3027
+		Val Acc: 0.8814	Val Loss: 0.3434
+Epoch: 30	Acc: 0.9099	Loss: 0.2597
+		Val Acc: 0.8814	Val Loss: 0.3034
+Epoch: 40	Acc: 0.9142	Loss: 0.2338
+		Val Acc: 0.8814	Val Loss: 0.2799
+Epoch: 50	Acc: 0.927	Loss: 0.2149
+		Val Acc: 0.8814	Val Loss: 0.2632
+Epoch: 60	Acc: 0.9227	Loss: 0.202
+		Val Acc: 0.8814	Val Loss: 0.2506
+Epoch: 70	Acc: 0.9399	Loss: 0.1911
+		Val Acc: 0.9153	Val Loss: 0.2408
+Epoch: 80	Acc: 0.9356	Loss: 0.1866
+		Val Acc: 0.9153	Val Loss: 0.233
+Epoch: 90	Acc: 0.9442	Loss: 0.1798
+		Val Acc: 0.9153	Val Loss: 0.2262
+Epoch: 100	Acc: 0.9442	Loss: 0.1759
+		Val Acc: 0.9153	Val Loss: 0.2205
+Epoch: 110	Acc: 0.9442	Loss: 0.1596
+		Val Acc: 0.9322	Val Loss: 0.216
+Epoch: 120	Acc: 0.9485	Loss: 0.1493
+		Val Acc: 0.9322	Val Loss: 0.2114
+Epoch: 130	Acc: 0.9528	Loss: 0.1442
+		Val Acc: 0.9322	Val Loss: 0.2077
+Epoch: 140	Acc: 0.9528	Loss: 0.1542
+		Val Acc: 0.9322	Val Loss: 0.2046
+Epoch: 150	Acc: 0.9485	Loss: 0.1495
+		Val Acc: 0.9322	Val Loss: 0.2016
+Epoch: 160	Acc: 0.9571	Loss: 0.1364
+		Val Acc: 0.9322	Val Loss: 0.1985
+Epoch: 170	Acc: 0.9571	Loss: 0.136
+		Val Acc: 0.9322	Val Loss: 0.1957
+Epoch: 180	Acc: 0.9528	Loss: 0.135
+		Val Acc: 0.9322	Val Loss: 0.1932
+Epoch: 190	Acc: 0.9528	Loss: 0.1421
+		Val Acc: 0.9322	Val Loss: 0.1909
+Epoch: 200	Acc: 0.9528	Loss: 0.1347
+		Val Acc: 0.9322	Val Loss: 0.1888
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.86      0.92        28
+           1       0.89      1.00      0.94        31
+
+    accuracy                           0.93        59
+   macro avg       0.94      0.93      0.93        59
+weighted avg       0.94      0.93      0.93        59
+
+AUC-ROC: 0.9654377880184332
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=59, stride=59, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.5107	Loss: 0.6694
+		Val Acc: 0.4068	Val Loss: 0.6788
+Epoch: 20	Acc: 0.7854	Loss: 0.6121
+		Val Acc: 0.8983	Val Loss: 0.6071
+Epoch: 30	Acc: 0.8455	Loss: 0.56
+		Val Acc: 0.8814	Val Loss: 0.5421
+Epoch: 40	Acc: 0.8884	Loss: 0.5083
+		Val Acc: 0.9492	Val Loss: 0.4773
+Epoch: 50	Acc: 0.8798	Loss: 0.4609
+		Val Acc: 0.9492	Val Loss: 0.4208
+Epoch: 60	Acc: 0.8798	Loss: 0.4193
+		Val Acc: 0.9492	Val Loss: 0.373
+Epoch: 70	Acc: 0.8841	Loss: 0.3845
+		Val Acc: 0.9492	Val Loss: 0.3347
+Epoch: 80	Acc: 0.8884	Loss: 0.3558
+		Val Acc: 0.9492	Val Loss: 0.3053
+Epoch: 90	Acc: 0.8884	Loss: 0.3322
+		Val Acc: 0.9492	Val Loss: 0.2835
+Epoch: 100	Acc: 0.8884	Loss: 0.3138
+		Val Acc: 0.9492	Val Loss: 0.268
+
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.92      0.94        24
+           1       0.94      0.97      0.96        35
+
+    accuracy                           0.95        59
+   macro avg       0.95      0.94      0.95        59
+weighted avg       0.95      0.95      0.95        59
+
+AUC-ROC: 0.9678571428571429
+Training for CDH1_10_5
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=71, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8884	Loss: 0.3498
+		Val Acc: 0.9322	Val Loss: 0.3073
+Epoch: 20	Acc: 0.8927	Loss: 0.2817
+		Val Acc: 0.9492	Val Loss: 0.236
+Epoch: 30	Acc: 0.9142	Loss: 0.2512
+		Val Acc: 0.9492	Val Loss: 0.2058
+Epoch: 40	Acc: 0.9185	Loss: 0.2319
+		Val Acc: 0.9492	Val Loss: 0.1882
+Epoch: 50	Acc: 0.9185	Loss: 0.2173
+		Val Acc: 0.9661	Val Loss: 0.1768
+Epoch: 60	Acc: 0.9227	Loss: 0.2059
+		Val Acc: 0.9661	Val Loss: 0.1678
+Epoch: 70	Acc: 0.927	Loss: 0.1966
+		Val Acc: 0.9661	Val Loss: 0.1611
+Epoch: 80	Acc: 0.9313	Loss: 0.1887
+		Val Acc: 0.9661	Val Loss: 0.156
+Epoch: 90	Acc: 0.9313	Loss: 0.1816
+		Val Acc: 0.9661	Val Loss: 0.1511
+Epoch: 100	Acc: 0.9356	Loss: 0.1755
+		Val Acc: 0.9661	Val Loss: 0.1471
+Epoch: 110	Acc: 0.9399	Loss: 0.1701
+		Val Acc: 0.9661	Val Loss: 0.1437
+Epoch: 120	Acc: 0.9442	Loss: 0.1654
+		Val Acc: 0.9661	Val Loss: 0.1413
+Epoch: 130	Acc: 0.9442	Loss: 0.1609
+		Val Acc: 0.9661	Val Loss: 0.1386
+Epoch: 140	Acc: 0.9485	Loss: 0.1569
+		Val Acc: 0.9661	Val Loss: 0.1362
+Epoch: 150	Acc: 0.9485	Loss: 0.1533
+		Val Acc: 0.9661	Val Loss: 0.1343
+Epoch: 160	Acc: 0.9485	Loss: 0.1499
+		Val Acc: 0.9661	Val Loss: 0.1329
+Epoch: 170	Acc: 0.9485	Loss: 0.1468
+		Val Acc: 0.9661	Val Loss: 0.1323
+Epoch: 180	Acc: 0.9485	Loss: 0.1438
+		Val Acc: 0.9661	Val Loss: 0.1301
+Epoch: 190	Acc: 0.9485	Loss: 0.141
+		Val Acc: 0.9661	Val Loss: 0.1288
+Epoch: 200	Acc: 0.9528	Loss: 0.1385
+		Val Acc: 0.9661	Val Loss: 0.1278
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.92      0.96        26
+           1       0.94      1.00      0.97        33
+
+    accuracy                           0.97        59
+   macro avg       0.97      0.96      0.97        59
+weighted avg       0.97      0.97      0.97        59
+
+AUC-ROC: 0.9778554778554779
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=81, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.867	Loss: 0.3815
+		Val Acc: 0.9492	Val Loss: 0.2742
+Epoch: 20	Acc: 0.897	Loss: 0.3075
+		Val Acc: 0.9492	Val Loss: 0.1985
+Epoch: 30	Acc: 0.9056	Loss: 0.2642
+		Val Acc: 0.9661	Val Loss: 0.1633
+Epoch: 40	Acc: 0.9056	Loss: 0.2545
+		Val Acc: 0.9661	Val Loss: 0.1418
+Epoch: 50	Acc: 0.9013	Loss: 0.2463
+		Val Acc: 0.9661	Val Loss: 0.1277
+Epoch: 60	Acc: 0.9142	Loss: 0.2303
+		Val Acc: 0.9831	Val Loss: 0.117
+Epoch: 70	Acc: 0.9142	Loss: 0.2206
+		Val Acc: 0.9831	Val Loss: 0.1091
+Epoch: 80	Acc: 0.9227	Loss: 0.2148
+		Val Acc: 0.9831	Val Loss: 0.1018
+Epoch: 90	Acc: 0.9227	Loss: 0.2028
+		Val Acc: 1.0	Val Loss: 0.0952
+Epoch: 100	Acc: 0.927	Loss: 0.1971
+		Val Acc: 1.0	Val Loss: 0.0908
+Epoch: 110	Acc: 0.927	Loss: 0.1946
+		Val Acc: 1.0	Val Loss: 0.0858
+Epoch: 120	Acc: 0.9356	Loss: 0.1846
+		Val Acc: 1.0	Val Loss: 0.0817
+Epoch: 130	Acc: 0.927	Loss: 0.1908
+		Val Acc: 1.0	Val Loss: 0.078
+Epoch: 140	Acc: 0.927	Loss: 0.1878
+		Val Acc: 1.0	Val Loss: 0.0748
+Epoch: 150	Acc: 0.9313	Loss: 0.1852
+		Val Acc: 1.0	Val Loss: 0.0716
+Epoch: 160	Acc: 0.9442	Loss: 0.1678
+		Val Acc: 1.0	Val Loss: 0.0683
+Epoch: 170	Acc: 0.9356	Loss: 0.1671
+		Val Acc: 1.0	Val Loss: 0.0654
+Epoch: 180	Acc: 0.9442	Loss: 0.1697
+		Val Acc: 1.0	Val Loss: 0.0639
+Epoch: 190	Acc: 0.9528	Loss: 0.1625
+		Val Acc: 1.0	Val Loss: 0.0622
+Epoch: 200	Acc: 0.9313	Loss: 0.1657
+		Val Acc: 1.0	Val Loss: 0.0601
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        32
+           1       1.00      1.00      1.00        27
+
+    accuracy                           1.00        59
+   macro avg       1.00      1.00      1.00        59
+weighted avg       1.00      1.00      1.00        59
+
+AUC-ROC: 1.0
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=66, stride=66, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.7897	Loss: 0.6004
+		Val Acc: 0.9153	Val Loss: 2.2576
+Epoch: 20	Acc: 0.8498	Loss: 0.5287
+		Val Acc: 0.8983	Val Loss: 2.1679
+Epoch: 30	Acc: 0.8755	Loss: 0.467
+		Val Acc: 0.8983	Val Loss: 2.0925
+Epoch: 40	Acc: 0.8798	Loss: 0.4165
+		Val Acc: 0.8983	Val Loss: 2.0387
+Epoch: 50	Acc: 0.8755	Loss: 0.3784
+		Val Acc: 0.8983	Val Loss: 1.9995
+Epoch: 60	Acc: 0.8798	Loss: 0.3501
+		Val Acc: 0.8814	Val Loss: 1.9756
+Epoch: 70	Acc: 0.8841	Loss: 0.33
+		Val Acc: 0.8814	Val Loss: 1.9595
+Epoch: 80	Acc: 0.8884	Loss: 0.3156
+		Val Acc: 0.8814	Val Loss: 1.9518
+Epoch: 90	Acc: 0.8884	Loss: 0.304
+		Val Acc: 0.8814	Val Loss: 1.9448
+Epoch: 100	Acc: 0.8884	Loss: 0.2961
+		Val Acc: 0.8814	Val Loss: 1.9407
+
+
+              precision    recall  f1-score   support
+
+           0       0.95      0.78      0.86        27
+           1       0.84      0.97      0.90        32
+
+    accuracy                           0.88        59
+   macro avg       0.90      0.87      0.88        59
+weighted avg       0.89      0.88      0.88        59
+
+AUC-ROC: 0.9415509259259259
+Training for GATA3_16_16
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=39, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8452	Loss: 0.5219
+		Val Acc: 0.8571	Val Loss: 0.5004
+Epoch: 20	Acc: 0.869	Loss: 0.4404
+		Val Acc: 0.8571	Val Loss: 0.4281
+Epoch: 30	Acc: 0.8571	Loss: 0.3894
+		Val Acc: 0.8571	Val Loss: 0.385
+Epoch: 40	Acc: 0.869	Loss: 0.3557
+		Val Acc: 0.8571	Val Loss: 0.3597
+Epoch: 50	Acc: 0.869	Loss: 0.3298
+		Val Acc: 0.8571	Val Loss: 0.342
+Epoch: 60	Acc: 0.869	Loss: 0.3094
+		Val Acc: 0.8571	Val Loss: 0.3281
+Epoch: 70	Acc: 0.869	Loss: 0.2932
+		Val Acc: 0.8571	Val Loss: 0.3179
+Epoch: 80	Acc: 0.869	Loss: 0.2799
+		Val Acc: 0.8571	Val Loss: 0.3113
+Epoch: 90	Acc: 0.869	Loss: 0.2687
+		Val Acc: 0.8571	Val Loss: 0.3052
+Epoch: 100	Acc: 0.9048	Loss: 0.2584
+		Val Acc: 0.8571	Val Loss: 0.3007
+Epoch: 110	Acc: 0.9048	Loss: 0.2489
+		Val Acc: 0.8571	Val Loss: 0.2961
+Epoch: 120	Acc: 0.9167	Loss: 0.2408
+		Val Acc: 0.8571	Val Loss: 0.2919
+Epoch: 130	Acc: 0.9167	Loss: 0.2333
+		Val Acc: 0.8571	Val Loss: 0.2883
+Epoch: 140	Acc: 0.9167	Loss: 0.2265
+		Val Acc: 0.8571	Val Loss: 0.2847
+Epoch: 150	Acc: 0.9167	Loss: 0.2204
+		Val Acc: 0.8571	Val Loss: 0.2819
+Epoch: 160	Acc: 0.9286	Loss: 0.2149
+		Val Acc: 0.8571	Val Loss: 0.2793
+Epoch: 170	Acc: 0.9286	Loss: 0.2093
+		Val Acc: 0.8571	Val Loss: 0.2767
+Epoch: 180	Acc: 0.9286	Loss: 0.2039
+		Val Acc: 0.8571	Val Loss: 0.274
+Epoch: 190	Acc: 0.9405	Loss: 0.1991
+		Val Acc: 0.8571	Val Loss: 0.2717
+Epoch: 200	Acc: 0.9405	Loss: 0.1947
+		Val Acc: 0.8571	Val Loss: 0.2695
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.67      0.80         9
+           1       0.80      1.00      0.89        12
+
+    accuracy                           0.86        21
+   macro avg       0.90      0.83      0.84        21
+weighted avg       0.89      0.86      0.85        21
+
+AUC-ROC: 1.0
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=39, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.7976	Loss: 0.5453
+		Val Acc: 0.8571	Val Loss: 0.529
+Epoch: 20	Acc: 0.8333	Loss: 0.464
+		Val Acc: 0.9524	Val Loss: 0.4365
+Epoch: 30	Acc: 0.8333	Loss: 0.4193
+		Val Acc: 0.9524	Val Loss: 0.3786
+Epoch: 40	Acc: 0.881	Loss: 0.3773
+		Val Acc: 0.9524	Val Loss: 0.3438
+Epoch: 50	Acc: 0.8571	Loss: 0.3536
+		Val Acc: 0.9524	Val Loss: 0.3147
+Epoch: 60	Acc: 0.8452	Loss: 0.3576
+		Val Acc: 0.9524	Val Loss: 0.2917
+Epoch: 70	Acc: 0.8452	Loss: 0.3321
+		Val Acc: 0.9524	Val Loss: 0.2745
+Epoch: 80	Acc: 0.869	Loss: 0.3105
+		Val Acc: 0.9524	Val Loss: 0.259
+Epoch: 90	Acc: 0.869	Loss: 0.3154
+		Val Acc: 0.9524	Val Loss: 0.2466
+Epoch: 100	Acc: 0.881	Loss: 0.3093
+		Val Acc: 0.9524	Val Loss: 0.2358
+Epoch: 110	Acc: 0.8929	Loss: 0.2763
+		Val Acc: 0.9524	Val Loss: 0.2302
+Epoch: 120	Acc: 0.8929	Loss: 0.2766
+		Val Acc: 0.9524	Val Loss: 0.2255
+Epoch: 130	Acc: 0.881	Loss: 0.2896
+		Val Acc: 0.9524	Val Loss: 0.2189
+Epoch: 140	Acc: 0.9167	Loss: 0.2709
+		Val Acc: 0.9524	Val Loss: 0.2126
+Epoch: 150	Acc: 0.8929	Loss: 0.268
+		Val Acc: 0.9524	Val Loss: 0.2099
+Epoch: 160	Acc: 0.9048	Loss: 0.2607
+		Val Acc: 0.9524	Val Loss: 0.2039
+Epoch: 170	Acc: 0.9048	Loss: 0.26
+		Val Acc: 0.9524	Val Loss: 0.198
+Epoch: 180	Acc: 0.9286	Loss: 0.2391
+		Val Acc: 0.9524	Val Loss: 0.1922
+Epoch: 190	Acc: 0.8929	Loss: 0.2404
+		Val Acc: 0.9524	Val Loss: 0.1897
+Epoch: 200	Acc: 0.9167	Loss: 0.2255
+		Val Acc: 0.9524	Val Loss: 0.1872
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.89      0.94         9
+           1       0.92      1.00      0.96        12
+
+    accuracy                           0.95        21
+   macro avg       0.96      0.94      0.95        21
+weighted avg       0.96      0.95      0.95        21
+
+AUC-ROC: 1.0
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=38, stride=38, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.5476	Loss: 0.688
+		Val Acc: 0.2857	Val Loss: 0.7357
+Epoch: 20	Acc: 0.7381	Loss: 0.6579
+		Val Acc: 0.6667	Val Loss: 0.6699
+Epoch: 30	Acc: 0.8929	Loss: 0.6303
+		Val Acc: 0.8571	Val Loss: 0.6166
+Epoch: 40	Acc: 0.8571	Loss: 0.6051
+		Val Acc: 0.8571	Val Loss: 0.6031
+Epoch: 50	Acc: 0.8929	Loss: 0.5788
+		Val Acc: 0.8571	Val Loss: 0.5667
+Epoch: 60	Acc: 0.869	Loss: 0.5543
+		Val Acc: 0.8571	Val Loss: 0.5382
+Epoch: 70	Acc: 0.8929	Loss: 0.53
+		Val Acc: 0.8571	Val Loss: 0.5037
+Epoch: 80	Acc: 0.869	Loss: 0.5068
+		Val Acc: 0.8571	Val Loss: 0.4981
+Epoch: 90	Acc: 0.869	Loss: 0.4836
+		Val Acc: 0.8571	Val Loss: 0.4667
+Epoch: 100	Acc: 0.869	Loss: 0.4628
+		Val Acc: 0.8571	Val Loss: 0.4391
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.80      0.89        15
+           1       0.67      1.00      0.80         6
+
+    accuracy                           0.86        21
+   macro avg       0.83      0.90      0.84        21
+weighted avg       0.90      0.86      0.86        21
+
+AUC-ROC: 0.9555555555555556
+Training for GATA3_16_8
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=44, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8452	Loss: 0.4653
+		Val Acc: 0.8571	Val Loss: 0.3957
+Epoch: 20	Acc: 0.8571	Loss: 0.3981
+		Val Acc: 0.9048	Val Loss: 0.3213
+Epoch: 30	Acc: 0.869	Loss: 0.3619
+		Val Acc: 0.9048	Val Loss: 0.2816
+Epoch: 40	Acc: 0.869	Loss: 0.3375
+		Val Acc: 0.9048	Val Loss: 0.2537
+Epoch: 50	Acc: 0.869	Loss: 0.3187
+		Val Acc: 0.9048	Val Loss: 0.2327
+Epoch: 60	Acc: 0.869	Loss: 0.3031
+		Val Acc: 0.9048	Val Loss: 0.2188
+Epoch: 70	Acc: 0.869	Loss: 0.2909
+		Val Acc: 0.9048	Val Loss: 0.2084
+Epoch: 80	Acc: 0.8929	Loss: 0.2798
+		Val Acc: 0.9524	Val Loss: 0.1995
+Epoch: 90	Acc: 0.8929	Loss: 0.27
+		Val Acc: 0.9524	Val Loss: 0.1919
+Epoch: 100	Acc: 0.8929	Loss: 0.2615
+		Val Acc: 0.9524	Val Loss: 0.1851
+Epoch: 110	Acc: 0.8929	Loss: 0.2533
+		Val Acc: 0.9524	Val Loss: 0.1807
+Epoch: 120	Acc: 0.8929	Loss: 0.2458
+		Val Acc: 0.9524	Val Loss: 0.1754
+Epoch: 130	Acc: 0.8929	Loss: 0.239
+		Val Acc: 0.9524	Val Loss: 0.1718
+Epoch: 140	Acc: 0.9048	Loss: 0.2326
+		Val Acc: 0.9524	Val Loss: 0.168
+Epoch: 150	Acc: 0.9048	Loss: 0.2267
+		Val Acc: 0.9524	Val Loss: 0.1652
+Epoch: 160	Acc: 0.9167	Loss: 0.2206
+		Val Acc: 0.9524	Val Loss: 0.1615
+Epoch: 170	Acc: 0.9167	Loss: 0.2151
+		Val Acc: 0.9524	Val Loss: 0.1594
+Epoch: 180	Acc: 0.9167	Loss: 0.2096
+		Val Acc: 0.9524	Val Loss: 0.1564
+Epoch: 190	Acc: 0.9167	Loss: 0.2049
+		Val Acc: 0.9524	Val Loss: 0.1546
+Epoch: 200	Acc: 0.9167	Loss: 0.2002
+		Val Acc: 0.9524	Val Loss: 0.1524
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.93      0.97        15
+           1       0.86      1.00      0.92         6
+
+    accuracy                           0.95        21
+   macro avg       0.93      0.97      0.94        21
+weighted avg       0.96      0.95      0.95        21
+
+AUC-ROC: 0.9888888888888889
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=42, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.7976	Loss: 0.5414
+		Val Acc: 0.8095	Val Loss: 5.2397
+Epoch: 20	Acc: 0.869	Loss: 0.4169
+		Val Acc: 0.8095	Val Loss: 5.1269
+Epoch: 30	Acc: 0.8452	Loss: 0.406
+		Val Acc: 0.8095	Val Loss: 5.0756
+Epoch: 40	Acc: 0.869	Loss: 0.3488
+		Val Acc: 0.8095	Val Loss: 5.0409
+Epoch: 50	Acc: 0.869	Loss: 0.3379
+		Val Acc: 0.8571	Val Loss: 5.0169
+Epoch: 60	Acc: 0.869	Loss: 0.3123
+		Val Acc: 0.8571	Val Loss: 4.9981
+Epoch: 70	Acc: 0.881	Loss: 0.3078
+		Val Acc: 0.8571	Val Loss: 4.9839
+Epoch: 80	Acc: 0.8929	Loss: 0.2972
+		Val Acc: 0.9048	Val Loss: 4.9705
+Epoch: 90	Acc: 0.881	Loss: 0.2838
+		Val Acc: 0.9048	Val Loss: 4.9603
+Epoch: 100	Acc: 0.881	Loss: 0.2905
+		Val Acc: 0.9048	Val Loss: 4.9517
+Epoch: 110	Acc: 0.9048	Loss: 0.2712
+		Val Acc: 0.9048	Val Loss: 4.944
+Epoch: 120	Acc: 0.8929	Loss: 0.2748
+		Val Acc: 0.9048	Val Loss: 4.9371
+Epoch: 130	Acc: 0.9048	Loss: 0.2407
+		Val Acc: 0.9048	Val Loss: 4.9315
+Epoch: 140	Acc: 0.8929	Loss: 0.2421
+		Val Acc: 0.9048	Val Loss: 4.926
+Epoch: 150	Acc: 0.8929	Loss: 0.2474
+		Val Acc: 0.9048	Val Loss: 4.9209
+Epoch: 160	Acc: 0.8929	Loss: 0.2372
+		Val Acc: 0.9048	Val Loss: 4.9163
+Epoch: 170	Acc: 0.9048	Loss: 0.247
+		Val Acc: 0.8571	Val Loss: 4.912
+Epoch: 180	Acc: 0.9167	Loss: 0.2268
+		Val Acc: 0.9048	Val Loss: 0.1466
+Epoch: 190	Acc: 0.9167	Loss: 0.2285
+		Val Acc: 0.9048	Val Loss: 0.1429
+Epoch: 200	Acc: 0.9167	Loss: 0.2137
+		Val Acc: 0.9048	Val Loss: 0.14
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.82      0.90        11
+           1       0.83      1.00      0.91        10
+
+    accuracy                           0.90        21
+   macro avg       0.92      0.91      0.90        21
+weighted avg       0.92      0.90      0.90        21
+
+AUC-ROC: 1.0
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=31, stride=31, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.7619	Loss: 0.6497
+		Val Acc: 0.8571	Val Loss: 5.3696
+Epoch: 20	Acc: 0.7738	Loss: 0.6124
+		Val Acc: 0.8095	Val Loss: 5.3313
+Epoch: 30	Acc: 0.8095	Loss: 0.5807
+		Val Acc: 0.9048	Val Loss: 5.2861
+Epoch: 40	Acc: 0.8095	Loss: 0.5497
+		Val Acc: 0.9048	Val Loss: 5.2494
+Epoch: 50	Acc: 0.7976	Loss: 0.5204
+		Val Acc: 0.9048	Val Loss: 5.2133
+Epoch: 60	Acc: 0.7976	Loss: 0.4944
+		Val Acc: 0.9048	Val Loss: 5.1802
+Epoch: 70	Acc: 0.8571	Loss: 0.4712
+		Val Acc: 0.9048	Val Loss: 5.1513
+Epoch: 80	Acc: 0.7976	Loss: 0.451
+		Val Acc: 0.8571	Val Loss: 5.1246
+Epoch: 90	Acc: 0.7976	Loss: 0.4335
+		Val Acc: 0.9048	Val Loss: 5.105
+Epoch: 100	Acc: 0.881	Loss: 0.418
+		Val Acc: 0.9048	Val Loss: 5.0845
+
+
+              precision    recall  f1-score   support
+
+           0       0.80      1.00      0.89         8
+           1       1.00      0.85      0.92        13
+
+    accuracy                           0.90        21
+   macro avg       0.90      0.92      0.90        21
+weighted avg       0.92      0.90      0.91        21
+
+AUC-ROC: 0.9134615384615384
 Training for GATA3_8_8
 Model 1
-[Linear(in_features=2700, out_features=256, bias=True), Linear(in_features=256, out_features=64, bias=True), Linear(in_features=64, out_features=1, bias=True)]
 cust_model(
   (model): Sequential(
-    (0): Linear(in_features=2700, out_features=256, bias=True)
+    (0): Linear(in_features=47, out_features=256, bias=True)
     (1): Linear(in_features=256, out_features=64, bias=True)
     (2): Linear(in_features=64, out_features=1, bias=True)
   )
   (activation): Sigmoid()
 )
-Epoch: 10	Acc: 0.5377	Loss: 0.6868
-		Val Acc: 0.5	Val Loss: 4.2217
-Epoch: 20	Acc: 0.5377	Loss: 0.6831
-		Val Acc: 0.5	Val Loss: 4.3094
-Epoch: 30	Acc: 0.5377	Loss: 0.6795
-		Val Acc: 0.5	Val Loss: 4.4159
-Epoch: 40	Acc: 0.5377	Loss: 0.6758
-		Val Acc: 0.5	Val Loss: 4.5419
-Epoch: 50	Acc: 0.5377	Loss: 0.6719
-		Val Acc: 0.5	Val Loss: 4.6892
-Epoch: 60	Acc: 0.5377	Loss: 0.6678
-		Val Acc: 0.5	Val Loss: 4.8584
-Epoch: 70	Acc: 0.5377	Loss: 0.6634
-		Val Acc: 0.5	Val Loss: 5.0515
-Epoch: 80	Acc: 0.5377	Loss: 0.6586
-		Val Acc: 0.5	Val Loss: 5.2675
-Epoch: 90	Acc: 0.5377	Loss: 0.6533
-		Val Acc: 0.5	Val Loss: 5.5109
-Epoch: 100	Acc: 0.5377	Loss: 0.6474
-		Val Acc: 0.5	Val Loss: 5.7839
-Epoch: 110	Acc: 0.5377	Loss: 0.6409
-		Val Acc: 0.5833	Val Loss: 6.0899
-Epoch: 120	Acc: 0.5377	Loss: 0.6338
-		Val Acc: 0.6667	Val Loss: 6.4302
-Epoch: 130	Acc: 0.9434	Loss: 0.6255
-		Val Acc: 0.8333	Val Loss: 6.8138
-Epoch: 140	Acc: 0.9623	Loss: 0.6164
-		Val Acc: 0.8333	Val Loss: 7.236
-Epoch: 150	Acc: 0.9623	Loss: 0.6061
-		Val Acc: 0.8333	Val Loss: 7.7103
-Epoch: 160	Acc: 0.9528	Loss: 0.5945
-		Val Acc: 0.9167	Val Loss: 8.7987
-Epoch: 170	Acc: 0.9151	Loss: 0.5821
-		Val Acc: 0.9167	Val Loss: 8.7844
-Epoch: 180	Acc: 0.9151	Loss: 0.5674
-		Val Acc: 0.9167	Val Loss: 8.7679
-Epoch: 190	Acc: 0.8868	Loss: 0.5518
-		Val Acc: 0.9167	Val Loss: 8.7508
-Epoch: 200	Acc: 0.8868	Loss: 0.5353
-		Val Acc: 0.9167	Val Loss: 8.7337
+Epoch: 10	Acc: 0.8333	Loss: 0.4298
+		Val Acc: 0.7619	Val Loss: 0.5176
+Epoch: 20	Acc: 0.869	Loss: 0.3538
+		Val Acc: 0.7619	Val Loss: 0.4717
+Epoch: 30	Acc: 0.9167	Loss: 0.308
+		Val Acc: 0.7619	Val Loss: 0.4463
+Epoch: 40	Acc: 0.9167	Loss: 0.2774
+		Val Acc: 0.7619	Val Loss: 0.4271
+Epoch: 50	Acc: 0.9286	Loss: 0.2544
+		Val Acc: 0.7619	Val Loss: 0.4155
+Epoch: 60	Acc: 0.9286	Loss: 0.2369
+		Val Acc: 0.7619	Val Loss: 0.4077
+Epoch: 70	Acc: 0.9286	Loss: 0.2226
+		Val Acc: 0.7619	Val Loss: 0.3995
+Epoch: 80	Acc: 0.9286	Loss: 0.2105
+		Val Acc: 0.7619	Val Loss: 0.3898
+Epoch: 90	Acc: 0.9286	Loss: 0.1999
+		Val Acc: 0.7619	Val Loss: 0.3853
+Epoch: 100	Acc: 0.9286	Loss: 0.1911
+		Val Acc: 0.7619	Val Loss: 0.3822
+Epoch: 110	Acc: 0.9286	Loss: 0.1833
+		Val Acc: 0.7619	Val Loss: 0.3813
+Epoch: 120	Acc: 0.9405	Loss: 0.1762
+		Val Acc: 0.7619	Val Loss: 0.3776
+Epoch: 130	Acc: 0.9405	Loss: 0.1699
+		Val Acc: 0.8095	Val Loss: 0.3746
+Epoch: 140	Acc: 0.9524	Loss: 0.1643
+		Val Acc: 0.8095	Val Loss: 0.372
+Epoch: 150	Acc: 0.9524	Loss: 0.1591
+		Val Acc: 0.8095	Val Loss: 0.3696
+Epoch: 160	Acc: 0.9524	Loss: 0.1541
+		Val Acc: 0.8095	Val Loss: 0.37
+Epoch: 170	Acc: 0.9524	Loss: 0.1499
+		Val Acc: 0.8095	Val Loss: 0.3644
+Epoch: 180	Acc: 0.9524	Loss: 0.1455
+		Val Acc: 0.8095	Val Loss: 0.3617
+Epoch: 190	Acc: 0.9524	Loss: 0.1417
+		Val Acc: 0.8095	Val Loss: 0.3629
+Epoch: 200	Acc: 0.9643	Loss: 0.1382
+		Val Acc: 0.8095	Val Loss: 0.355
 
 
               precision    recall  f1-score   support
 
-           0       0.80      1.00      0.89         4
-           1       1.00      0.88      0.93         8
+           0       1.00      0.64      0.78        11
+           1       0.71      1.00      0.83        10
 
-    accuracy                           0.92        12
-   macro avg       0.90      0.94      0.91        12
-weighted avg       0.93      0.92      0.92        12
+    accuracy                           0.81        21
+   macro avg       0.86      0.82      0.81        21
+weighted avg       0.86      0.81      0.80        21
 
-AUC-ROC: 0.875
+AUC-ROC: 0.9636363636363636
 Model 2
-[Linear(in_features=2700, out_features=256, bias=True), Dropout(p=0.25, inplace=False), Linear(in_features=256, out_features=64, bias=True), Dropout(p=0.25, inplace=False), Linear(in_features=64, out_features=1, bias=True)]
 cust_model(
   (model): Sequential(
-    (0): Linear(in_features=2700, out_features=256, bias=True)
+    (0): Linear(in_features=42, out_features=256, bias=True)
     (1): Dropout(p=0.25, inplace=False)
     (2): Linear(in_features=256, out_features=64, bias=True)
     (3): Dropout(p=0.25, inplace=False)
@@ -415,99 +2423,2618 @@ cust_model(
   )
   (activation): Sigmoid()
 )
-Epoch: 10	Acc: 0.5377	Loss: 0.6866
-		Val Acc: 0.5	Val Loss: 0.6535
-Epoch: 20	Acc: 0.5377	Loss: 0.6844
-		Val Acc: 0.5	Val Loss: 0.6529
-Epoch: 30	Acc: 0.5377	Loss: 0.6804
-		Val Acc: 0.5	Val Loss: 0.6524
-Epoch: 40	Acc: 0.5377	Loss: 0.6765
-		Val Acc: 0.5	Val Loss: 0.6509
-Epoch: 50	Acc: 0.5377	Loss: 0.6716
-		Val Acc: 0.5	Val Loss: 0.6516
-Epoch: 60	Acc: 0.5377	Loss: 0.6681
-		Val Acc: 0.5	Val Loss: 0.6504
-Epoch: 70	Acc: 0.5472	Loss: 0.6627
-		Val Acc: 0.5	Val Loss: 0.6489
-Epoch: 80	Acc: 0.5472	Loss: 0.6569
-		Val Acc: 0.5	Val Loss: 0.6482
-Epoch: 90	Acc: 0.5377	Loss: 0.6521
-		Val Acc: 0.5	Val Loss: 0.6478
-Epoch: 100	Acc: 0.6038	Loss: 0.6468
-		Val Acc: 0.5833	Val Loss: 0.6457
-Epoch: 110	Acc: 0.6415	Loss: 0.6385
-		Val Acc: 0.5833	Val Loss: 0.6421
-Epoch: 120	Acc: 0.8113	Loss: 0.6299
-		Val Acc: 0.6667	Val Loss: 0.6382
-Epoch: 130	Acc: 0.9245	Loss: 0.6207
-		Val Acc: 0.75	Val Loss: 0.6351
-Epoch: 140	Acc: 0.9151	Loss: 0.6101
-		Val Acc: 0.75	Val Loss: 0.629
-Epoch: 150	Acc: 0.9245	Loss: 0.5961
-		Val Acc: 0.75	Val Loss: 0.6234
-Epoch: 160	Acc: 0.9151	Loss: 0.5872
-		Val Acc: 0.75	Val Loss: 0.6171
-Epoch: 170	Acc: 0.8868	Loss: 0.5743
-		Val Acc: 0.75	Val Loss: 0.6104
-Epoch: 180	Acc: 0.9151	Loss: 0.5555
-		Val Acc: 0.8333	Val Loss: 0.6067
-Epoch: 190	Acc: 0.8962	Loss: 0.5415
-		Val Acc: 0.8333	Val Loss: 0.5996
-Epoch: 200	Acc: 0.8868	Loss: 0.5177
-		Val Acc: 0.8333	Val Loss: 0.5913
+Epoch: 10	Acc: 0.8929	Loss: 0.4949
+		Val Acc: 0.9524	Val Loss: 0.5091
+Epoch: 20	Acc: 0.9048	Loss: 0.4395
+		Val Acc: 0.9048	Val Loss: 0.4348
+Epoch: 30	Acc: 0.8929	Loss: 0.3782
+		Val Acc: 0.9048	Val Loss: 0.3765
+Epoch: 40	Acc: 0.9167	Loss: 0.3483
+		Val Acc: 0.9048	Val Loss: 0.3407
+Epoch: 50	Acc: 0.9167	Loss: 0.3378
+		Val Acc: 0.9524	Val Loss: 0.3081
+Epoch: 60	Acc: 0.8929	Loss: 0.317
+		Val Acc: 0.9524	Val Loss: 0.2837
+Epoch: 70	Acc: 0.8929	Loss: 0.2818
+		Val Acc: 0.9524	Val Loss: 0.2638
+Epoch: 80	Acc: 0.869	Loss: 0.2847
+		Val Acc: 0.9524	Val Loss: 0.2562
+Epoch: 90	Acc: 0.9048	Loss: 0.2742
+		Val Acc: 0.9524	Val Loss: 0.2442
+Epoch: 100	Acc: 0.9286	Loss: 0.2556
+		Val Acc: 0.9524	Val Loss: 0.2374
+Epoch: 110	Acc: 0.9048	Loss: 0.2855
+		Val Acc: 0.9524	Val Loss: 0.2291
+Epoch: 120	Acc: 0.9167	Loss: 0.2365
+		Val Acc: 0.9524	Val Loss: 0.2191
+Epoch: 130	Acc: 0.9048	Loss: 0.239
+		Val Acc: 0.9524	Val Loss: 0.2114
+Epoch: 140	Acc: 0.9167	Loss: 0.2262
+		Val Acc: 0.9524	Val Loss: 0.2066
+Epoch: 150	Acc: 0.9167	Loss: 0.2159
+		Val Acc: 0.9524	Val Loss: 0.2032
+Epoch: 160	Acc: 0.9286	Loss: 0.2227
+		Val Acc: 0.9524	Val Loss: 0.1965
+Epoch: 170	Acc: 0.9286	Loss: 0.2358
+		Val Acc: 0.9524	Val Loss: 0.1913
+Epoch: 180	Acc: 0.9405	Loss: 0.2075
+		Val Acc: 0.9524	Val Loss: 0.1857
+Epoch: 190	Acc: 0.9167	Loss: 0.2112
+		Val Acc: 0.9524	Val Loss: 0.1805
+Epoch: 200	Acc: 0.9405	Loss: 0.2132
+		Val Acc: 0.9524	Val Loss: 0.1788
 
 
               precision    recall  f1-score   support
 
-           0       0.67      1.00      0.80         4
-           1       1.00      0.75      0.86         8
+           0       1.00      0.80      0.89         5
+           1       0.94      1.00      0.97        16
 
-    accuracy                           0.83        12
-   macro avg       0.83      0.88      0.83        12
-weighted avg       0.89      0.83      0.84        12
+    accuracy                           0.95        21
+   macro avg       0.97      0.90      0.93        21
+weighted avg       0.96      0.95      0.95        21
 
-AUC-ROC: 0.875
+AUC-ROC: 1.0
 Model 3
-[Linear(in_features=64, out_features=256, bias=True), Linear(in_features=256, out_features=64, bias=True), Linear(in_features=64, out_features=1, bias=True)]
 cust_model(
-  (conv): Conv1d(1, 64, kernel_size=(8,), stride=(1,))
-  (maxpool): MaxPool1d(kernel_size=2693, stride=2693, padding=0, dilation=1, ceil_mode=False)
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=40, stride=40, padding=0, dilation=1, ceil_mode=False)
   (model): Sequential(
-    (0): Linear(in_features=64, out_features=256, bias=True)
+    (0): Linear(in_features=32, out_features=256, bias=True)
     (1): Linear(in_features=256, out_features=64, bias=True)
     (2): Linear(in_features=64, out_features=1, bias=True)
   )
   (activation): Sigmoid()
 )
-Epoch: 10	Acc: 0.5094	Loss: 0.6958
-		Val Acc: 0.5833	Val Loss: 12.5837
-Epoch: 20	Acc: 0.5094	Loss: 0.695
-		Val Acc: 0.5833	Val Loss: 13.6951
-Epoch: 30	Acc: 0.5094	Loss: 0.6941
-		Val Acc: 0.5833	Val Loss: 15.6154
-Epoch: 40	Acc: 0.5094	Loss: 0.6934
-		Val Acc: 0.5833	Val Loss: 16.217
-Epoch: 50	Acc: 0.5094	Loss: 0.6928
-		Val Acc: 0.5833	Val Loss: 16.8912
-Epoch: 60	Acc: 0.5094	Loss: 0.6922
-		Val Acc: 0.5833	Val Loss: 17.591
-Epoch: 70	Acc: 0.5094	Loss: 0.6918
-		Val Acc: 0.5833	Val Loss: 18.6056
-Epoch: 80	Acc: 0.5094	Loss: 0.6907
-		Val Acc: 0.5833	Val Loss: 19.6227
-Epoch: 90	Acc: 0.5094	Loss: 0.6904
-		Val Acc: 0.5833	Val Loss: 20.0226
-Epoch: 100	Acc: 0.5094	Loss: 0.6896
-		Val Acc: 0.5833	Val Loss: 21.3507
+Epoch: 10	Acc: 0.7143	Loss: 0.6439
+		Val Acc: 0.9524	Val Loss: 0.6299
+Epoch: 20	Acc: 0.881	Loss: 0.6202
+		Val Acc: 0.9048	Val Loss: 0.6119
+Epoch: 30	Acc: 0.8929	Loss: 0.5977
+		Val Acc: 0.8571	Val Loss: 0.5912
+Epoch: 40	Acc: 0.8929	Loss: 0.5748
+		Val Acc: 0.8571	Val Loss: 0.5684
+Epoch: 50	Acc: 0.8929	Loss: 0.5523
+		Val Acc: 0.8571	Val Loss: 0.5486
+Epoch: 60	Acc: 0.8929	Loss: 0.5291
+		Val Acc: 0.8571	Val Loss: 0.53
+Epoch: 70	Acc: 0.9048	Loss: 0.5064
+		Val Acc: 0.8571	Val Loss: 0.5056
+Epoch: 80	Acc: 0.9048	Loss: 0.4832
+		Val Acc: 0.8571	Val Loss: 0.4882
+Epoch: 90	Acc: 0.9048	Loss: 0.4605
+		Val Acc: 0.8571	Val Loss: 0.4644
+Epoch: 100	Acc: 0.9048	Loss: 0.4388
+		Val Acc: 0.8571	Val Loss: 0.4444
 
 
               precision    recall  f1-score   support
 
-           0       0.58      1.00      0.74         7
-           1       0.00      0.00      0.00         5
+           0       1.00      0.73      0.84        11
+           1       0.77      1.00      0.87        10
 
-    accuracy                           0.58        12
-   macro avg       0.29      0.50      0.37        12
-weighted avg       0.34      0.58      0.43        12
+    accuracy                           0.86        21
+   macro avg       0.88      0.86      0.86        21
+weighted avg       0.89      0.86      0.86        21
 
-AUC-ROC: 0.0
+AUC-ROC: 0.9409090909090909
+Training for GATA3_8_4
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=40, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8929	Loss: 0.471
+		Val Acc: 0.9524	Val Loss: 0.6328
+Epoch: 20	Acc: 0.869	Loss: 0.3837
+		Val Acc: 0.9524	Val Loss: 0.5153
+Epoch: 30	Acc: 0.869	Loss: 0.3383
+		Val Acc: 0.9524	Val Loss: 0.4576
+Epoch: 40	Acc: 0.8929	Loss: 0.309
+		Val Acc: 0.9524	Val Loss: 0.4297
+Epoch: 50	Acc: 0.8929	Loss: 0.2872
+		Val Acc: 0.9524	Val Loss: 0.403
+Epoch: 60	Acc: 0.8929	Loss: 0.2698
+		Val Acc: 0.9524	Val Loss: 0.3934
+Epoch: 70	Acc: 0.9048	Loss: 0.2555
+		Val Acc: 0.9524	Val Loss: 0.3893
+Epoch: 80	Acc: 0.9167	Loss: 0.2427
+		Val Acc: 0.9524	Val Loss: 0.3795
+Epoch: 90	Acc: 0.9286	Loss: 0.2317
+		Val Acc: 0.9524	Val Loss: 0.3639
+Epoch: 100	Acc: 0.9286	Loss: 0.2216
+		Val Acc: 0.9524	Val Loss: 0.3623
+Epoch: 110	Acc: 0.9286	Loss: 0.2123
+		Val Acc: 0.9524	Val Loss: 0.3619
+Epoch: 120	Acc: 0.9286	Loss: 0.204
+		Val Acc: 0.9524	Val Loss: 0.3517
+Epoch: 130	Acc: 0.9286	Loss: 0.1964
+		Val Acc: 0.9524	Val Loss: 0.3409
+Epoch: 140	Acc: 0.9286	Loss: 0.1889
+		Val Acc: 0.9524	Val Loss: 0.3479
+Epoch: 150	Acc: 0.9286	Loss: 0.1821
+		Val Acc: 0.9524	Val Loss: 0.3399
+Epoch: 160	Acc: 0.9405	Loss: 0.1757
+		Val Acc: 0.9524	Val Loss: 0.3421
+Epoch: 170	Acc: 0.9405	Loss: 0.1696
+		Val Acc: 0.9524	Val Loss: 0.3352
+Epoch: 180	Acc: 0.9405	Loss: 0.1637
+		Val Acc: 0.9524	Val Loss: 0.3324
+Epoch: 190	Acc: 0.9405	Loss: 0.1579
+		Val Acc: 0.9524	Val Loss: 0.3347
+Epoch: 200	Acc: 0.9405	Loss: 0.1526
+		Val Acc: 0.9524	Val Loss: 0.3278
+
+
+              precision    recall  f1-score   support
+
+           0       0.83      1.00      0.91         5
+           1       1.00      0.94      0.97        16
+
+    accuracy                           0.95        21
+   macro avg       0.92      0.97      0.94        21
+weighted avg       0.96      0.95      0.95        21
+
+AUC-ROC: 0.9875
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=45, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.7976	Loss: 0.4882
+		Val Acc: 0.9048	Val Loss: 0.4429
+Epoch: 20	Acc: 0.8452	Loss: 0.4159
+		Val Acc: 0.9048	Val Loss: 0.3622
+Epoch: 30	Acc: 0.881	Loss: 0.3478
+		Val Acc: 0.9048	Val Loss: 0.3237
+Epoch: 40	Acc: 0.8571	Loss: 0.3126
+		Val Acc: 0.9048	Val Loss: 0.2976
+Epoch: 50	Acc: 0.881	Loss: 0.2909
+		Val Acc: 0.9048	Val Loss: 0.2804
+Epoch: 60	Acc: 0.869	Loss: 0.3061
+		Val Acc: 0.9048	Val Loss: 0.2663
+Epoch: 70	Acc: 0.881	Loss: 0.29
+		Val Acc: 0.9048	Val Loss: 0.2537
+Epoch: 80	Acc: 0.9048	Loss: 0.2441
+		Val Acc: 0.9048	Val Loss: 0.2424
+Epoch: 90	Acc: 0.9167	Loss: 0.2544
+		Val Acc: 0.9048	Val Loss: 0.2331
+Epoch: 100	Acc: 0.9048	Loss: 0.2342
+		Val Acc: 0.9048	Val Loss: 0.2252
+Epoch: 110	Acc: 0.9048	Loss: 0.2389
+		Val Acc: 0.9048	Val Loss: 0.2171
+Epoch: 120	Acc: 0.9167	Loss: 0.2159
+		Val Acc: 0.9048	Val Loss: 0.2108
+Epoch: 130	Acc: 0.8929	Loss: 0.2402
+		Val Acc: 0.9048	Val Loss: 0.2045
+Epoch: 140	Acc: 0.9167	Loss: 0.2251
+		Val Acc: 0.9048	Val Loss: 0.1995
+Epoch: 150	Acc: 0.9167	Loss: 0.2148
+		Val Acc: 0.9048	Val Loss: 0.1938
+Epoch: 160	Acc: 0.8929	Loss: 0.2123
+		Val Acc: 0.9048	Val Loss: 0.1883
+Epoch: 170	Acc: 0.9167	Loss: 0.2082
+		Val Acc: 0.9048	Val Loss: 0.183
+Epoch: 180	Acc: 0.9286	Loss: 0.1973
+		Val Acc: 0.9048	Val Loss: 0.1774
+Epoch: 190	Acc: 0.9286	Loss: 0.1838
+		Val Acc: 0.9524	Val Loss: 0.1727
+Epoch: 200	Acc: 0.9286	Loss: 0.1856
+		Val Acc: 0.9524	Val Loss: 0.1676
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.92      0.96        13
+           1       0.89      1.00      0.94         8
+
+    accuracy                           0.95        21
+   macro avg       0.94      0.96      0.95        21
+weighted avg       0.96      0.95      0.95        21
+
+AUC-ROC: 1.0
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=38, stride=38, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.4881	Loss: 0.6734
+		Val Acc: 0.619	Val Loss: 0.6466
+Epoch: 20	Acc: 0.8333	Loss: 0.6121
+		Val Acc: 0.9524	Val Loss: 0.6024
+Epoch: 30	Acc: 0.9167	Loss: 0.5553
+		Val Acc: 0.9524	Val Loss: 0.5375
+Epoch: 40	Acc: 0.9167	Loss: 0.5061
+		Val Acc: 0.9524	Val Loss: 0.4968
+Epoch: 50	Acc: 0.9167	Loss: 0.4623
+		Val Acc: 0.9048	Val Loss: 0.4587
+Epoch: 60	Acc: 0.9048	Loss: 0.4238
+		Val Acc: 0.9048	Val Loss: 0.4273
+Epoch: 70	Acc: 0.9167	Loss: 0.3892
+		Val Acc: 0.8571	Val Loss: 0.4105
+Epoch: 80	Acc: 0.9286	Loss: 0.3602
+		Val Acc: 0.8571	Val Loss: 0.3865
+Epoch: 90	Acc: 0.9286	Loss: 0.3366
+		Val Acc: 0.8571	Val Loss: 0.3655
+Epoch: 100	Acc: 0.9167	Loss: 0.3171
+		Val Acc: 0.8571	Val Loss: 0.3519
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.77      0.87        13
+           1       0.73      1.00      0.84         8
+
+    accuracy                           0.86        21
+   macro avg       0.86      0.88      0.86        21
+weighted avg       0.90      0.86      0.86        21
+
+AUC-ROC: 1.0
+Training for GATA3_10_10
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=44, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.869	Loss: 0.5031
+		Val Acc: 0.9048	Val Loss: 0.45
+Epoch: 20	Acc: 0.881	Loss: 0.4164
+		Val Acc: 0.9048	Val Loss: 0.369
+Epoch: 30	Acc: 0.881	Loss: 0.3636
+		Val Acc: 0.9048	Val Loss: 0.3231
+Epoch: 40	Acc: 0.881	Loss: 0.3273
+		Val Acc: 0.9048	Val Loss: 0.294
+Epoch: 50	Acc: 0.8929	Loss: 0.3031
+		Val Acc: 0.9048	Val Loss: 0.2772
+Epoch: 60	Acc: 0.8929	Loss: 0.2829
+		Val Acc: 0.9048	Val Loss: 0.2612
+Epoch: 70	Acc: 0.8929	Loss: 0.2672
+		Val Acc: 0.9048	Val Loss: 0.2498
+Epoch: 80	Acc: 0.9048	Loss: 0.2546
+		Val Acc: 0.9048	Val Loss: 0.2415
+Epoch: 90	Acc: 0.9048	Loss: 0.2437
+		Val Acc: 0.9048	Val Loss: 0.234
+Epoch: 100	Acc: 0.9048	Loss: 0.2346
+		Val Acc: 0.9048	Val Loss: 0.2269
+Epoch: 110	Acc: 0.9048	Loss: 0.2256
+		Val Acc: 0.9048	Val Loss: 0.2203
+Epoch: 120	Acc: 0.9048	Loss: 0.2185
+		Val Acc: 0.9048	Val Loss: 0.2151
+Epoch: 130	Acc: 0.9286	Loss: 0.2121
+		Val Acc: 0.9048	Val Loss: 0.2098
+Epoch: 140	Acc: 0.9286	Loss: 0.2065
+		Val Acc: 0.9048	Val Loss: 0.2053
+Epoch: 150	Acc: 0.9405	Loss: 0.201
+		Val Acc: 0.9048	Val Loss: 0.201
+Epoch: 160	Acc: 0.9524	Loss: 0.1963
+		Val Acc: 0.9048	Val Loss: 0.1967
+Epoch: 170	Acc: 0.9524	Loss: 0.1917
+		Val Acc: 0.9048	Val Loss: 0.1931
+Epoch: 180	Acc: 0.9524	Loss: 0.1874
+		Val Acc: 0.9048	Val Loss: 0.1893
+Epoch: 190	Acc: 0.9524	Loss: 0.1836
+		Val Acc: 0.9048	Val Loss: 0.1857
+Epoch: 200	Acc: 0.9524	Loss: 0.18
+		Val Acc: 0.9524	Val Loss: 0.1824
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.89      0.94         9
+           1       0.92      1.00      0.96        12
+
+    accuracy                           0.95        21
+   macro avg       0.96      0.94      0.95        21
+weighted avg       0.96      0.95      0.95        21
+
+AUC-ROC: 1.0
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=44, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8929	Loss: 0.5281
+		Val Acc: 0.8571	Val Loss: 0.5435
+Epoch: 20	Acc: 0.881	Loss: 0.4328
+		Val Acc: 0.8571	Val Loss: 0.4547
+Epoch: 30	Acc: 0.869	Loss: 0.4006
+		Val Acc: 0.8571	Val Loss: 0.3978
+Epoch: 40	Acc: 0.8929	Loss: 0.357
+		Val Acc: 0.8571	Val Loss: 0.358
+Epoch: 50	Acc: 0.869	Loss: 0.3217
+		Val Acc: 0.8571	Val Loss: 0.3269
+Epoch: 60	Acc: 0.9048	Loss: 0.3078
+		Val Acc: 0.8571	Val Loss: 0.3034
+Epoch: 70	Acc: 0.9286	Loss: 0.281
+		Val Acc: 0.8571	Val Loss: 0.2842
+Epoch: 80	Acc: 0.8929	Loss: 0.2714
+		Val Acc: 0.8571	Val Loss: 0.2694
+Epoch: 90	Acc: 0.9048	Loss: 0.2498
+		Val Acc: 0.8571	Val Loss: 0.2554
+Epoch: 100	Acc: 0.9167	Loss: 0.2436
+		Val Acc: 0.8571	Val Loss: 0.2442
+Epoch: 110	Acc: 0.9286	Loss: 0.2213
+		Val Acc: 0.8571	Val Loss: 0.2346
+Epoch: 120	Acc: 0.9286	Loss: 0.2198
+		Val Acc: 0.8571	Val Loss: 0.2255
+Epoch: 130	Acc: 0.9405	Loss: 0.2236
+		Val Acc: 0.8571	Val Loss: 0.2181
+Epoch: 140	Acc: 0.9405	Loss: 0.2145
+		Val Acc: 0.9048	Val Loss: 0.2108
+Epoch: 150	Acc: 0.9286	Loss: 0.2257
+		Val Acc: 0.9048	Val Loss: 0.2043
+Epoch: 160	Acc: 0.9405	Loss: 0.2104
+		Val Acc: 0.9048	Val Loss: 0.1984
+Epoch: 170	Acc: 0.9405	Loss: 0.208
+		Val Acc: 0.9048	Val Loss: 0.1929
+Epoch: 180	Acc: 0.9405	Loss: 0.2172
+		Val Acc: 0.9048	Val Loss: 0.1879
+Epoch: 190	Acc: 0.9405	Loss: 0.1963
+		Val Acc: 0.9048	Val Loss: 0.1829
+Epoch: 200	Acc: 0.9405	Loss: 0.1891
+		Val Acc: 0.9524	Val Loss: 0.1785
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.91      0.95        11
+           1       0.91      1.00      0.95        10
+
+    accuracy                           0.95        21
+   macro avg       0.95      0.95      0.95        21
+weighted avg       0.96      0.95      0.95        21
+
+AUC-ROC: 1.0
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=38, stride=38, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.5595	Loss: 0.6644
+		Val Acc: 0.4286	Val Loss: 1.0637
+Epoch: 20	Acc: 0.8452	Loss: 0.6348
+		Val Acc: 0.8095	Val Loss: 1.7953
+Epoch: 30	Acc: 0.881	Loss: 0.6096
+		Val Acc: 0.8571	Val Loss: 2.4596
+Epoch: 40	Acc: 0.8929	Loss: 0.5863
+		Val Acc: 0.8571	Val Loss: 3.0696
+Epoch: 50	Acc: 0.9048	Loss: 0.5607
+		Val Acc: 0.9048	Val Loss: 3.7913
+Epoch: 60	Acc: 0.9048	Loss: 0.536
+		Val Acc: 0.9048	Val Loss: 4.5852
+Epoch: 70	Acc: 0.9048	Loss: 0.5131
+		Val Acc: 0.9048	Val Loss: 5.1922
+Epoch: 80	Acc: 0.9048	Loss: 0.49
+		Val Acc: 0.9048	Val Loss: 5.1628
+Epoch: 90	Acc: 0.8929	Loss: 0.4697
+		Val Acc: 0.9048	Val Loss: 5.1468
+Epoch: 100	Acc: 0.8929	Loss: 0.4486
+		Val Acc: 0.9048	Val Loss: 5.12
+
+
+              precision    recall  f1-score   support
+
+           0       0.91      0.91      0.91        11
+           1       0.90      0.90      0.90        10
+
+    accuracy                           0.90        21
+   macro avg       0.90      0.90      0.90        21
+weighted avg       0.90      0.90      0.90        21
+
+AUC-ROC: 0.9
+Training for GATA3_10_5
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=44, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8333	Loss: 0.4739
+		Val Acc: 0.9048	Val Loss: 0.9374
+Epoch: 20	Acc: 0.8571	Loss: 0.388
+		Val Acc: 0.9524	Val Loss: 0.8547
+Epoch: 30	Acc: 0.8571	Loss: 0.3487
+		Val Acc: 0.9524	Val Loss: 0.8132
+Epoch: 40	Acc: 0.869	Loss: 0.3246
+		Val Acc: 0.9524	Val Loss: 0.7808
+Epoch: 50	Acc: 0.869	Loss: 0.3087
+		Val Acc: 0.9524	Val Loss: 0.7729
+Epoch: 60	Acc: 0.869	Loss: 0.2961
+		Val Acc: 0.9524	Val Loss: 0.7549
+Epoch: 70	Acc: 0.881	Loss: 0.2858
+		Val Acc: 0.9524	Val Loss: 0.7625
+Epoch: 80	Acc: 0.881	Loss: 0.2769
+		Val Acc: 0.9524	Val Loss: 0.7538
+Epoch: 90	Acc: 0.881	Loss: 0.2693
+		Val Acc: 0.9524	Val Loss: 0.7468
+Epoch: 100	Acc: 0.8929	Loss: 0.2622
+		Val Acc: 0.9524	Val Loss: 0.7526
+Epoch: 110	Acc: 0.8929	Loss: 0.2555
+		Val Acc: 0.9524	Val Loss: 0.7566
+Epoch: 120	Acc: 0.8929	Loss: 0.2496
+		Val Acc: 0.9524	Val Loss: 0.754
+Epoch: 130	Acc: 0.9048	Loss: 0.2438
+		Val Acc: 0.9524	Val Loss: 0.7662
+Epoch: 140	Acc: 0.9048	Loss: 0.2386
+		Val Acc: 0.9524	Val Loss: 0.772
+Epoch: 150	Acc: 0.9048	Loss: 0.2334
+		Val Acc: 0.9524	Val Loss: 0.7688
+Epoch: 160	Acc: 0.9048	Loss: 0.2288
+		Val Acc: 0.9524	Val Loss: 0.7647
+Epoch: 170	Acc: 0.9048	Loss: 0.2243
+		Val Acc: 0.9524	Val Loss: 0.7826
+Epoch: 180	Acc: 0.9048	Loss: 0.2202
+		Val Acc: 0.9524	Val Loss: 0.79
+Epoch: 190	Acc: 0.9048	Loss: 0.2159
+		Val Acc: 0.9524	Val Loss: 0.7729
+Epoch: 200	Acc: 0.9048	Loss: 0.212
+		Val Acc: 0.9524	Val Loss: 0.779
+
+
+              precision    recall  f1-score   support
+
+           0       0.88      1.00      0.93         7
+           1       1.00      0.93      0.96        14
+
+    accuracy                           0.95        21
+   macro avg       0.94      0.96      0.95        21
+weighted avg       0.96      0.95      0.95        21
+
+AUC-ROC: 0.9285714285714286
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=48, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8214	Loss: 0.4959
+		Val Acc: 0.9524	Val Loss: 0.404
+Epoch: 20	Acc: 0.8571	Loss: 0.4264
+		Val Acc: 0.9524	Val Loss: 0.3129
+Epoch: 30	Acc: 0.8571	Loss: 0.3722
+		Val Acc: 0.9524	Val Loss: 0.2715
+Epoch: 40	Acc: 0.881	Loss: 0.3248
+		Val Acc: 0.9524	Val Loss: 0.249
+Epoch: 50	Acc: 0.869	Loss: 0.3092
+		Val Acc: 0.9524	Val Loss: 0.2317
+Epoch: 60	Acc: 0.881	Loss: 0.2924
+		Val Acc: 0.9524	Val Loss: 0.2198
+Epoch: 70	Acc: 0.8929	Loss: 0.2963
+		Val Acc: 0.9524	Val Loss: 0.2115
+Epoch: 80	Acc: 0.881	Loss: 0.267
+		Val Acc: 0.9524	Val Loss: 0.2044
+Epoch: 90	Acc: 0.8929	Loss: 0.2781
+		Val Acc: 0.9524	Val Loss: 0.1995
+Epoch: 100	Acc: 0.9048	Loss: 0.2615
+		Val Acc: 0.9524	Val Loss: 0.1949
+Epoch: 110	Acc: 0.9048	Loss: 0.2383
+		Val Acc: 0.9524	Val Loss: 0.1921
+Epoch: 120	Acc: 0.9167	Loss: 0.2637
+		Val Acc: 0.9524	Val Loss: 0.1896
+Epoch: 130	Acc: 0.9286	Loss: 0.2577
+		Val Acc: 0.9524	Val Loss: 0.1867
+Epoch: 140	Acc: 0.9048	Loss: 0.2393
+		Val Acc: 0.9524	Val Loss: 0.1837
+Epoch: 150	Acc: 0.9167	Loss: 0.2342
+		Val Acc: 0.9524	Val Loss: 0.1811
+Epoch: 160	Acc: 0.9048	Loss: 0.233
+		Val Acc: 0.9524	Val Loss: 0.1793
+Epoch: 170	Acc: 0.9286	Loss: 0.2276
+		Val Acc: 0.9524	Val Loss: 0.1771
+Epoch: 180	Acc: 0.9167	Loss: 0.2162
+		Val Acc: 0.9524	Val Loss: 0.1755
+Epoch: 190	Acc: 0.9167	Loss: 0.2141
+		Val Acc: 0.9524	Val Loss: 0.1739
+Epoch: 200	Acc: 0.9048	Loss: 0.2234
+		Val Acc: 0.9524	Val Loss: 0.1726
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.91      0.95        11
+           1       0.91      1.00      0.95        10
+
+    accuracy                           0.95        21
+   macro avg       0.95      0.95      0.95        21
+weighted avg       0.96      0.95      0.95        21
+
+AUC-ROC: 1.0
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=37, stride=37, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8214	Loss: 0.6356
+		Val Acc: 0.8571	Val Loss: 1.3909
+Epoch: 20	Acc: 0.8214	Loss: 0.6086
+		Val Acc: 0.8571	Val Loss: 1.6706
+Epoch: 30	Acc: 0.881	Loss: 0.5795
+		Val Acc: 0.8571	Val Loss: 1.9931
+Epoch: 40	Acc: 0.881	Loss: 0.5539
+		Val Acc: 0.8571	Val Loss: 2.2816
+Epoch: 50	Acc: 0.869	Loss: 0.5273
+		Val Acc: 0.8571	Val Loss: 2.6136
+Epoch: 60	Acc: 0.881	Loss: 0.5036
+		Val Acc: 0.8571	Val Loss: 2.9603
+Epoch: 70	Acc: 0.8929	Loss: 0.483
+		Val Acc: 0.8571	Val Loss: 3.2051
+Epoch: 80	Acc: 0.881	Loss: 0.4608
+		Val Acc: 0.8571	Val Loss: 3.6466
+Epoch: 90	Acc: 0.881	Loss: 0.4416
+		Val Acc: 0.8571	Val Loss: 3.9473
+Epoch: 100	Acc: 0.881	Loss: 0.4247
+		Val Acc: 0.8571	Val Loss: 4.2651
+
+
+              precision    recall  f1-score   support
+
+           0       0.86      0.75      0.80         8
+           1       0.86      0.92      0.89        13
+
+    accuracy                           0.86        21
+   macro avg       0.86      0.84      0.84        21
+weighted avg       0.86      0.86      0.86        21
+
+AUC-ROC: 0.9038461538461539
+Training for KMT2C_16_16
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=153, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8851	Loss: 0.4406
+		Val Acc: 0.9369	Val Loss: 0.4079
+Epoch: 20	Acc: 0.8829	Loss: 0.3472
+		Val Acc: 0.9279	Val Loss: 0.3041
+Epoch: 30	Acc: 0.8941	Loss: 0.3041
+		Val Acc: 0.9369	Val Loss: 0.2553
+Epoch: 40	Acc: 0.9077	Loss: 0.2782
+		Val Acc: 0.9459	Val Loss: 0.2278
+Epoch: 50	Acc: 0.9167	Loss: 0.2603
+		Val Acc: 0.955	Val Loss: 0.2102
+Epoch: 60	Acc: 0.9212	Loss: 0.2467
+		Val Acc: 0.955	Val Loss: 0.1977
+Epoch: 70	Acc: 0.9212	Loss: 0.2358
+		Val Acc: 0.955	Val Loss: 0.1883
+Epoch: 80	Acc: 0.9257	Loss: 0.2269
+		Val Acc: 0.955	Val Loss: 0.1807
+Epoch: 90	Acc: 0.9257	Loss: 0.2194
+		Val Acc: 0.955	Val Loss: 0.1748
+Epoch: 100	Acc: 0.9257	Loss: 0.213
+		Val Acc: 0.955	Val Loss: 0.1699
+Epoch: 110	Acc: 0.9279	Loss: 0.2074
+		Val Acc: 0.955	Val Loss: 0.1656
+Epoch: 120	Acc: 0.9324	Loss: 0.2026
+		Val Acc: 0.955	Val Loss: 0.162
+Epoch: 130	Acc: 0.9347	Loss: 0.1984
+		Val Acc: 0.964	Val Loss: 0.1589
+Epoch: 140	Acc: 0.9369	Loss: 0.1946
+		Val Acc: 0.964	Val Loss: 0.1561
+Epoch: 150	Acc: 0.9369	Loss: 0.1912
+		Val Acc: 0.964	Val Loss: 0.1538
+Epoch: 160	Acc: 0.9369	Loss: 0.1882
+		Val Acc: 0.964	Val Loss: 0.1517
+Epoch: 170	Acc: 0.9369	Loss: 0.1854
+		Val Acc: 0.964	Val Loss: 0.1496
+Epoch: 180	Acc: 0.9437	Loss: 0.183
+		Val Acc: 0.964	Val Loss: 0.1479
+Epoch: 190	Acc: 0.9459	Loss: 0.1807
+		Val Acc: 0.964	Val Loss: 0.1465
+Epoch: 200	Acc: 0.9527	Loss: 0.1786
+		Val Acc: 0.964	Val Loss: 0.145
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.91      0.96        47
+           1       0.94      1.00      0.97        64
+
+    accuracy                           0.96       111
+   macro avg       0.97      0.96      0.96       111
+weighted avg       0.97      0.96      0.96       111
+
+AUC-ROC: 0.9695811170212766
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=164, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8919	Loss: 0.4098
+		Val Acc: 0.8919	Val Loss: 0.4298
+Epoch: 20	Acc: 0.8964	Loss: 0.3239
+		Val Acc: 0.8919	Val Loss: 0.3618
+Epoch: 30	Acc: 0.9054	Loss: 0.2848
+		Val Acc: 0.8919	Val Loss: 0.3342
+Epoch: 40	Acc: 0.9054	Loss: 0.2587
+		Val Acc: 0.8919	Val Loss: 0.3198
+Epoch: 50	Acc: 0.9189	Loss: 0.2536
+		Val Acc: 0.8919	Val Loss: 0.3108
+Epoch: 60	Acc: 0.9279	Loss: 0.2399
+		Val Acc: 0.9099	Val Loss: 0.3048
+Epoch: 70	Acc: 0.9302	Loss: 0.2254
+		Val Acc: 0.9099	Val Loss: 0.3005
+Epoch: 80	Acc: 0.9347	Loss: 0.2201
+		Val Acc: 0.9099	Val Loss: 0.2973
+Epoch: 90	Acc: 0.9347	Loss: 0.2147
+		Val Acc: 0.9099	Val Loss: 0.2948
+Epoch: 100	Acc: 0.9347	Loss: 0.2088
+		Val Acc: 0.9099	Val Loss: 0.2931
+Epoch: 110	Acc: 0.9369	Loss: 0.2061
+		Val Acc: 0.9099	Val Loss: 0.2916
+Epoch: 120	Acc: 0.9392	Loss: 0.1951
+		Val Acc: 0.9099	Val Loss: 0.2902
+Epoch: 130	Acc: 0.9414	Loss: 0.1953
+		Val Acc: 0.9099	Val Loss: 0.2891
+Epoch: 140	Acc: 0.9414	Loss: 0.1886
+		Val Acc: 0.9099	Val Loss: 0.2881
+Epoch: 150	Acc: 0.9369	Loss: 0.1878
+		Val Acc: 0.9099	Val Loss: 0.2873
+Epoch: 160	Acc: 0.9392	Loss: 0.1956
+		Val Acc: 0.9189	Val Loss: 0.2866
+Epoch: 170	Acc: 0.9369	Loss: 0.1857
+		Val Acc: 0.9189	Val Loss: 0.286
+Epoch: 180	Acc: 0.9392	Loss: 0.1846
+		Val Acc: 0.9279	Val Loss: 0.2854
+Epoch: 190	Acc: 0.9527	Loss: 0.172
+		Val Acc: 0.9279	Val Loss: 0.285
+Epoch: 200	Acc: 0.9482	Loss: 0.1816
+		Val Acc: 0.9279	Val Loss: 0.2844
+
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.87      0.92        54
+           1       0.89      0.98      0.93        57
+
+    accuracy                           0.93       111
+   macro avg       0.93      0.93      0.93       111
+weighted avg       0.93      0.93      0.93       111
+
+AUC-ROC: 0.9475308641975307
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=155, stride=155, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8041	Loss: 0.6524
+		Val Acc: 0.9009	Val Loss: 0.6254
+Epoch: 20	Acc: 0.8086	Loss: 0.6188
+		Val Acc: 0.9099	Val Loss: 0.5708
+Epoch: 30	Acc: 0.8063	Loss: 0.5874
+		Val Acc: 0.9189	Val Loss: 0.5234
+Epoch: 40	Acc: 0.8288	Loss: 0.5581
+		Val Acc: 0.9189	Val Loss: 0.4839
+Epoch: 50	Acc: 0.8243	Loss: 0.5307
+		Val Acc: 0.9369	Val Loss: 0.4529
+Epoch: 60	Acc: 0.8333	Loss: 0.5065
+		Val Acc: 0.9369	Val Loss: 0.4308
+Epoch: 70	Acc: 0.8401	Loss: 0.4834
+		Val Acc: 0.9369	Val Loss: 0.4158
+Epoch: 80	Acc: 0.8468	Loss: 0.4636
+		Val Acc: 0.9279	Val Loss: 0.4041
+Epoch: 90	Acc: 0.8581	Loss: 0.444
+		Val Acc: 0.9279	Val Loss: 0.3999
+Epoch: 100	Acc: 0.8581	Loss: 0.4258
+		Val Acc: 0.9189	Val Loss: 0.3968
+
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.85      0.91        54
+           1       0.88      0.98      0.93        57
+
+    accuracy                           0.92       111
+   macro avg       0.93      0.92      0.92       111
+weighted avg       0.93      0.92      0.92       111
+
+AUC-ROC: 0.9298245614035088
+Training for KMT2C_16_8
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=147, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8806	Loss: 0.3359
+		Val Acc: 0.8919	Val Loss: 2.1112
+Epoch: 20	Acc: 0.8896	Loss: 0.285
+		Val Acc: 0.9009	Val Loss: 2.0584
+Epoch: 30	Acc: 0.9009	Loss: 0.2623
+		Val Acc: 0.9099	Val Loss: 2.0335
+Epoch: 40	Acc: 0.9054	Loss: 0.2476
+		Val Acc: 0.9189	Val Loss: 2.0177
+Epoch: 50	Acc: 0.9167	Loss: 0.2366
+		Val Acc: 0.9189	Val Loss: 2.0064
+Epoch: 60	Acc: 0.9212	Loss: 0.2279
+		Val Acc: 0.9189	Val Loss: 1.9979
+Epoch: 70	Acc: 0.9257	Loss: 0.2206
+		Val Acc: 0.9189	Val Loss: 1.9911
+Epoch: 80	Acc: 0.9257	Loss: 0.2146
+		Val Acc: 0.9189	Val Loss: 1.9857
+Epoch: 90	Acc: 0.9279	Loss: 0.2092
+		Val Acc: 0.9189	Val Loss: 1.9811
+Epoch: 100	Acc: 0.9279	Loss: 0.2046
+		Val Acc: 0.9189	Val Loss: 1.9772
+Epoch: 110	Acc: 0.9279	Loss: 0.2004
+		Val Acc: 0.9189	Val Loss: 1.9739
+Epoch: 120	Acc: 0.9279	Loss: 0.1968
+		Val Acc: 0.9189	Val Loss: 1.9711
+Epoch: 130	Acc: 0.9279	Loss: 0.1933
+		Val Acc: 0.9189	Val Loss: 1.9685
+Epoch: 140	Acc: 0.9302	Loss: 0.1902
+		Val Acc: 0.9189	Val Loss: 1.9662
+Epoch: 150	Acc: 0.9302	Loss: 0.1873
+		Val Acc: 0.9189	Val Loss: 1.9642
+Epoch: 160	Acc: 0.9302	Loss: 0.1847
+		Val Acc: 0.9189	Val Loss: 1.9624
+Epoch: 170	Acc: 0.9302	Loss: 0.1823
+		Val Acc: 0.9189	Val Loss: 1.9607
+Epoch: 180	Acc: 0.9302	Loss: 0.18
+		Val Acc: 0.9189	Val Loss: 1.9592
+Epoch: 190	Acc: 0.9324	Loss: 0.1781
+		Val Acc: 0.9189	Val Loss: 1.9578
+Epoch: 200	Acc: 0.9347	Loss: 0.1759
+		Val Acc: 0.9189	Val Loss: 1.9565
+
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.89      0.92        62
+           1       0.87      0.96      0.91        49
+
+    accuracy                           0.92       111
+   macro avg       0.92      0.92      0.92       111
+weighted avg       0.92      0.92      0.92       111
+
+AUC-ROC: 0.923633969716919
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=144, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8919	Loss: 0.3431
+		Val Acc: 0.8649	Val Loss: 1.2642
+Epoch: 20	Acc: 0.9122	Loss: 0.2823
+		Val Acc: 0.8649	Val Loss: 1.2129
+Epoch: 30	Acc: 0.9077	Loss: 0.2662
+		Val Acc: 0.8919	Val Loss: 1.2015
+Epoch: 40	Acc: 0.9189	Loss: 0.2418
+		Val Acc: 0.8919	Val Loss: 1.2006
+Epoch: 50	Acc: 0.9167	Loss: 0.2284
+		Val Acc: 0.8919	Val Loss: 1.2067
+Epoch: 60	Acc: 0.9212	Loss: 0.2221
+		Val Acc: 0.8919	Val Loss: 1.21
+Epoch: 70	Acc: 0.9279	Loss: 0.2182
+		Val Acc: 0.8919	Val Loss: 1.2185
+Epoch: 80	Acc: 0.9257	Loss: 0.2052
+		Val Acc: 0.8919	Val Loss: 1.2263
+Epoch: 90	Acc: 0.9324	Loss: 0.2019
+		Val Acc: 0.8919	Val Loss: 1.235
+Epoch: 100	Acc: 0.9324	Loss: 0.2069
+		Val Acc: 0.8919	Val Loss: 1.2448
+Epoch: 110	Acc: 0.9302	Loss: 0.1908
+		Val Acc: 0.8919	Val Loss: 1.2523
+Epoch: 120	Acc: 0.9324	Loss: 0.1934
+		Val Acc: 0.8919	Val Loss: 1.2609
+Epoch: 130	Acc: 0.9324	Loss: 0.1825
+		Val Acc: 0.8919	Val Loss: 1.27
+Epoch: 140	Acc: 0.9347	Loss: 0.1932
+		Val Acc: 0.9009	Val Loss: 1.2799
+Epoch: 150	Acc: 0.9347	Loss: 0.182
+		Val Acc: 0.9009	Val Loss: 1.2904
+Epoch: 160	Acc: 0.9414	Loss: 0.1774
+		Val Acc: 0.9009	Val Loss: 1.2988
+Epoch: 170	Acc: 0.9392	Loss: 0.1701
+		Val Acc: 0.9009	Val Loss: 1.3068
+Epoch: 180	Acc: 0.9392	Loss: 0.1739
+		Val Acc: 0.9009	Val Loss: 1.3149
+Epoch: 190	Acc: 0.9369	Loss: 0.1823
+		Val Acc: 0.9009	Val Loss: 1.3263
+Epoch: 200	Acc: 0.9414	Loss: 0.1744
+		Val Acc: 0.9009	Val Loss: 1.3345
+
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.85      0.90        59
+           1       0.85      0.96      0.90        52
+
+    accuracy                           0.90       111
+   macro avg       0.90      0.90      0.90       111
+weighted avg       0.91      0.90      0.90       111
+
+AUC-ROC: 0.9199804432855281
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=141, stride=141, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.759	Loss: 0.6382
+		Val Acc: 0.8829	Val Loss: 1.4772
+Epoch: 20	Acc: 0.8086	Loss: 0.5684
+		Val Acc: 0.9099	Val Loss: 1.3677
+Epoch: 30	Acc: 0.8108	Loss: 0.5158
+		Val Acc: 0.9099	Val Loss: 1.3019
+Epoch: 40	Acc: 0.8153	Loss: 0.4776
+		Val Acc: 0.9099	Val Loss: 1.2579
+Epoch: 50	Acc: 0.8221	Loss: 0.4488
+		Val Acc: 0.9099	Val Loss: 1.2333
+Epoch: 60	Acc: 0.8356	Loss: 0.4264
+		Val Acc: 0.9099	Val Loss: 1.218
+Epoch: 70	Acc: 0.8423	Loss: 0.4067
+		Val Acc: 0.9099	Val Loss: 1.2113
+Epoch: 80	Acc: 0.8491	Loss: 0.3898
+		Val Acc: 0.9099	Val Loss: 1.2047
+Epoch: 90	Acc: 0.8491	Loss: 0.3735
+		Val Acc: 0.9099	Val Loss: 1.1965
+Epoch: 100	Acc: 0.8604	Loss: 0.3583
+		Val Acc: 0.9099	Val Loss: 1.1894
+
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.87      0.91        61
+           1       0.86      0.96      0.91        50
+
+    accuracy                           0.91       111
+   macro avg       0.91      0.91      0.91       111
+weighted avg       0.92      0.91      0.91       111
+
+AUC-ROC: 0.9244262295081968
+Training for KMT2C_8_8
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=149, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8851	Loss: 0.4135
+		Val Acc: 0.8559	Val Loss: 0.4076
+Epoch: 20	Acc: 0.9009	Loss: 0.3204
+		Val Acc: 0.8649	Val Loss: 0.3299
+Epoch: 30	Acc: 0.9077	Loss: 0.2797
+		Val Acc: 0.8829	Val Loss: 0.2967
+Epoch: 40	Acc: 0.9099	Loss: 0.2563
+		Val Acc: 0.8919	Val Loss: 0.2773
+Epoch: 50	Acc: 0.9099	Loss: 0.2407
+		Val Acc: 0.8919	Val Loss: 0.2637
+Epoch: 60	Acc: 0.9122	Loss: 0.2293
+		Val Acc: 0.9009	Val Loss: 0.2534
+Epoch: 70	Acc: 0.9144	Loss: 0.2204
+		Val Acc: 0.9009	Val Loss: 0.2452
+Epoch: 80	Acc: 0.9167	Loss: 0.213
+		Val Acc: 0.9099	Val Loss: 0.2384
+Epoch: 90	Acc: 0.9189	Loss: 0.2069
+		Val Acc: 0.9189	Val Loss: 0.2326
+Epoch: 100	Acc: 0.9279	Loss: 0.2015
+		Val Acc: 0.9189	Val Loss: 0.2275
+Epoch: 110	Acc: 0.9279	Loss: 0.1971
+		Val Acc: 0.9189	Val Loss: 0.223
+Epoch: 120	Acc: 0.9302	Loss: 0.1927
+		Val Acc: 0.9189	Val Loss: 0.2191
+Epoch: 130	Acc: 0.9324	Loss: 0.189
+		Val Acc: 0.9189	Val Loss: 0.2156
+Epoch: 140	Acc: 0.9324	Loss: 0.1855
+		Val Acc: 0.9189	Val Loss: 0.2124
+Epoch: 150	Acc: 0.9324	Loss: 0.1824
+		Val Acc: 0.9189	Val Loss: 0.2095
+Epoch: 160	Acc: 0.9324	Loss: 0.1795
+		Val Acc: 0.9189	Val Loss: 0.2069
+Epoch: 170	Acc: 0.9324	Loss: 0.1768
+		Val Acc: 0.9189	Val Loss: 0.2045
+Epoch: 180	Acc: 0.9392	Loss: 0.1743
+		Val Acc: 0.9189	Val Loss: 0.2023
+Epoch: 190	Acc: 0.9392	Loss: 0.172
+		Val Acc: 0.9189	Val Loss: 0.2004
+Epoch: 200	Acc: 0.9437	Loss: 0.1697
+		Val Acc: 0.9189	Val Loss: 0.1985
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.84      0.91        57
+           1       0.86      1.00      0.92        54
+
+    accuracy                           0.92       111
+   macro avg       0.93      0.92      0.92       111
+weighted avg       0.93      0.92      0.92       111
+
+AUC-ROC: 0.9649122807017543
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=144, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8896	Loss: 0.4003
+		Val Acc: 0.8649	Val Loss: 0.3912
+Epoch: 20	Acc: 0.8941	Loss: 0.3201
+		Val Acc: 0.8649	Val Loss: 0.327
+Epoch: 30	Acc: 0.8986	Loss: 0.2733
+		Val Acc: 0.8649	Val Loss: 0.2992
+Epoch: 40	Acc: 0.9099	Loss: 0.2535
+		Val Acc: 0.8829	Val Loss: 0.2828
+Epoch: 50	Acc: 0.9144	Loss: 0.2439
+		Val Acc: 0.8829	Val Loss: 0.2707
+Epoch: 60	Acc: 0.9144	Loss: 0.2317
+		Val Acc: 0.8919	Val Loss: 0.2612
+Epoch: 70	Acc: 0.9189	Loss: 0.2201
+		Val Acc: 0.9009	Val Loss: 0.2534
+Epoch: 80	Acc: 0.9212	Loss: 0.217
+		Val Acc: 0.9009	Val Loss: 0.2468
+Epoch: 90	Acc: 0.9257	Loss: 0.2082
+		Val Acc: 0.9009	Val Loss: 0.2411
+Epoch: 100	Acc: 0.9257	Loss: 0.2024
+		Val Acc: 0.9099	Val Loss: 0.236
+Epoch: 110	Acc: 0.9302	Loss: 0.201
+		Val Acc: 0.9099	Val Loss: 0.2317
+Epoch: 120	Acc: 0.9302	Loss: 0.1954
+		Val Acc: 0.9099	Val Loss: 0.2276
+Epoch: 130	Acc: 0.9279	Loss: 0.1909
+		Val Acc: 0.9099	Val Loss: 0.2237
+Epoch: 140	Acc: 0.9302	Loss: 0.1868
+		Val Acc: 0.9099	Val Loss: 0.2201
+Epoch: 150	Acc: 0.9347	Loss: 0.1891
+		Val Acc: 0.9189	Val Loss: 0.2172
+Epoch: 160	Acc: 0.9324	Loss: 0.1828
+		Val Acc: 0.9279	Val Loss: 0.2142
+Epoch: 170	Acc: 0.9324	Loss: 0.1785
+		Val Acc: 0.9279	Val Loss: 0.2116
+Epoch: 180	Acc: 0.9324	Loss: 0.1779
+		Val Acc: 0.9279	Val Loss: 0.2092
+Epoch: 190	Acc: 0.9437	Loss: 0.1746
+		Val Acc: 0.9279	Val Loss: 0.2072
+Epoch: 200	Acc: 0.9414	Loss: 0.1727
+		Val Acc: 0.9279	Val Loss: 0.2049
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.85      0.92        54
+           1       0.88      1.00      0.93        57
+
+    accuracy                           0.93       111
+   macro avg       0.94      0.93      0.93       111
+weighted avg       0.94      0.93      0.93       111
+
+AUC-ROC: 0.9473684210526316
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=141, stride=141, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.7725	Loss: 0.6461
+		Val Acc: 0.9369	Val Loss: 0.5898
+Epoch: 20	Acc: 0.8041	Loss: 0.6183
+		Val Acc: 0.9459	Val Loss: 0.5329
+Epoch: 30	Acc: 0.7995	Loss: 0.5901
+		Val Acc: 0.9459	Val Loss: 0.4784
+Epoch: 40	Acc: 0.7995	Loss: 0.5631
+		Val Acc: 0.9459	Val Loss: 0.4278
+Epoch: 50	Acc: 0.8063	Loss: 0.5374
+		Val Acc: 0.9459	Val Loss: 0.3838
+Epoch: 60	Acc: 0.8131	Loss: 0.5171
+		Val Acc: 0.9459	Val Loss: 0.3473
+Epoch: 70	Acc: 0.8131	Loss: 0.4981
+		Val Acc: 0.9459	Val Loss: 0.3211
+Epoch: 80	Acc: 0.8153	Loss: 0.4828
+		Val Acc: 0.9369	Val Loss: 0.2983
+Epoch: 90	Acc: 0.8243	Loss: 0.4693
+		Val Acc: 0.9369	Val Loss: 0.2819
+Epoch: 100	Acc: 0.8288	Loss: 0.4581
+		Val Acc: 0.9369	Val Loss: 0.2707
+
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.92      0.93        53
+           1       0.93      0.95      0.94        58
+
+    accuracy                           0.94       111
+   macro avg       0.94      0.94      0.94       111
+weighted avg       0.94      0.94      0.94       111
+
+AUC-ROC: 0.962426805465192
+Training for KMT2C_8_4
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=151, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9032	Loss: 0.332
+		Val Acc: 0.9009	Val Loss: 0.2868
+Epoch: 20	Acc: 0.9122	Loss: 0.2685
+		Val Acc: 0.9099	Val Loss: 0.2306
+Epoch: 30	Acc: 0.9189	Loss: 0.242
+		Val Acc: 0.9189	Val Loss: 0.2076
+Epoch: 40	Acc: 0.9234	Loss: 0.226
+		Val Acc: 0.9279	Val Loss: 0.193
+Epoch: 50	Acc: 0.9302	Loss: 0.2147
+		Val Acc: 0.9279	Val Loss: 0.1823
+Epoch: 60	Acc: 0.9324	Loss: 0.2062
+		Val Acc: 0.9279	Val Loss: 0.1736
+Epoch: 70	Acc: 0.9347	Loss: 0.1994
+		Val Acc: 0.9369	Val Loss: 0.1663
+Epoch: 80	Acc: 0.9347	Loss: 0.1939
+		Val Acc: 0.9459	Val Loss: 0.1599
+Epoch: 90	Acc: 0.9347	Loss: 0.1892
+		Val Acc: 0.955	Val Loss: 0.1544
+Epoch: 100	Acc: 0.9347	Loss: 0.1851
+		Val Acc: 0.955	Val Loss: 0.1495
+Epoch: 110	Acc: 0.9392	Loss: 0.1816
+		Val Acc: 0.955	Val Loss: 0.145
+Epoch: 120	Acc: 0.9392	Loss: 0.1785
+		Val Acc: 0.955	Val Loss: 0.141
+Epoch: 130	Acc: 0.9392	Loss: 0.1758
+		Val Acc: 0.955	Val Loss: 0.1372
+Epoch: 140	Acc: 0.9392	Loss: 0.1733
+		Val Acc: 0.955	Val Loss: 0.1339
+Epoch: 150	Acc: 0.9414	Loss: 0.1709
+		Val Acc: 0.955	Val Loss: 0.1306
+Epoch: 160	Acc: 0.9414	Loss: 0.169
+		Val Acc: 0.955	Val Loss: 0.1277
+Epoch: 170	Acc: 0.9414	Loss: 0.1671
+		Val Acc: 0.955	Val Loss: 0.125
+Epoch: 180	Acc: 0.9437	Loss: 0.1654
+		Val Acc: 0.955	Val Loss: 0.1224
+Epoch: 190	Acc: 0.9459	Loss: 0.1637
+		Val Acc: 0.955	Val Loss: 0.1201
+Epoch: 200	Acc: 0.9527	Loss: 0.162
+		Val Acc: 0.964	Val Loss: 0.1179
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.92      0.96        53
+           1       0.94      1.00      0.97        58
+
+    accuracy                           0.96       111
+   macro avg       0.97      0.96      0.96       111
+weighted avg       0.97      0.96      0.96       111
+
+AUC-ROC: 0.9915419648666233
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=154, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8851	Loss: 0.3455
+		Val Acc: 0.8919	Val Loss: 0.3089
+Epoch: 20	Acc: 0.8964	Loss: 0.2844
+		Val Acc: 0.9099	Val Loss: 0.2383
+Epoch: 30	Acc: 0.9077	Loss: 0.2572
+		Val Acc: 0.9189	Val Loss: 0.2118
+Epoch: 40	Acc: 0.9122	Loss: 0.2466
+		Val Acc: 0.9279	Val Loss: 0.1971
+Epoch: 50	Acc: 0.9189	Loss: 0.2242
+		Val Acc: 0.9369	Val Loss: 0.1872
+Epoch: 60	Acc: 0.9324	Loss: 0.2145
+		Val Acc: 0.9459	Val Loss: 0.1791
+Epoch: 70	Acc: 0.9302	Loss: 0.1996
+		Val Acc: 0.9369	Val Loss: 0.1732
+Epoch: 80	Acc: 0.9392	Loss: 0.2027
+		Val Acc: 0.9369	Val Loss: 0.1692
+Epoch: 90	Acc: 0.9369	Loss: 0.1949
+		Val Acc: 0.9369	Val Loss: 0.1655
+Epoch: 100	Acc: 0.9392	Loss: 0.1857
+		Val Acc: 0.9459	Val Loss: 0.1625
+Epoch: 110	Acc: 0.9414	Loss: 0.1931
+		Val Acc: 0.9459	Val Loss: 0.1602
+Epoch: 120	Acc: 0.9414	Loss: 0.1783
+		Val Acc: 0.9459	Val Loss: 0.1581
+Epoch: 130	Acc: 0.9437	Loss: 0.1788
+		Val Acc: 0.9459	Val Loss: 0.1569
+Epoch: 140	Acc: 0.9459	Loss: 0.1819
+		Val Acc: 0.9459	Val Loss: 0.156
+Epoch: 150	Acc: 0.9505	Loss: 0.1763
+		Val Acc: 0.9459	Val Loss: 0.1559
+Epoch: 160	Acc: 0.9527	Loss: 0.1688
+		Val Acc: 0.9459	Val Loss: 0.1558
+Epoch: 170	Acc: 0.955	Loss: 0.1651
+		Val Acc: 0.9459	Val Loss: 0.1563
+Epoch: 180	Acc: 0.9505	Loss: 0.1709
+		Val Acc: 0.955	Val Loss: 0.1559
+Epoch: 190	Acc: 0.9505	Loss: 0.1616
+		Val Acc: 0.955	Val Loss: 0.1563
+Epoch: 200	Acc: 0.9527	Loss: 0.1635
+		Val Acc: 0.955	Val Loss: 0.1563
+
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.92      0.95        53
+           1       0.93      0.98      0.96        58
+
+    accuracy                           0.95       111
+   macro avg       0.96      0.95      0.95       111
+weighted avg       0.96      0.95      0.95       111
+
+AUC-ROC: 0.9775536759921926
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=149, stride=149, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8401	Loss: 0.6124
+		Val Acc: 0.8919	Val Loss: 1.453
+Epoch: 20	Acc: 0.8491	Loss: 0.5574
+		Val Acc: 0.8919	Val Loss: 1.367
+Epoch: 30	Acc: 0.8446	Loss: 0.513
+		Val Acc: 0.9009	Val Loss: 1.3075
+Epoch: 40	Acc: 0.8581	Loss: 0.4779
+		Val Acc: 0.9009	Val Loss: 1.2666
+Epoch: 50	Acc: 0.8604	Loss: 0.4502
+		Val Acc: 0.9009	Val Loss: 1.2392
+Epoch: 60	Acc: 0.8581	Loss: 0.4281
+		Val Acc: 0.8919	Val Loss: 1.2247
+Epoch: 70	Acc: 0.8581	Loss: 0.4095
+		Val Acc: 0.8919	Val Loss: 1.2122
+Epoch: 80	Acc: 0.8694	Loss: 0.3925
+		Val Acc: 0.8829	Val Loss: 1.2053
+Epoch: 90	Acc: 0.8694	Loss: 0.3767
+		Val Acc: 0.8829	Val Loss: 1.1981
+Epoch: 100	Acc: 0.8784	Loss: 0.3623
+		Val Acc: 0.8829	Val Loss: 1.1921
+
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.80      0.88        61
+           1       0.80      0.98      0.88        50
+
+    accuracy                           0.88       111
+   macro avg       0.89      0.89      0.88       111
+weighted avg       0.90      0.88      0.88       111
+
+AUC-ROC: 0.9540983606557376
+Training for KMT2C_10_10
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=146, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9167	Loss: 0.3948
+		Val Acc: 0.8649	Val Loss: 0.4292
+Epoch: 20	Acc: 0.9167	Loss: 0.2914
+		Val Acc: 0.8559	Val Loss: 0.356
+Epoch: 30	Acc: 0.9189	Loss: 0.2477
+		Val Acc: 0.8649	Val Loss: 0.3251
+Epoch: 40	Acc: 0.9279	Loss: 0.2231
+		Val Acc: 0.8649	Val Loss: 0.3058
+Epoch: 50	Acc: 0.9347	Loss: 0.2066
+		Val Acc: 0.8739	Val Loss: 0.2917
+Epoch: 60	Acc: 0.9369	Loss: 0.1946
+		Val Acc: 0.8739	Val Loss: 0.2804
+Epoch: 70	Acc: 0.9414	Loss: 0.1853
+		Val Acc: 0.8829	Val Loss: 0.2716
+Epoch: 80	Acc: 0.9437	Loss: 0.1777
+		Val Acc: 0.8829	Val Loss: 0.2638
+Epoch: 90	Acc: 0.9482	Loss: 0.1715
+		Val Acc: 0.8829	Val Loss: 0.2573
+Epoch: 100	Acc: 0.9505	Loss: 0.1663
+		Val Acc: 0.8829	Val Loss: 0.2516
+Epoch: 110	Acc: 0.9505	Loss: 0.1616
+		Val Acc: 0.8829	Val Loss: 0.2465
+Epoch: 120	Acc: 0.9505	Loss: 0.1577
+		Val Acc: 0.9009	Val Loss: 0.2424
+Epoch: 130	Acc: 0.9527	Loss: 0.1542
+		Val Acc: 0.9009	Val Loss: 0.2382
+Epoch: 140	Acc: 0.9527	Loss: 0.1511
+		Val Acc: 0.9009	Val Loss: 0.2347
+Epoch: 150	Acc: 0.9527	Loss: 0.1484
+		Val Acc: 0.9009	Val Loss: 0.2311
+Epoch: 160	Acc: 0.9527	Loss: 0.1458
+		Val Acc: 0.9009	Val Loss: 0.2283
+Epoch: 170	Acc: 0.9527	Loss: 0.1434
+		Val Acc: 0.9009	Val Loss: 0.2254
+Epoch: 180	Acc: 0.9527	Loss: 0.1414
+		Val Acc: 0.9099	Val Loss: 0.2228
+Epoch: 190	Acc: 0.9527	Loss: 0.1394
+		Val Acc: 0.9189	Val Loss: 0.2202
+Epoch: 200	Acc: 0.9527	Loss: 0.1376
+		Val Acc: 0.9189	Val Loss: 0.218
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.84      0.91        56
+           1       0.86      1.00      0.92        55
+
+    accuracy                           0.92       111
+   macro avg       0.93      0.92      0.92       111
+weighted avg       0.93      0.92      0.92       111
+
+AUC-ROC: 0.9623376623376624
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=145, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8784	Loss: 0.4435
+		Val Acc: 0.9009	Val Loss: 1.313
+Epoch: 20	Acc: 0.8964	Loss: 0.3381
+		Val Acc: 0.9009	Val Loss: 1.2074
+Epoch: 30	Acc: 0.9009	Loss: 0.2898
+		Val Acc: 0.9099	Val Loss: 1.1586
+Epoch: 40	Acc: 0.9009	Loss: 0.257
+		Val Acc: 0.9279	Val Loss: 1.131
+Epoch: 50	Acc: 0.9167	Loss: 0.2376
+		Val Acc: 0.9279	Val Loss: 1.1134
+Epoch: 60	Acc: 0.9234	Loss: 0.2294
+		Val Acc: 0.9279	Val Loss: 1.1006
+Epoch: 70	Acc: 0.9324	Loss: 0.2174
+		Val Acc: 0.9279	Val Loss: 1.0911
+Epoch: 80	Acc: 0.9324	Loss: 0.2091
+		Val Acc: 0.9369	Val Loss: 1.0833
+Epoch: 90	Acc: 0.9369	Loss: 0.194
+		Val Acc: 0.9369	Val Loss: 1.0771
+Epoch: 100	Acc: 0.9414	Loss: 0.1893
+		Val Acc: 0.9369	Val Loss: 1.0717
+Epoch: 110	Acc: 0.9414	Loss: 0.1895
+		Val Acc: 0.9369	Val Loss: 1.0672
+Epoch: 120	Acc: 0.9414	Loss: 0.1828
+		Val Acc: 0.9369	Val Loss: 1.0633
+Epoch: 130	Acc: 0.9459	Loss: 0.1799
+		Val Acc: 0.9369	Val Loss: 1.0599
+Epoch: 140	Acc: 0.9437	Loss: 0.171
+		Val Acc: 0.9369	Val Loss: 1.0569
+Epoch: 150	Acc: 0.9437	Loss: 0.1704
+		Val Acc: 0.9369	Val Loss: 1.0542
+Epoch: 160	Acc: 0.9459	Loss: 0.1645
+		Val Acc: 0.9459	Val Loss: 1.0518
+Epoch: 170	Acc: 0.9459	Loss: 0.1591
+		Val Acc: 0.9459	Val Loss: 1.0497
+Epoch: 180	Acc: 0.9459	Loss: 0.1574
+		Val Acc: 0.9459	Val Loss: 1.0477
+Epoch: 190	Acc: 0.9459	Loss: 0.1616
+		Val Acc: 0.9459	Val Loss: 1.046
+Epoch: 200	Acc: 0.9527	Loss: 0.1557
+		Val Acc: 0.9459	Val Loss: 1.0443
+
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.91      0.94        54
+           1       0.92      0.98      0.95        57
+
+    accuracy                           0.95       111
+   macro avg       0.95      0.94      0.95       111
+weighted avg       0.95      0.95      0.95       111
+
+AUC-ROC: 0.965237166991553
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=137, stride=137, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8266	Loss: 0.6517
+		Val Acc: 0.9279	Val Loss: 1.5055
+Epoch: 20	Acc: 0.8288	Loss: 0.6086
+		Val Acc: 0.9099	Val Loss: 1.4363
+Epoch: 30	Acc: 0.8468	Loss: 0.571
+		Val Acc: 0.8829	Val Loss: 1.3741
+Epoch: 40	Acc: 0.8468	Loss: 0.5371
+		Val Acc: 0.8829	Val Loss: 1.3212
+Epoch: 50	Acc: 0.8626	Loss: 0.5085
+		Val Acc: 0.8829	Val Loss: 1.274
+Epoch: 60	Acc: 0.8581	Loss: 0.4818
+		Val Acc: 0.8829	Val Loss: 1.2467
+Epoch: 70	Acc: 0.8649	Loss: 0.4596
+		Val Acc: 0.8919	Val Loss: 1.219
+Epoch: 80	Acc: 0.8761	Loss: 0.4405
+		Val Acc: 0.8919	Val Loss: 1.2038
+Epoch: 90	Acc: 0.8739	Loss: 0.4246
+		Val Acc: 0.9009	Val Loss: 1.1897
+Epoch: 100	Acc: 0.8739	Loss: 0.4104
+		Val Acc: 0.9009	Val Loss: 1.1796
+
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.83      0.90        58
+           1       0.84      0.98      0.90        53
+
+    accuracy                           0.90       111
+   macro avg       0.91      0.90      0.90       111
+weighted avg       0.91      0.90      0.90       111
+
+AUC-ROC: 0.9398178269355888
+Training for KMT2C_10_5
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=145, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8806	Loss: 0.3456
+		Val Acc: 0.8739	Val Loss: 0.3418
+Epoch: 20	Acc: 0.8896	Loss: 0.2782
+		Val Acc: 0.8829	Val Loss: 0.2899
+Epoch: 30	Acc: 0.9032	Loss: 0.249
+		Val Acc: 0.9099	Val Loss: 0.2687
+Epoch: 40	Acc: 0.9189	Loss: 0.2308
+		Val Acc: 0.9099	Val Loss: 0.2557
+Epoch: 50	Acc: 0.9302	Loss: 0.2178
+		Val Acc: 0.9099	Val Loss: 0.2463
+Epoch: 60	Acc: 0.9324	Loss: 0.2078
+		Val Acc: 0.9099	Val Loss: 0.239
+Epoch: 70	Acc: 0.9324	Loss: 0.1998
+		Val Acc: 0.9099	Val Loss: 0.2331
+Epoch: 80	Acc: 0.9347	Loss: 0.1931
+		Val Acc: 0.9279	Val Loss: 0.2282
+Epoch: 90	Acc: 0.9347	Loss: 0.1874
+		Val Acc: 0.9279	Val Loss: 0.2239
+Epoch: 100	Acc: 0.9347	Loss: 0.1825
+		Val Acc: 0.9279	Val Loss: 0.2202
+Epoch: 110	Acc: 0.9347	Loss: 0.1782
+		Val Acc: 0.9279	Val Loss: 0.2168
+Epoch: 120	Acc: 0.9347	Loss: 0.1744
+		Val Acc: 0.9279	Val Loss: 0.2139
+Epoch: 130	Acc: 0.9369	Loss: 0.171
+		Val Acc: 0.9279	Val Loss: 0.2112
+Epoch: 140	Acc: 0.9392	Loss: 0.1678
+		Val Acc: 0.9279	Val Loss: 0.2087
+Epoch: 150	Acc: 0.9392	Loss: 0.165
+		Val Acc: 0.9369	Val Loss: 0.2065
+Epoch: 160	Acc: 0.9392	Loss: 0.1625
+		Val Acc: 0.9369	Val Loss: 0.2044
+Epoch: 170	Acc: 0.9392	Loss: 0.16
+		Val Acc: 0.9369	Val Loss: 0.2025
+Epoch: 180	Acc: 0.9459	Loss: 0.1578
+		Val Acc: 0.9369	Val Loss: 0.2006
+Epoch: 190	Acc: 0.9505	Loss: 0.1557
+		Val Acc: 0.9369	Val Loss: 0.199
+Epoch: 200	Acc: 0.9505	Loss: 0.1537
+		Val Acc: 0.9369	Val Loss: 0.1974
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.85      0.92        47
+           1       0.90      1.00      0.95        64
+
+    accuracy                           0.94       111
+   macro avg       0.95      0.93      0.93       111
+weighted avg       0.94      0.94      0.94       111
+
+AUC-ROC: 0.9371675531914894
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=144, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8694	Loss: 0.3417
+		Val Acc: 0.9189	Val Loss: 0.3022
+Epoch: 20	Acc: 0.8986	Loss: 0.2774
+		Val Acc: 0.9189	Val Loss: 0.2532
+Epoch: 30	Acc: 0.9167	Loss: 0.2577
+		Val Acc: 0.9189	Val Loss: 0.2335
+Epoch: 40	Acc: 0.9167	Loss: 0.2356
+		Val Acc: 0.9189	Val Loss: 0.2212
+Epoch: 50	Acc: 0.9234	Loss: 0.2228
+		Val Acc: 0.9279	Val Loss: 0.2132
+Epoch: 60	Acc: 0.9189	Loss: 0.2189
+		Val Acc: 0.9279	Val Loss: 0.2068
+Epoch: 70	Acc: 0.9324	Loss: 0.2136
+		Val Acc: 0.9279	Val Loss: 0.2017
+Epoch: 80	Acc: 0.9302	Loss: 0.2037
+		Val Acc: 0.9279	Val Loss: 0.198
+Epoch: 90	Acc: 0.9347	Loss: 0.1974
+		Val Acc: 0.9279	Val Loss: 0.1945
+Epoch: 100	Acc: 0.9324	Loss: 0.1947
+		Val Acc: 0.9279	Val Loss: 0.1916
+Epoch: 110	Acc: 0.9369	Loss: 0.1949
+		Val Acc: 0.9279	Val Loss: 0.1892
+Epoch: 120	Acc: 0.9392	Loss: 0.1805
+		Val Acc: 0.9279	Val Loss: 0.1866
+Epoch: 130	Acc: 0.9347	Loss: 0.1797
+		Val Acc: 0.9279	Val Loss: 0.1848
+Epoch: 140	Acc: 0.9369	Loss: 0.1791
+		Val Acc: 0.9369	Val Loss: 0.1829
+Epoch: 150	Acc: 0.9459	Loss: 0.1712
+		Val Acc: 0.9369	Val Loss: 0.1811
+Epoch: 160	Acc: 0.9414	Loss: 0.1711
+		Val Acc: 0.9369	Val Loss: 0.1795
+Epoch: 170	Acc: 0.9437	Loss: 0.1642
+		Val Acc: 0.9459	Val Loss: 0.178
+Epoch: 180	Acc: 0.9459	Loss: 0.1726
+		Val Acc: 0.9459	Val Loss: 0.1768
+Epoch: 190	Acc: 0.9459	Loss: 0.1664
+		Val Acc: 0.9459	Val Loss: 0.1754
+Epoch: 200	Acc: 0.9482	Loss: 0.1649
+		Val Acc: 0.9459	Val Loss: 0.1741
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.87      0.93        46
+           1       0.92      1.00      0.96        65
+
+    accuracy                           0.95       111
+   macro avg       0.96      0.93      0.94       111
+weighted avg       0.95      0.95      0.95       111
+
+AUC-ROC: 0.9665551839464883
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=151, stride=151, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8108	Loss: 0.6043
+		Val Acc: 0.9099	Val Loss: 1.4135
+Epoch: 20	Acc: 0.8198	Loss: 0.5519
+		Val Acc: 0.8919	Val Loss: 1.3314
+Epoch: 30	Acc: 0.8243	Loss: 0.5131
+		Val Acc: 0.8829	Val Loss: 1.2825
+Epoch: 40	Acc: 0.8423	Loss: 0.4834
+		Val Acc: 0.8919	Val Loss: 1.2488
+Epoch: 50	Acc: 0.8491	Loss: 0.4567
+		Val Acc: 0.8919	Val Loss: 1.2342
+Epoch: 60	Acc: 0.8604	Loss: 0.4319
+		Val Acc: 0.8919	Val Loss: 1.2198
+Epoch: 70	Acc: 0.8694	Loss: 0.4085
+		Val Acc: 0.8919	Val Loss: 1.2143
+Epoch: 80	Acc: 0.8694	Loss: 0.3857
+		Val Acc: 0.8829	Val Loss: 1.207
+Epoch: 90	Acc: 0.8784	Loss: 0.3655
+		Val Acc: 0.8829	Val Loss: 1.2013
+Epoch: 100	Acc: 0.8784	Loss: 0.347
+		Val Acc: 0.8829	Val Loss: 1.1969
+
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.83      0.88        60
+           1       0.83      0.94      0.88        51
+
+    accuracy                           0.88       111
+   macro avg       0.89      0.89      0.88       111
+weighted avg       0.89      0.88      0.88       111
+
+AUC-ROC: 0.9326797385620915
+Training for MAP3K1_16_16
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=65, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8246	Loss: 0.498
+		Val Acc: 0.8837	Val Loss: 0.4573
+Epoch: 20	Acc: 0.8596	Loss: 0.409
+		Val Acc: 0.907	Val Loss: 0.3739
+Epoch: 30	Acc: 0.8655	Loss: 0.3624
+		Val Acc: 0.907	Val Loss: 0.331
+Epoch: 40	Acc: 0.8655	Loss: 0.3333
+		Val Acc: 0.907	Val Loss: 0.3045
+Epoch: 50	Acc: 0.8772	Loss: 0.3134
+		Val Acc: 0.907	Val Loss: 0.2867
+Epoch: 60	Acc: 0.8772	Loss: 0.2987
+		Val Acc: 0.907	Val Loss: 0.2739
+Epoch: 70	Acc: 0.8889	Loss: 0.2865
+		Val Acc: 0.907	Val Loss: 0.2634
+Epoch: 80	Acc: 0.8889	Loss: 0.2766
+		Val Acc: 0.907	Val Loss: 0.2552
+Epoch: 90	Acc: 0.8889	Loss: 0.2682
+		Val Acc: 0.907	Val Loss: 0.2484
+Epoch: 100	Acc: 0.8889	Loss: 0.2611
+		Val Acc: 0.907	Val Loss: 0.2426
+Epoch: 110	Acc: 0.8947	Loss: 0.2543
+		Val Acc: 0.9302	Val Loss: 0.2375
+Epoch: 120	Acc: 0.8947	Loss: 0.2485
+		Val Acc: 0.9302	Val Loss: 0.2334
+Epoch: 130	Acc: 0.8947	Loss: 0.243
+		Val Acc: 0.9302	Val Loss: 0.2295
+Epoch: 140	Acc: 0.8947	Loss: 0.2381
+		Val Acc: 0.9302	Val Loss: 0.226
+Epoch: 150	Acc: 0.8947	Loss: 0.2335
+		Val Acc: 0.9302	Val Loss: 0.2228
+Epoch: 160	Acc: 0.9006	Loss: 0.2291
+		Val Acc: 0.9302	Val Loss: 0.2204
+Epoch: 170	Acc: 0.9064	Loss: 0.2251
+		Val Acc: 0.9302	Val Loss: 0.2179
+Epoch: 180	Acc: 0.9064	Loss: 0.2215
+		Val Acc: 0.907	Val Loss: 0.2154
+Epoch: 190	Acc: 0.9064	Loss: 0.2178
+		Val Acc: 0.907	Val Loss: 0.2137
+Epoch: 200	Acc: 0.9123	Loss: 0.2144
+		Val Acc: 0.907	Val Loss: 0.2117
+
+
+              precision    recall  f1-score   support
+
+           0       0.95      0.86      0.90        22
+           1       0.87      0.95      0.91        21
+
+    accuracy                           0.91        43
+   macro avg       0.91      0.91      0.91        43
+weighted avg       0.91      0.91      0.91        43
+
+AUC-ROC: 0.987012987012987
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=64, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8363	Loss: 0.4776
+		Val Acc: 0.8837	Val Loss: 0.4348
+Epoch: 20	Acc: 0.8421	Loss: 0.4045
+		Val Acc: 0.9302	Val Loss: 0.3462
+Epoch: 30	Acc: 0.8655	Loss: 0.3623
+		Val Acc: 0.9302	Val Loss: 0.3016
+Epoch: 40	Acc: 0.8655	Loss: 0.3489
+		Val Acc: 0.9302	Val Loss: 0.2732
+Epoch: 50	Acc: 0.883	Loss: 0.3218
+		Val Acc: 0.9302	Val Loss: 0.2527
+Epoch: 60	Acc: 0.8772	Loss: 0.3081
+		Val Acc: 0.9302	Val Loss: 0.2376
+Epoch: 70	Acc: 0.883	Loss: 0.2979
+		Val Acc: 0.9302	Val Loss: 0.2258
+Epoch: 80	Acc: 0.8655	Loss: 0.2847
+		Val Acc: 0.9302	Val Loss: 0.2161
+Epoch: 90	Acc: 0.8772	Loss: 0.2734
+		Val Acc: 0.9302	Val Loss: 0.2076
+Epoch: 100	Acc: 0.8947	Loss: 0.2715
+		Val Acc: 0.9302	Val Loss: 0.2005
+Epoch: 110	Acc: 0.8889	Loss: 0.2611
+		Val Acc: 0.9535	Val Loss: 0.1939
+Epoch: 120	Acc: 0.9064	Loss: 0.2669
+		Val Acc: 0.9535	Val Loss: 0.1885
+Epoch: 130	Acc: 0.8889	Loss: 0.2577
+		Val Acc: 0.9535	Val Loss: 0.1839
+Epoch: 140	Acc: 0.9006	Loss: 0.2463
+		Val Acc: 0.9535	Val Loss: 0.1784
+Epoch: 150	Acc: 0.9123	Loss: 0.2521
+		Val Acc: 0.9535	Val Loss: 0.174
+Epoch: 160	Acc: 0.9064	Loss: 0.241
+		Val Acc: 0.9535	Val Loss: 0.1705
+Epoch: 170	Acc: 0.9064	Loss: 0.2392
+		Val Acc: 0.9535	Val Loss: 0.1669
+Epoch: 180	Acc: 0.9123	Loss: 0.2375
+		Val Acc: 0.9535	Val Loss: 0.1635
+Epoch: 190	Acc: 0.9064	Loss: 0.2386
+		Val Acc: 0.9535	Val Loss: 0.1604
+Epoch: 200	Acc: 0.9064	Loss: 0.229
+		Val Acc: 0.9535	Val Loss: 0.1572
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.92      0.96        25
+           1       0.90      1.00      0.95        18
+
+    accuracy                           0.95        43
+   macro avg       0.95      0.96      0.95        43
+weighted avg       0.96      0.95      0.95        43
+
+AUC-ROC: 1.0
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=52, stride=52, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.5614	Loss: 0.6489
+		Val Acc: 0.4186	Val Loss: 0.7838
+Epoch: 20	Acc: 0.5614	Loss: 0.6245
+		Val Acc: 0.4186	Val Loss: 0.8406
+Epoch: 30	Acc: 0.6023	Loss: 0.6017
+		Val Acc: 0.8605	Val Loss: 0.8877
+Epoch: 40	Acc: 0.7602	Loss: 0.578
+		Val Acc: 0.907	Val Loss: 0.9373
+Epoch: 50	Acc: 0.7836	Loss: 0.5551
+		Val Acc: 0.907	Val Loss: 0.9906
+Epoch: 60	Acc: 0.8012	Loss: 0.5325
+		Val Acc: 0.907	Val Loss: 1.0395
+Epoch: 70	Acc: 0.8304	Loss: 0.5103
+		Val Acc: 0.907	Val Loss: 1.1035
+Epoch: 80	Acc: 0.807	Loss: 0.489
+		Val Acc: 0.907	Val Loss: 1.1604
+Epoch: 90	Acc: 0.8012	Loss: 0.4695
+		Val Acc: 0.8837	Val Loss: 1.2202
+Epoch: 100	Acc: 0.8012	Loss: 0.4508
+		Val Acc: 0.8837	Val Loss: 1.2926
+
+
+              precision    recall  f1-score   support
+
+           0       0.84      0.89      0.86        18
+           1       0.92      0.88      0.90        25
+
+    accuracy                           0.88        43
+   macro avg       0.88      0.88      0.88        43
+weighted avg       0.89      0.88      0.88        43
+
+AUC-ROC: 0.8833333333333334
+Training for MAP3K1_16_8
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=67, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8596	Loss: 0.436
+		Val Acc: 0.7907	Val Loss: 0.4877
+Epoch: 20	Acc: 0.8713	Loss: 0.3398
+		Val Acc: 0.8605	Val Loss: 0.3824
+Epoch: 30	Acc: 0.8772	Loss: 0.301
+		Val Acc: 0.8837	Val Loss: 0.3433
+Epoch: 40	Acc: 0.8772	Loss: 0.2789
+		Val Acc: 0.8837	Val Loss: 0.3225
+Epoch: 50	Acc: 0.883	Loss: 0.2628
+		Val Acc: 0.8837	Val Loss: 0.3088
+Epoch: 60	Acc: 0.883	Loss: 0.2504
+		Val Acc: 0.8837	Val Loss: 0.2989
+Epoch: 70	Acc: 0.8947	Loss: 0.24
+		Val Acc: 0.8837	Val Loss: 0.2918
+Epoch: 80	Acc: 0.9006	Loss: 0.2313
+		Val Acc: 0.8837	Val Loss: 0.2858
+Epoch: 90	Acc: 0.9006	Loss: 0.2235
+		Val Acc: 0.907	Val Loss: 0.282
+Epoch: 100	Acc: 0.9123	Loss: 0.2164
+		Val Acc: 0.907	Val Loss: 0.2782
+Epoch: 110	Acc: 0.9123	Loss: 0.2103
+		Val Acc: 0.907	Val Loss: 0.2759
+Epoch: 120	Acc: 0.9123	Loss: 0.2045
+		Val Acc: 0.907	Val Loss: 0.2735
+Epoch: 130	Acc: 0.9181	Loss: 0.1992
+		Val Acc: 0.907	Val Loss: 0.2714
+Epoch: 140	Acc: 0.924	Loss: 0.1943
+		Val Acc: 0.907	Val Loss: 0.2705
+Epoch: 150	Acc: 0.924	Loss: 0.1898
+		Val Acc: 0.907	Val Loss: 0.2692
+Epoch: 160	Acc: 0.924	Loss: 0.1853
+		Val Acc: 0.907	Val Loss: 0.2679
+Epoch: 170	Acc: 0.924	Loss: 0.1815
+		Val Acc: 0.907	Val Loss: 0.2667
+Epoch: 180	Acc: 0.924	Loss: 0.1774
+		Val Acc: 0.907	Val Loss: 0.2671
+Epoch: 190	Acc: 0.9298	Loss: 0.1739
+		Val Acc: 0.907	Val Loss: 0.2668
+Epoch: 200	Acc: 0.9298	Loss: 0.1704
+		Val Acc: 0.907	Val Loss: 0.2653
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.85      0.92        26
+           1       0.81      1.00      0.89        17
+
+    accuracy                           0.91        43
+   macro avg       0.90      0.92      0.91        43
+weighted avg       0.92      0.91      0.91        43
+
+AUC-ROC: 0.9095022624434389
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=63, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8947	Loss: 0.3967
+		Val Acc: 0.907	Val Loss: 0.3879
+Epoch: 20	Acc: 0.8772	Loss: 0.3336
+		Val Acc: 0.907	Val Loss: 0.3153
+Epoch: 30	Acc: 0.8772	Loss: 0.2939
+		Val Acc: 0.9302	Val Loss: 0.2847
+Epoch: 40	Acc: 0.883	Loss: 0.2852
+		Val Acc: 0.9302	Val Loss: 0.2661
+Epoch: 50	Acc: 0.883	Loss: 0.274
+		Val Acc: 0.9302	Val Loss: 0.2537
+Epoch: 60	Acc: 0.8947	Loss: 0.2673
+		Val Acc: 0.9302	Val Loss: 0.2451
+Epoch: 70	Acc: 0.9123	Loss: 0.247
+		Val Acc: 0.9302	Val Loss: 0.2383
+Epoch: 80	Acc: 0.883	Loss: 0.2515
+		Val Acc: 0.9302	Val Loss: 0.2326
+Epoch: 90	Acc: 0.9064	Loss: 0.2336
+		Val Acc: 0.9302	Val Loss: 0.2285
+Epoch: 100	Acc: 0.9123	Loss: 0.2338
+		Val Acc: 0.9302	Val Loss: 0.2249
+Epoch: 110	Acc: 0.9181	Loss: 0.233
+		Val Acc: 0.9302	Val Loss: 0.2217
+Epoch: 120	Acc: 0.9181	Loss: 0.2208
+		Val Acc: 0.9302	Val Loss: 0.2188
+Epoch: 130	Acc: 0.9123	Loss: 0.2146
+		Val Acc: 0.9302	Val Loss: 0.2164
+Epoch: 140	Acc: 0.9181	Loss: 0.2128
+		Val Acc: 0.9302	Val Loss: 0.2145
+Epoch: 150	Acc: 0.9181	Loss: 0.2109
+		Val Acc: 0.9302	Val Loss: 0.2126
+Epoch: 160	Acc: 0.9181	Loss: 0.2027
+		Val Acc: 0.9302	Val Loss: 0.2106
+Epoch: 170	Acc: 0.9064	Loss: 0.2089
+		Val Acc: 0.9302	Val Loss: 0.2092
+Epoch: 180	Acc: 0.9298	Loss: 0.2017
+		Val Acc: 0.9302	Val Loss: 0.2082
+Epoch: 190	Acc: 0.924	Loss: 0.1923
+		Val Acc: 0.9302	Val Loss: 0.2071
+Epoch: 200	Acc: 0.9298	Loss: 0.1916
+		Val Acc: 0.9302	Val Loss: 0.2058
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.86      0.92        21
+           1       0.88      1.00      0.94        22
+
+    accuracy                           0.93        43
+   macro avg       0.94      0.93      0.93        43
+weighted avg       0.94      0.93      0.93        43
+
+AUC-ROC: 0.948051948051948
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=52, stride=52, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.5614	Loss: 0.6349
+		Val Acc: 0.4186	Val Loss: 5.2697
+Epoch: 20	Acc: 0.7076	Loss: 0.5811
+		Val Acc: 0.907	Val Loss: 5.2103
+Epoch: 30	Acc: 0.807	Loss: 0.5379
+		Val Acc: 0.9302	Val Loss: 5.1612
+Epoch: 40	Acc: 0.7953	Loss: 0.5029
+		Val Acc: 0.8837	Val Loss: 5.1262
+Epoch: 50	Acc: 0.8187	Loss: 0.4753
+		Val Acc: 0.8837	Val Loss: 5.1018
+Epoch: 60	Acc: 0.8187	Loss: 0.4528
+		Val Acc: 0.8837	Val Loss: 5.086
+Epoch: 70	Acc: 0.8187	Loss: 0.436
+		Val Acc: 0.8837	Val Loss: 5.0787
+Epoch: 80	Acc: 0.8246	Loss: 0.4237
+		Val Acc: 0.8837	Val Loss: 5.0751
+Epoch: 90	Acc: 0.8187	Loss: 0.4124
+		Val Acc: 0.8837	Val Loss: 5.0776
+Epoch: 100	Acc: 0.8304	Loss: 0.4052
+		Val Acc: 0.8837	Val Loss: 5.0824
+
+
+              precision    recall  f1-score   support
+
+           0       0.84      0.89      0.86        18
+           1       0.92      0.88      0.90        25
+
+    accuracy                           0.88        43
+   macro avg       0.88      0.88      0.88        43
+weighted avg       0.89      0.88      0.88        43
+
+AUC-ROC: 0.88
+Training for MAP3K1_8_8
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=69, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.883	Loss: 0.4456
+		Val Acc: 0.8605	Val Loss: 0.4699
+Epoch: 20	Acc: 0.8889	Loss: 0.3582
+		Val Acc: 0.907	Val Loss: 0.3872
+Epoch: 30	Acc: 0.8889	Loss: 0.3149
+		Val Acc: 0.907	Val Loss: 0.3426
+Epoch: 40	Acc: 0.8889	Loss: 0.2892
+		Val Acc: 0.907	Val Loss: 0.3145
+Epoch: 50	Acc: 0.8947	Loss: 0.2717
+		Val Acc: 0.907	Val Loss: 0.2939
+Epoch: 60	Acc: 0.9006	Loss: 0.2585
+		Val Acc: 0.907	Val Loss: 0.2778
+Epoch: 70	Acc: 0.9064	Loss: 0.2481
+		Val Acc: 0.907	Val Loss: 0.2652
+Epoch: 80	Acc: 0.9064	Loss: 0.2393
+		Val Acc: 0.907	Val Loss: 0.2546
+Epoch: 90	Acc: 0.9064	Loss: 0.2318
+		Val Acc: 0.907	Val Loss: 0.2451
+Epoch: 100	Acc: 0.9123	Loss: 0.2253
+		Val Acc: 0.907	Val Loss: 0.2371
+Epoch: 110	Acc: 0.9181	Loss: 0.2193
+		Val Acc: 0.907	Val Loss: 0.2296
+Epoch: 120	Acc: 0.9298	Loss: 0.2139
+		Val Acc: 0.907	Val Loss: 0.2232
+Epoch: 130	Acc: 0.9298	Loss: 0.209
+		Val Acc: 0.907	Val Loss: 0.2174
+Epoch: 140	Acc: 0.9298	Loss: 0.2044
+		Val Acc: 0.907	Val Loss: 0.2122
+Epoch: 150	Acc: 0.9298	Loss: 0.2002
+		Val Acc: 0.907	Val Loss: 0.2073
+Epoch: 160	Acc: 0.9298	Loss: 0.1962
+		Val Acc: 0.907	Val Loss: 0.2028
+Epoch: 170	Acc: 0.9298	Loss: 0.1926
+		Val Acc: 0.907	Val Loss: 0.1988
+Epoch: 180	Acc: 0.9298	Loss: 0.1889
+		Val Acc: 0.907	Val Loss: 0.1949
+Epoch: 190	Acc: 0.9298	Loss: 0.1856
+		Val Acc: 0.907	Val Loss: 0.1913
+Epoch: 200	Acc: 0.9298	Loss: 0.1824
+		Val Acc: 0.9302	Val Loss: 0.1879
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.88      0.94        25
+           1       0.86      1.00      0.92        18
+
+    accuracy                           0.93        43
+   macro avg       0.93      0.94      0.93        43
+weighted avg       0.94      0.93      0.93        43
+
+AUC-ROC: 0.9777777777777777
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=66, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8421	Loss: 0.4891
+		Val Acc: 0.8372	Val Loss: 0.4682
+Epoch: 20	Acc: 0.8655	Loss: 0.3933
+		Val Acc: 0.907	Val Loss: 0.3711
+Epoch: 30	Acc: 0.8889	Loss: 0.3384
+		Val Acc: 0.907	Val Loss: 0.3222
+Epoch: 40	Acc: 0.8947	Loss: 0.3095
+		Val Acc: 0.907	Val Loss: 0.2935
+Epoch: 50	Acc: 0.8889	Loss: 0.287
+		Val Acc: 0.907	Val Loss: 0.2729
+Epoch: 60	Acc: 0.8947	Loss: 0.2735
+		Val Acc: 0.907	Val Loss: 0.2583
+Epoch: 70	Acc: 0.8947	Loss: 0.262
+		Val Acc: 0.907	Val Loss: 0.2464
+Epoch: 80	Acc: 0.9123	Loss: 0.2493
+		Val Acc: 0.907	Val Loss: 0.2369
+Epoch: 90	Acc: 0.8947	Loss: 0.2397
+		Val Acc: 0.907	Val Loss: 0.2286
+Epoch: 100	Acc: 0.9064	Loss: 0.2418
+		Val Acc: 0.907	Val Loss: 0.2219
+Epoch: 110	Acc: 0.9181	Loss: 0.229
+		Val Acc: 0.907	Val Loss: 0.2155
+Epoch: 120	Acc: 0.9123	Loss: 0.2237
+		Val Acc: 0.907	Val Loss: 0.2097
+Epoch: 130	Acc: 0.9181	Loss: 0.2187
+		Val Acc: 0.907	Val Loss: 0.2048
+Epoch: 140	Acc: 0.9123	Loss: 0.2176
+		Val Acc: 0.907	Val Loss: 0.1999
+Epoch: 150	Acc: 0.924	Loss: 0.2254
+		Val Acc: 0.907	Val Loss: 0.1954
+Epoch: 160	Acc: 0.9181	Loss: 0.1993
+		Val Acc: 0.907	Val Loss: 0.1913
+Epoch: 170	Acc: 0.9357	Loss: 0.2011
+		Val Acc: 0.9302	Val Loss: 0.1876
+Epoch: 180	Acc: 0.924	Loss: 0.1933
+		Val Acc: 0.9302	Val Loss: 0.1838
+Epoch: 190	Acc: 0.9298	Loss: 0.197
+		Val Acc: 0.9302	Val Loss: 0.1805
+Epoch: 200	Acc: 0.9298	Loss: 0.1949
+		Val Acc: 0.9302	Val Loss: 0.1774
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.84      0.91        19
+           1       0.89      1.00      0.94        24
+
+    accuracy                           0.93        43
+   macro avg       0.94      0.92      0.93        43
+weighted avg       0.94      0.93      0.93        43
+
+AUC-ROC: 1.0
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=62, stride=62, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.7953	Loss: 0.6356
+		Val Acc: 0.9535	Val Loss: 0.6882
+Epoch: 20	Acc: 0.8129	Loss: 0.5937
+		Val Acc: 0.907	Val Loss: 0.6951
+Epoch: 30	Acc: 0.8187	Loss: 0.5555
+		Val Acc: 0.907	Val Loss: 0.7074
+Epoch: 40	Acc: 0.8187	Loss: 0.5204
+		Val Acc: 0.907	Val Loss: 0.7257
+Epoch: 50	Acc: 0.8246	Loss: 0.4889
+		Val Acc: 0.907	Val Loss: 0.7508
+Epoch: 60	Acc: 0.8246	Loss: 0.4612
+		Val Acc: 0.907	Val Loss: 0.7819
+Epoch: 70	Acc: 0.8304	Loss: 0.4379
+		Val Acc: 0.907	Val Loss: 0.818
+Epoch: 80	Acc: 0.8304	Loss: 0.419
+		Val Acc: 0.907	Val Loss: 0.8571
+Epoch: 90	Acc: 0.8304	Loss: 0.4032
+		Val Acc: 0.907	Val Loss: 0.8972
+Epoch: 100	Acc: 0.8363	Loss: 0.3909
+		Val Acc: 0.907	Val Loss: 0.9382
+
+
+              precision    recall  f1-score   support
+
+           0       0.95      0.86      0.90        22
+           1       0.87      0.95      0.91        21
+
+    accuracy                           0.91        43
+   macro avg       0.91      0.91      0.91        43
+weighted avg       0.91      0.91      0.91        43
+
+AUC-ROC: 0.9523809523809523
+Training for MAP3K1_8_4
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=67, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.9006	Loss: 0.3543
+		Val Acc: 0.814	Val Loss: 0.4509
+Epoch: 20	Acc: 0.9006	Loss: 0.2787
+		Val Acc: 0.814	Val Loss: 0.4228
+Epoch: 30	Acc: 0.9123	Loss: 0.2471
+		Val Acc: 0.814	Val Loss: 0.4144
+Epoch: 40	Acc: 0.9181	Loss: 0.2283
+		Val Acc: 0.814	Val Loss: 0.4104
+Epoch: 50	Acc: 0.924	Loss: 0.2148
+		Val Acc: 0.814	Val Loss: 0.4069
+Epoch: 60	Acc: 0.924	Loss: 0.204
+		Val Acc: 0.814	Val Loss: 0.4027
+Epoch: 70	Acc: 0.924	Loss: 0.1954
+		Val Acc: 0.814	Val Loss: 0.4001
+Epoch: 80	Acc: 0.9298	Loss: 0.188
+		Val Acc: 0.814	Val Loss: 0.3976
+Epoch: 90	Acc: 0.9298	Loss: 0.1815
+		Val Acc: 0.814	Val Loss: 0.3958
+Epoch: 100	Acc: 0.9298	Loss: 0.1757
+		Val Acc: 0.814	Val Loss: 0.3943
+Epoch: 110	Acc: 0.9298	Loss: 0.1706
+		Val Acc: 0.814	Val Loss: 0.394
+Epoch: 120	Acc: 0.9357	Loss: 0.1659
+		Val Acc: 0.814	Val Loss: 0.3927
+Epoch: 130	Acc: 0.9357	Loss: 0.1616
+		Val Acc: 0.814	Val Loss: 0.392
+Epoch: 140	Acc: 0.9357	Loss: 0.1576
+		Val Acc: 0.7907	Val Loss: 0.3921
+Epoch: 150	Acc: 0.9357	Loss: 0.1541
+		Val Acc: 0.7907	Val Loss: 0.3938
+Epoch: 160	Acc: 0.9357	Loss: 0.1506
+		Val Acc: 0.7907	Val Loss: 0.3948
+Epoch: 170	Acc: 0.9474	Loss: 0.1475
+		Val Acc: 0.7907	Val Loss: 0.3945
+Epoch: 180	Acc: 0.9474	Loss: 0.1449
+		Val Acc: 0.7907	Val Loss: 0.3949
+Epoch: 190	Acc: 0.9474	Loss: 0.1419
+		Val Acc: 0.7907	Val Loss: 0.3964
+Epoch: 200	Acc: 0.9474	Loss: 0.1391
+		Val Acc: 0.7907	Val Loss: 0.3972
+
+
+              precision    recall  f1-score   support
+
+           0       0.92      0.60      0.73        20
+           1       0.73      0.96      0.83        23
+
+    accuracy                           0.79        43
+   macro avg       0.83      0.78      0.78        43
+weighted avg       0.82      0.79      0.78        43
+
+AUC-ROC: 0.9108695652173913
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=66, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8596	Loss: 0.3937
+		Val Acc: 0.8605	Val Loss: 0.3795
+Epoch: 20	Acc: 0.8772	Loss: 0.2994
+		Val Acc: 0.9302	Val Loss: 0.3217
+Epoch: 30	Acc: 0.8713	Loss: 0.2919
+		Val Acc: 0.9302	Val Loss: 0.2973
+Epoch: 40	Acc: 0.883	Loss: 0.2724
+		Val Acc: 0.9302	Val Loss: 0.2842
+Epoch: 50	Acc: 0.9064	Loss: 0.2614
+		Val Acc: 0.907	Val Loss: 0.2747
+Epoch: 60	Acc: 0.9006	Loss: 0.2555
+		Val Acc: 0.907	Val Loss: 0.2689
+Epoch: 70	Acc: 0.9123	Loss: 0.2331
+		Val Acc: 0.907	Val Loss: 0.2636
+Epoch: 80	Acc: 0.8947	Loss: 0.2286
+		Val Acc: 0.907	Val Loss: 0.2598
+Epoch: 90	Acc: 0.9064	Loss: 0.2255
+		Val Acc: 0.907	Val Loss: 0.2567
+Epoch: 100	Acc: 0.924	Loss: 0.2014
+		Val Acc: 0.907	Val Loss: 0.2543
+Epoch: 110	Acc: 0.9123	Loss: 0.222
+		Val Acc: 0.907	Val Loss: 0.2521
+Epoch: 120	Acc: 0.9181	Loss: 0.2137
+		Val Acc: 0.907	Val Loss: 0.2505
+Epoch: 130	Acc: 0.9181	Loss: 0.2111
+		Val Acc: 0.907	Val Loss: 0.2496
+Epoch: 140	Acc: 0.924	Loss: 0.2128
+		Val Acc: 0.907	Val Loss: 0.2487
+Epoch: 150	Acc: 0.9298	Loss: 0.2029
+		Val Acc: 0.907	Val Loss: 0.2477
+Epoch: 160	Acc: 0.9357	Loss: 0.2012
+		Val Acc: 0.907	Val Loss: 0.2466
+Epoch: 170	Acc: 0.9298	Loss: 0.185
+		Val Acc: 0.907	Val Loss: 0.2463
+Epoch: 180	Acc: 0.9298	Loss: 0.1855
+		Val Acc: 0.907	Val Loss: 0.2467
+Epoch: 190	Acc: 0.924	Loss: 0.1882
+		Val Acc: 0.907	Val Loss: 0.2471
+Epoch: 200	Acc: 0.9474	Loss: 0.1763
+		Val Acc: 0.907	Val Loss: 0.2463
+
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.85      0.89        20
+           1       0.88      0.96      0.92        23
+
+    accuracy                           0.91        43
+   macro avg       0.91      0.90      0.91        43
+weighted avg       0.91      0.91      0.91        43
+
+AUC-ROC: 0.9554347826086957
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=65, stride=65, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.5789	Loss: 0.6286
+		Val Acc: 0.814	Val Loss: 0.6287
+Epoch: 20	Acc: 0.8363	Loss: 0.5688
+		Val Acc: 0.814	Val Loss: 0.5835
+Epoch: 30	Acc: 0.848	Loss: 0.5155
+		Val Acc: 0.8372	Val Loss: 0.5503
+Epoch: 40	Acc: 0.8538	Loss: 0.4692
+		Val Acc: 0.814	Val Loss: 0.5283
+Epoch: 50	Acc: 0.8596	Loss: 0.4307
+		Val Acc: 0.814	Val Loss: 0.5165
+Epoch: 60	Acc: 0.8538	Loss: 0.3995
+		Val Acc: 0.814	Val Loss: 0.5134
+Epoch: 70	Acc: 0.8538	Loss: 0.3749
+		Val Acc: 0.814	Val Loss: 0.5162
+Epoch: 80	Acc: 0.8596	Loss: 0.3562
+		Val Acc: 0.8372	Val Loss: 0.524
+Epoch: 90	Acc: 0.8713	Loss: 0.3411
+		Val Acc: 0.8372	Val Loss: 0.5341
+Epoch: 100	Acc: 0.8772	Loss: 0.3295
+		Val Acc: 0.8372	Val Loss: 0.5465
+
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.73      0.82        22
+           1       0.77      0.95      0.85        21
+
+    accuracy                           0.84        43
+   macro avg       0.86      0.84      0.84        43
+weighted avg       0.86      0.84      0.84        43
+
+AUC-ROC: 0.8809523809523809
+Training for MAP3K1_10_10
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=68, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.883	Loss: 0.5171
+		Val Acc: 0.907	Val Loss: 0.541
+Epoch: 20	Acc: 0.8772	Loss: 0.3921
+		Val Acc: 0.9302	Val Loss: 0.4366
+Epoch: 30	Acc: 0.883	Loss: 0.3338
+		Val Acc: 0.9302	Val Loss: 0.3954
+Epoch: 40	Acc: 0.8947	Loss: 0.301
+		Val Acc: 0.9302	Val Loss: 0.3763
+Epoch: 50	Acc: 0.8947	Loss: 0.2788
+		Val Acc: 0.9302	Val Loss: 0.3694
+Epoch: 60	Acc: 0.8947	Loss: 0.2624
+		Val Acc: 0.9302	Val Loss: 0.3678
+Epoch: 70	Acc: 0.8947	Loss: 0.2492
+		Val Acc: 0.9302	Val Loss: 0.3687
+Epoch: 80	Acc: 0.9006	Loss: 0.2384
+		Val Acc: 0.9302	Val Loss: 0.3726
+Epoch: 90	Acc: 0.9123	Loss: 0.2289
+		Val Acc: 0.9302	Val Loss: 0.3769
+Epoch: 100	Acc: 0.9123	Loss: 0.2204
+		Val Acc: 0.9302	Val Loss: 0.3834
+Epoch: 110	Acc: 0.9123	Loss: 0.2129
+		Val Acc: 0.9302	Val Loss: 0.3894
+Epoch: 120	Acc: 0.9123	Loss: 0.2061
+		Val Acc: 0.9302	Val Loss: 0.3962
+Epoch: 130	Acc: 0.924	Loss: 0.1998
+		Val Acc: 0.9302	Val Loss: 0.4041
+Epoch: 140	Acc: 0.924	Loss: 0.1941
+		Val Acc: 0.9302	Val Loss: 0.4114
+Epoch: 150	Acc: 0.924	Loss: 0.1888
+		Val Acc: 0.9302	Val Loss: 0.4193
+Epoch: 160	Acc: 0.9298	Loss: 0.1839
+		Val Acc: 0.9302	Val Loss: 0.4276
+Epoch: 170	Acc: 0.9298	Loss: 0.1792
+		Val Acc: 0.9302	Val Loss: 0.4354
+Epoch: 180	Acc: 0.9357	Loss: 0.175
+		Val Acc: 0.9302	Val Loss: 0.4439
+Epoch: 190	Acc: 0.9415	Loss: 0.1709
+		Val Acc: 0.9302	Val Loss: 0.4518
+Epoch: 200	Acc: 0.9415	Loss: 0.1672
+		Val Acc: 0.9302	Val Loss: 0.4599
+
+
+              precision    recall  f1-score   support
+
+           0       0.95      0.91      0.93        22
+           1       0.91      0.95      0.93        21
+
+    accuracy                           0.93        43
+   macro avg       0.93      0.93      0.93        43
+weighted avg       0.93      0.93      0.93        43
+
+AUC-ROC: 0.9047619047619047
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=70, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.924	Loss: 0.3982
+		Val Acc: 0.7907	Val Loss: 0.4608
+Epoch: 20	Acc: 0.9357	Loss: 0.3022
+		Val Acc: 0.7674	Val Loss: 0.431
+Epoch: 30	Acc: 0.924	Loss: 0.2484
+		Val Acc: 0.7674	Val Loss: 0.4204
+Epoch: 40	Acc: 0.9064	Loss: 0.2485
+		Val Acc: 0.7674	Val Loss: 0.4124
+Epoch: 50	Acc: 0.9298	Loss: 0.229
+		Val Acc: 0.7674	Val Loss: 0.4072
+Epoch: 60	Acc: 0.9298	Loss: 0.2086
+		Val Acc: 0.7907	Val Loss: 0.4017
+Epoch: 70	Acc: 0.9357	Loss: 0.2045
+		Val Acc: 0.7907	Val Loss: 0.3978
+Epoch: 80	Acc: 0.9415	Loss: 0.1971
+		Val Acc: 0.7907	Val Loss: 0.3936
+Epoch: 90	Acc: 0.9298	Loss: 0.1892
+		Val Acc: 0.7907	Val Loss: 0.3889
+Epoch: 100	Acc: 0.9298	Loss: 0.185
+		Val Acc: 0.7907	Val Loss: 0.3847
+Epoch: 110	Acc: 0.9415	Loss: 0.1789
+		Val Acc: 0.7907	Val Loss: 0.3798
+Epoch: 120	Acc: 0.9357	Loss: 0.184
+		Val Acc: 0.8372	Val Loss: 0.376
+Epoch: 130	Acc: 0.9474	Loss: 0.1701
+		Val Acc: 0.8372	Val Loss: 0.3748
+Epoch: 140	Acc: 0.9357	Loss: 0.1641
+		Val Acc: 0.8372	Val Loss: 0.3709
+Epoch: 150	Acc: 0.9474	Loss: 0.1665
+		Val Acc: 0.8372	Val Loss: 0.3678
+Epoch: 160	Acc: 0.9474	Loss: 0.1596
+		Val Acc: 0.8372	Val Loss: 0.367
+Epoch: 170	Acc: 0.9474	Loss: 0.1625
+		Val Acc: 0.8372	Val Loss: 0.3656
+Epoch: 180	Acc: 0.9474	Loss: 0.1488
+		Val Acc: 0.8372	Val Loss: 0.3646
+Epoch: 190	Acc: 0.9474	Loss: 0.1462
+		Val Acc: 0.8372	Val Loss: 0.3599
+Epoch: 200	Acc: 0.9591	Loss: 0.139
+		Val Acc: 0.8372	Val Loss: 0.3582
+
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.73      0.84        26
+           1       0.71      1.00      0.83        17
+
+    accuracy                           0.84        43
+   macro avg       0.85      0.87      0.84        43
+weighted avg       0.88      0.84      0.84        43
+
+AUC-ROC: 0.9638009049773756
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=59, stride=59, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.5263	Loss: 0.6619
+		Val Acc: 0.4419	Val Loss: 5.6236
+Epoch: 20	Acc: 0.6433	Loss: 0.6282
+		Val Acc: 0.8372	Val Loss: 5.8712
+Epoch: 30	Acc: 0.8304	Loss: 0.5959
+		Val Acc: 0.8605	Val Loss: 6.1282
+Epoch: 40	Acc: 0.8187	Loss: 0.5659
+		Val Acc: 0.8605	Val Loss: 6.4206
+Epoch: 50	Acc: 0.8187	Loss: 0.5348
+		Val Acc: 0.8605	Val Loss: 6.707
+Epoch: 60	Acc: 0.8187	Loss: 0.5065
+		Val Acc: 0.8605	Val Loss: 7.0132
+Epoch: 70	Acc: 0.8187	Loss: 0.4803
+		Val Acc: 0.8605	Val Loss: 7.4112
+Epoch: 80	Acc: 0.8187	Loss: 0.4573
+		Val Acc: 0.8605	Val Loss: 7.3922
+Epoch: 90	Acc: 0.8187	Loss: 0.4369
+		Val Acc: 0.8372	Val Loss: 7.3776
+Epoch: 100	Acc: 0.8187	Loss: 0.4193
+		Val Acc: 0.8372	Val Loss: 7.367
+
+
+              precision    recall  f1-score   support
+
+           0       0.77      0.89      0.83        19
+           1       0.90      0.79      0.84        24
+
+    accuracy                           0.84        43
+   macro avg       0.84      0.84      0.84        43
+weighted avg       0.85      0.84      0.84        43
+
+AUC-ROC: 0.8267543859649122
+Training for MAP3K1_10_5
+Model 1
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=80, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.883	Loss: 0.3927
+		Val Acc: 0.8372	Val Loss: 0.4119
+Epoch: 20	Acc: 0.8889	Loss: 0.3156
+		Val Acc: 0.8372	Val Loss: 0.3544
+Epoch: 30	Acc: 0.9006	Loss: 0.2866
+		Val Acc: 0.8605	Val Loss: 0.3324
+Epoch: 40	Acc: 0.9064	Loss: 0.2706
+		Val Acc: 0.8605	Val Loss: 0.3187
+Epoch: 50	Acc: 0.9064	Loss: 0.2597
+		Val Acc: 0.8605	Val Loss: 0.3083
+Epoch: 60	Acc: 0.9064	Loss: 0.251
+		Val Acc: 0.8605	Val Loss: 0.3005
+Epoch: 70	Acc: 0.9064	Loss: 0.2441
+		Val Acc: 0.8605	Val Loss: 0.2931
+Epoch: 80	Acc: 0.9123	Loss: 0.2382
+		Val Acc: 0.8605	Val Loss: 0.2871
+Epoch: 90	Acc: 0.9123	Loss: 0.2331
+		Val Acc: 0.8605	Val Loss: 0.2811
+Epoch: 100	Acc: 0.9123	Loss: 0.2285
+		Val Acc: 0.8837	Val Loss: 0.276
+Epoch: 110	Acc: 0.9123	Loss: 0.2244
+		Val Acc: 0.8837	Val Loss: 0.2718
+Epoch: 120	Acc: 0.9123	Loss: 0.2207
+		Val Acc: 0.8837	Val Loss: 0.2676
+Epoch: 130	Acc: 0.9181	Loss: 0.2174
+		Val Acc: 0.8837	Val Loss: 0.2642
+Epoch: 140	Acc: 0.9181	Loss: 0.2142
+		Val Acc: 0.8837	Val Loss: 0.2609
+Epoch: 150	Acc: 0.9181	Loss: 0.2112
+		Val Acc: 0.8837	Val Loss: 0.2578
+Epoch: 160	Acc: 0.9181	Loss: 0.2084
+		Val Acc: 0.8837	Val Loss: 0.2554
+Epoch: 170	Acc: 0.9181	Loss: 0.2059
+		Val Acc: 0.8837	Val Loss: 0.253
+Epoch: 180	Acc: 0.9181	Loss: 0.2035
+		Val Acc: 0.8837	Val Loss: 0.2509
+Epoch: 190	Acc: 0.9181	Loss: 0.2016
+		Val Acc: 0.8837	Val Loss: 0.2489
+Epoch: 200	Acc: 0.9181	Loss: 0.1993
+		Val Acc: 0.8605	Val Loss: 0.2469
+
+
+              precision    recall  f1-score   support
+
+           0       0.95      0.80      0.87        25
+           1       0.77      0.94      0.85        18
+
+    accuracy                           0.86        43
+   macro avg       0.86      0.87      0.86        43
+weighted avg       0.88      0.86      0.86        43
+
+AUC-ROC: 0.9722222222222223
+Model 2
+cust_model(
+  (model): Sequential(
+    (0): Linear(in_features=85, out_features=256, bias=True)
+    (1): Dropout(p=0.25, inplace=False)
+    (2): Linear(in_features=256, out_features=64, bias=True)
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8772	Loss: 0.3878
+		Val Acc: 0.7674	Val Loss: 2.7962
+Epoch: 20	Acc: 0.8947	Loss: 0.3319
+		Val Acc: 0.7674	Val Loss: 2.7385
+Epoch: 30	Acc: 0.8947	Loss: 0.2895
+		Val Acc: 0.7674	Val Loss: 2.713
+Epoch: 40	Acc: 0.8947	Loss: 0.2891
+		Val Acc: 0.7674	Val Loss: 2.6968
+Epoch: 50	Acc: 0.8889	Loss: 0.2765
+		Val Acc: 0.7674	Val Loss: 2.6864
+Epoch: 60	Acc: 0.9006	Loss: 0.2683
+		Val Acc: 0.7907	Val Loss: 2.6787
+Epoch: 70	Acc: 0.9064	Loss: 0.2553
+		Val Acc: 0.7907	Val Loss: 2.6722
+Epoch: 80	Acc: 0.9064	Loss: 0.2544
+		Val Acc: 0.814	Val Loss: 2.6659
+Epoch: 90	Acc: 0.9064	Loss: 0.2453
+		Val Acc: 0.814	Val Loss: 2.6609
+Epoch: 100	Acc: 0.8947	Loss: 0.2556
+		Val Acc: 0.814	Val Loss: 2.656
+Epoch: 110	Acc: 0.9006	Loss: 0.2531
+		Val Acc: 0.814	Val Loss: 2.6534
+Epoch: 120	Acc: 0.9064	Loss: 0.2448
+		Val Acc: 0.814	Val Loss: 2.6512
+Epoch: 130	Acc: 0.9064	Loss: 0.2419
+		Val Acc: 0.814	Val Loss: 2.6479
+Epoch: 140	Acc: 0.9064	Loss: 0.2237
+		Val Acc: 0.814	Val Loss: 2.6455
+Epoch: 150	Acc: 0.9123	Loss: 0.2311
+		Val Acc: 0.814	Val Loss: 2.6451
+Epoch: 160	Acc: 0.9064	Loss: 0.2289
+		Val Acc: 0.814	Val Loss: 2.645
+Epoch: 170	Acc: 0.9123	Loss: 0.219
+		Val Acc: 0.814	Val Loss: 2.6442
+Epoch: 180	Acc: 0.9064	Loss: 0.2263
+		Val Acc: 0.814	Val Loss: 2.6434
+Epoch: 190	Acc: 0.9181	Loss: 0.2196
+		Val Acc: 0.814	Val Loss: 2.6434
+Epoch: 200	Acc: 0.9064	Loss: 0.2195
+		Val Acc: 0.814	Val Loss: 2.6434
+
+
+              precision    recall  f1-score   support
+
+           0       0.93      0.81      0.86        31
+           1       0.62      0.83      0.71        12
+
+    accuracy                           0.81        43
+   macro avg       0.78      0.82      0.79        43
+weighted avg       0.84      0.81      0.82        43
+
+AUC-ROC: 0.8736559139784945
+Model 3
+cust_model(
+  (conv): Conv1d(1, 32, kernel_size=(8,), stride=(1,))
+  (maxpool): MaxPool1d(kernel_size=67, stride=67, padding=0, dilation=1, ceil_mode=False)
+  (model): Sequential(
+    (0): Linear(in_features=32, out_features=256, bias=True)
+    (1): Linear(in_features=256, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=1, bias=True)
+  )
+  (activation): Sigmoid()
+)
+Epoch: 10	Acc: 0.8012	Loss: 0.6075
+		Val Acc: 0.8605	Val Loss: 0.7152
+Epoch: 20	Acc: 0.8187	Loss: 0.571
+		Val Acc: 0.8605	Val Loss: 0.7316
+Epoch: 30	Acc: 0.8187	Loss: 0.5389
+		Val Acc: 0.8605	Val Loss: 0.7569
+Epoch: 40	Acc: 0.8187	Loss: 0.5109
+		Val Acc: 0.8372	Val Loss: 0.787
+Epoch: 50	Acc: 0.8187	Loss: 0.4846
+		Val Acc: 0.8372	Val Loss: 0.8231
+Epoch: 60	Acc: 0.8187	Loss: 0.4625
+		Val Acc: 0.814	Val Loss: 0.865
+Epoch: 70	Acc: 0.8187	Loss: 0.4448
+		Val Acc: 0.814	Val Loss: 0.9088
+Epoch: 80	Acc: 0.8246	Loss: 0.43
+		Val Acc: 0.814	Val Loss: 0.9544
+Epoch: 90	Acc: 0.8304	Loss: 0.4186
+		Val Acc: 0.814	Val Loss: 0.9996
+Epoch: 100	Acc: 0.8363	Loss: 0.4087
+		Val Acc: 0.814	Val Loss: 1.0449
+
+
+              precision    recall  f1-score   support
+
+           0       0.93      0.67      0.78        21
+           1       0.75      0.95      0.84        22
+
+    accuracy                           0.81        43
+   macro avg       0.84      0.81      0.81        43
+weighted avg       0.84      0.81      0.81        43
+
+AUC-ROC: 0.8733766233766235

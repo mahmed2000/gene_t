@@ -11,7 +11,6 @@
 
 import torch, glob, re, os, time, json, numpy
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
 
 # Maps nucleotides to values 00 - 11 for encoding (arbitrary order)
 BP_MAP = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
@@ -81,7 +80,7 @@ if __name__ == '__main__':
 
             n_features = (n_bp // FEAT_SIZE) + (n_bp // FEAT_SIZE - 1) * (FEAT_SIZE // SLIDER - 1)
             # int32 because uint16 not supported, int64 needed for labels
-            data = numpy.zeros((n_samples, n_features), dtype=numpy.int32)
+            data = numpy.zeros((n_samples, n_features), dtype=numpy.int64)
             labels = torch.zeros((n_samples), dtype=torch.int64)
 
             # sets last j labels to 1, (last j entries will be cancer files)
@@ -99,7 +98,7 @@ if __name__ == '__main__':
                 print(f"Loading file \t{i} of \t{n_samples}\t| ETA\t{eta} min", end='\r')
                 process_genome(i, file)
             data = torch.tensor(data)
-            data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size = 0.1, shuffle = True)
+            data_train, data_test, labels_train, labels_test = train_test_split(data, labels, test_size = 0.2, shuffle = True)
             # saves data and labels in same pt file, by gene
             torch.save({'data': data_train, 'labels': labels_train}, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_train.pt")
             torch.save({'data': data_test, 'labels': labels_test}, f"data{os.sep}{gene}_{FEAT_SIZE}_{SLIDER}_test.pt")

@@ -76,8 +76,10 @@ class cust_model(torch.nn.Module):
         else:
             fc_layers = layers
 
-        print(fc_layers)
         self.model = torch.nn.Sequential(*fc_layers)
+        for p in self.parameters():
+            if p.dim() > 1:
+                torch.nn.init.xavier_uniform_(p)
         self.activation = torch.nn.Sigmoid()
 
     def forward(self, x):
@@ -92,8 +94,8 @@ class cust_model(torch.nn.Module):
         return torch.squeeze(output)
 
 def train_model(m):
-    train_loader = torch.utils.data.DataLoader(train_set, batch_size = BATCH_SIZE, shuffle = True)
-    val_loader = torch.utils.data.DataLoader(test_set, batch_size = BATCH_SIZE, shuffle = False)
+    train_loader = torch.utils.data.DataLoader(train_set, batch_size = m.config.get('batch', BATCH_SIZE), shuffle = True)
+    val_loader = torch.utils.data.DataLoader(test_set, batch_size = m.config.get('batch', BATCH_SIZE), shuffle = False)
     optim = torch.optim.SGD(m.parameters(), lr = m.config.get('lr', LR))
 
     acc_log = []
@@ -152,7 +154,7 @@ def train_model(m):
 
 def test_model(m):
     m.eval()
-    test_loader = torch.utils.data.DataLoader(test_set, batch_size = BATCH_SIZE, shuffle = False)
+    test_loader = torch.utils.data.DataLoader(test_set, batch_size = m.config.get('batch', BATCH_SIZE), shuffle = False)
     test_labels = torch.tensor([], dtype=torch.long)
     test_preds = torch.tensor([], dtype=torch.long)
     raw_out = torch.tensor([], dtype=torch.float)
@@ -195,10 +197,16 @@ if __name__ == '__main__':
 
         for j, arch in enumerate(model_archs):
             print(f"Model {j + 1}")
-            data_train, data_val, labels_train, labels_val = train_test_split(tmp['data'], tmp['labels'], test_size = 0.1, shuffle = True)
-            scaler = MinMaxScaler()
-            scaler.fit(data_train)
-            data_train, data_val = torch.tensor(scaler.transform(data_train)), torch.tensor(scaler.transform(data_val))
+            data_train, data_val, labels_train, labels_val = train_test_split(tmp['data'], tmp['labels'], test_size = 0.2, shuffle = True)
+            scaler = MinMaxScaler().fit(data_train)
+            pca = PCA().fit(scaler.transform(data_train))
+            sum_var = 0
+            for var_i, var_ratio in enumerate(pca.explained_variance_ratio_):
+                sum_var += var_ratio
+                if sum_var >= 0.95:
+                    n_features = var_i + 1
+                    break
+            data_train, data_val = torch.tensor(pca.transform(scaler.transform(data_train))[:, :n_features]), torch.tensor(pca.transform(scaler.transform(data_val))[:, :n_features])
             train_set, test_set = cust_dataset(data_train, labels_train), cust_dataset(data_val, labels_val)
             
             models[i].append(cust_model(n_features, copy.deepcopy(arch)))
@@ -224,7 +232,7 @@ if __name__ == '__main__':
             plt.savefig(f"models/{gene} Model_{j + 1} ROC.png")
             plt.close(fig)
             
-            torch.save({'model': models[i][j].state_dict(), 'scaler': scaler}, f"models/{gene} Model_{j + 1}.pt")
+            torch.save({'model': models[i][j].state_dict(), 'scaler': scaler, 'pca': pca}, f"models/{gene} Model_{j + 1}.pt")
             models[i][j] = None
 
 
