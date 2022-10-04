@@ -14,12 +14,13 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
+import numpy
 
 TRAIN_PROP = 0.8    # Proportion of datasets to use for training
 BATCH_SIZE = 64
 LR = 0.01   # Learning rate
 EPOCHS = 100
-LOSS_FUNCT = torch.nn.BCELoss()
+LOSS_FUNCT = torch.nn.MSELoss()
 LOG_FILE = 'model_out.txt'
 DEV = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -34,6 +35,9 @@ class Logger(object):
 
     def flush(self):
         pass
+
+def bce_l1(x, y):
+    loss = -1.0 * (y * torch.log(x, 1) + (1.0 - y) * torch.log(1.0 - x, 1))
 
 
 # for data loading
@@ -80,6 +84,7 @@ class cust_model(torch.nn.Module):
         for p in self.parameters():
             if p.dim() > 1:
                 torch.nn.init.xavier_uniform_(p)
+
         self.activation = torch.nn.Sigmoid()
 
     def forward(self, x):
@@ -89,8 +94,7 @@ class cust_model(torch.nn.Module):
             if self.config['conv']['lin_conn'] == 'max':
                 x = self.maxpool(x)
             x = x.flatten(1)
-        x = self.model(x)
-        output = self.activation(x)
+        output = self.activation(self.model(x))
         return torch.squeeze(output)
 
 def train_model(m):
@@ -197,16 +201,27 @@ if __name__ == '__main__':
 
         for j, arch in enumerate(model_archs):
             print(f"Model {j + 1}")
+            if arch.get('kmer'):
+                kmers = numpy.zeros((tmp['data'].size(0), 2 ** (2 * int(gene.split('_')[1]))), dtype=numpy.int32)
+                data_numpy = tmp['data'].detach().numpy()
+                for numpy_index, value in numpy.ndenumerate(data_numpy):
+                    kmers[numpy_index[0], value] += 1
+                tmp['data'] = torch.tensor(data_numpy)
             data_train, data_val, labels_train, labels_val = train_test_split(tmp['data'], tmp['labels'], test_size = 0.2, shuffle = True)
             scaler = MinMaxScaler().fit(data_train)
-            pca = PCA().fit(scaler.transform(data_train))
-            sum_var = 0
-            for var_i, var_ratio in enumerate(pca.explained_variance_ratio_):
-                sum_var += var_ratio
-                if sum_var >= 0.95:
-                    n_features = var_i + 1
-                    break
-            data_train, data_val = torch.tensor(pca.transform(scaler.transform(data_train))[:, :n_features]), torch.tensor(pca.transform(scaler.transform(data_val))[:, :n_features])
+            if arch.get('pca'):
+                pca = PCA().fit(scaler.transform(data_train))
+                sum_var = 0
+                for var_i, var_ratio in enumerate(pca.explained_variance_ratio_):
+                    sum_var += var_ratio
+                    if sum_var >= 0.95:
+                        n_features = var_i + 1
+                        break
+                data_train, data_val = torch.tensor(pca.transform(scaler.transform(data_train))[:, :n_features]), torch.tensor(pca.transform(scaler.transform(data_val))[:, :n_features])
+            else:
+                pca = None
+                n_features = tmp['data'].size(1)
+                data_train, data_val = torch.tensor(scaler.transform(data_train)), torch.tensor(scaler.transform(data_val))
             train_set, test_set = cust_dataset(data_train, labels_train), cust_dataset(data_val, labels_val)
             
             models[i].append(cust_model(n_features, copy.deepcopy(arch)))
