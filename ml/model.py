@@ -195,19 +195,21 @@ if __name__ == '__main__':
         
         # load file for given gene, calc and get split datasets
         tmp = torch.load(file)
-        n_features = tmp['data'].size(1)
         
         models.append([])
 
         for j, arch in enumerate(model_archs):
             print(f"Model {j + 1}")
+            n_features = tmp['data'].size(1)
             if arch.get('kmer'):
-                kmers = numpy.zeros((tmp['data'].size(0), 2 ** (2 * int(gene.split('_')[1]))), dtype=numpy.int32)
-                data_numpy = tmp['data'].detach().numpy()
-                for numpy_index, value in numpy.ndenumerate(data_numpy):
-                    kmers[numpy_index[0], value] += 1
-                tmp['data'] = torch.tensor(data_numpy)
-            data_train, data_val, labels_train, labels_val = train_test_split(tmp['data'], tmp['labels'], test_size = 0.2, shuffle = True)
+                vocab_size = 2 ** (2 * int(gene.split('_')[1]))
+                kmers = torch.zeros((tmp['data'].size(0), vocab_size), dtype=torch.int32)
+                for row_i in range(tmp['data'].size(0)):
+                    kmers[row_i, :] = torch.bincount(tmp['data'][row_i], minlength = vocab_size)
+                data_train, data_val, labels_train, labels_val = train_test_split(kmers, tmp['labels'], test_size = 0.2, shuffle = True)
+                n_features = vocab_size
+            else:
+                data_train, data_val, labels_train, labels_val = train_test_split(tmp['data'], tmp['labels'], test_size = 0.2, shuffle = True)
             scaler = MinMaxScaler().fit(data_train)
             if arch.get('pca'):
                 pca = PCA().fit(scaler.transform(data_train))
@@ -220,7 +222,6 @@ if __name__ == '__main__':
                 data_train, data_val = torch.tensor(pca.transform(scaler.transform(data_train))[:, :n_features]), torch.tensor(pca.transform(scaler.transform(data_val))[:, :n_features])
             else:
                 pca = None
-                n_features = tmp['data'].size(1)
                 data_train, data_val = torch.tensor(scaler.transform(data_train)), torch.tensor(scaler.transform(data_val))
             train_set, test_set = cust_dataset(data_train, labels_train), cust_dataset(data_val, labels_val)
             
