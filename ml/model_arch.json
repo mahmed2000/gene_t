@@ -1,18 +1,10 @@
 [
 	{
 		"linear": [256, 64, 1],
-		"drop_prob": 0.25,
 		"epochs": 200,
-		"lr": 0.01,
+		"lr": 0.1,
 		"batch": 64,
-		"pca": 1
-	},
-	{
-		"linear": [256, 64, 1],
-		"drop_prob": 0.25,
-		"epochs": 200,
-		"lr": 0.01,
-		"batch": 64,
-		"kmer": 1
+		"pos_enc": 1,
+		"attention": 1
 	}
 ]

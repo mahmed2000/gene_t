@@ -15,6 +15,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import numpy
+import itertools
 
 TRAIN_PROP = 0.8    # Proportion of datasets to use for training
 BATCH_SIZE = 64
@@ -55,9 +56,11 @@ class cust_dataset(torch.utils.data.Dataset):
 
 # model generation
 class cust_model(torch.nn.Module):
-    def __init__(self, in_feat, arch):
+    def __init__(self, in_feat, arch, vocab_size):
         super().__init__()
         self.config = arch
+        if self.config.get('attention'):
+            self.attn = torch.nn.MultiheadAttention(in_feat, in_feat)
         if self.config.get('conv', None):
             self.conv = torch.nn.Conv1d(1, self.config['conv']['n_channels'], self.config['conv']['kernel'])
             conv_out = in_feat - self.config['conv']['kernel'] + 1
@@ -71,23 +74,26 @@ class cust_model(torch.nn.Module):
             self.config['linear'] = [in_feat] + self.config['linear']
         # creates a net of linear layers using a given list of number of nodes per layer
         layers = [torch.nn.Linear(self.config['linear'][i], self.config['linear'][i+1]) for i in range(len(self.config['linear']) - 1)]
-        
+        drop_layers = []
+        relu = []
         if self.config.get('drop_prob', None):
             drop_layers = [torch.nn.Dropout(self.config['drop_prob']) for _ in range(len(layers) - 1)]
-            fc_layers = [None] * (len(layers) + len(drop_layers))
-            fc_layers[::2] = layers
-            fc_layers[1::2] = drop_layers
-        else:
-            fc_layers = layers
+        if self.config.get('relu', None):
+            relu = [torch.nn.ReLU() for _ in range(len(layers) - 1)]
+
+        fc_layers = [layer_n for layer_n in itertools.chain(*itertools.zip_longest(layers, drop_layers, relu)) if layer_n is not None]
 
         self.model = torch.nn.Sequential(*fc_layers)
-        for p in self.parameters():
-            if p.dim() > 1:
-                torch.nn.init.xavier_uniform_(p)
+
+        for param in self.parameters():
+            if param.dim() > 1:
+                torch.nn.init.xavier_uniform_(param)
 
         self.activation = torch.nn.Sigmoid()
 
     def forward(self, x):
+        if self.config.get('attention'):
+            x, _ = self.attn(x, x, x)
         if self.config.get('conv', None):
             x = torch.unsqueeze(x, 1)
             x = self.conv(x)
@@ -97,10 +103,22 @@ class cust_model(torch.nn.Module):
         output = self.activation(self.model(x))
         return torch.squeeze(output)
 
+def add_weight_decay(model):
+    decay, no_decay = [], []
+    for name, param in model.named_parameters():
+        if not param.requires_grad:
+            continue
+        if len(param.shape) == 1 or name.endswith(".bias"):
+            no_decay.append(param)
+        else:
+            decay.append(param)
+    return [{'params': no_decay, 'weight_decay': 0.}, {'params':decay, 'weight_decay': 0.}]
+
 def train_model(m):
     train_loader = torch.utils.data.DataLoader(train_set, batch_size = m.config.get('batch', BATCH_SIZE), shuffle = True)
     val_loader = torch.utils.data.DataLoader(test_set, batch_size = m.config.get('batch', BATCH_SIZE), shuffle = False)
-    optim = torch.optim.SGD(m.parameters(), lr = m.config.get('lr', LR))
+    optim = torch.optim.SGD(add_weight_decay(m), lr = m.config.get('lr', LR), momentum = m.config.get('momentum', 0))
+    scheduler = torch.optim.lr_scheduler.ExponentialLR(optim, 0.99)
 
     acc_log = []
     loss_log = []
@@ -122,6 +140,7 @@ def train_model(m):
             loss = LOSS_FUNCT(outputs, labels.type(torch.float))
             loss.backward()
             optim.step()
+            scheduler.step()
 
             running_loss += loss.item() * data.size(0)
             total += labels.size(0)
@@ -201,31 +220,35 @@ if __name__ == '__main__':
         for j, arch in enumerate(model_archs):
             print(f"Model {j + 1}")
             n_features = tmp['data'].size(1)
+            vocab_size = 2 ** (2 * int(gene.split('_')[1]))
+            pos_enc = 0
             if arch.get('kmer'):
-                vocab_size = 2 ** (2 * int(gene.split('_')[1]))
                 kmers = torch.zeros((tmp['data'].size(0), vocab_size), dtype=torch.int32)
                 for row_i in range(tmp['data'].size(0)):
                     kmers[row_i, :] = torch.bincount(tmp['data'][row_i], minlength = vocab_size)
                 data_train, data_val, labels_train, labels_val = train_test_split(kmers, tmp['labels'], test_size = 0.2, shuffle = True)
                 n_features = vocab_size
+                scaler = MinMaxScaler().fit(data_train)
             else:
                 data_train, data_val, labels_train, labels_val = train_test_split(tmp['data'], tmp['labels'], test_size = 0.2, shuffle = True)
-            scaler = MinMaxScaler().fit(data_train)
+                if arch.get('pos_enc'):
+                    pos_enc = torch.arange(n_features) / (n_features - 1) * vocab_size
+            scaler = MinMaxScaler().fit(data_train + pos_enc)
             if arch.get('pca'):
                 pca = PCA().fit(scaler.transform(data_train))
                 sum_var = 0
                 for var_i, var_ratio in enumerate(pca.explained_variance_ratio_):
                     sum_var += var_ratio
-                    if sum_var >= 0.95:
-                        n_features = var_i + 1
+                    n_features = var_i + 1
+                    if sum_var >= arch.get('pca'):
                         break
                 data_train, data_val = torch.tensor(pca.transform(scaler.transform(data_train))[:, :n_features]), torch.tensor(pca.transform(scaler.transform(data_val))[:, :n_features])
             else:
                 pca = None
-                data_train, data_val = torch.tensor(scaler.transform(data_train)), torch.tensor(scaler.transform(data_val))
+                data_train, data_val = torch.tensor(scaler.transform(data_train + pos_enc)), torch.tensor(scaler.transform(data_val + pos_enc))
             train_set, test_set = cust_dataset(data_train, labels_train), cust_dataset(data_val, labels_val)
             
-            models[i].append(cust_model(n_features, copy.deepcopy(arch)))
+            models[i].append(cust_model(n_features, copy.deepcopy(arch), vocab_size))
             print(models[i][j])
 
             models[i][j].to(DEV)
